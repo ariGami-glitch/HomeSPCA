@@ -27,7 +27,7 @@
         /*echo('<div align="left"><p>Access to Homebase requires a Username and a Password. ' .
         '<ul>'
         );*/
-        echo('<div align="left"><h2>Administrative Login' .
+        echo('<div align="left"><h1>Administrative Login' .
         '<ul>'
         );
         //echo('<li>If you are applying for a volunteer position, enter the Username \'guest\' and a blank Password. ');

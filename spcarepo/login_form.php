@@ -30,13 +30,13 @@
         echo('<div align="left"><h1>Administrative Login' .
         '<ul>'
         );
-        echo('<li>If you are applying for a volunteer position, enter the Username \'guest\' and a blank Password. ');
-        echo('<li>If you are a volunteer logging in for the first time, your Username is your first name followed by your ten digit phone number. ' .
-        'After you have logged in, you can change your password.  ');
-        echo('<li>(If you are having difficulty logging in or have forgotten your Password, please contact either the 
+        //echo('<li>If you are applying for a volunteer position, enter the Username \'guest\' and a blank Password. ');
+        //echo('<li>If you are a volunteer logging in for the first time, your Username is your first name followed by your ten digit phone number. ' .
+        //'After you have logged in, you can change your password.  ');
+        /*echo('<li>(If you are having difficulty logging in or have forgotten your Password, please contact either the 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
         		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.) ');
-        echo '</ul>';
+        echo '</ul>';*/
         echo('<p><table><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td>
         		<td><input type="text" name="user" tabindex="1"></td></tr>
         		<tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');

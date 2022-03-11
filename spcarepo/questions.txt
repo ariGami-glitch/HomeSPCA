@@ -1,0 +1,10 @@
+How do we make the database accessible to everyone?
+
+Is it worth it to export our Justinmind prototype to html?
+
+
+
+
+
+Talk to Brian and Saraid to combine the login to the tasks
+

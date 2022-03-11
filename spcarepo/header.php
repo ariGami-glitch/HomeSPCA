@@ -24,8 +24,9 @@
     //Log-in security
     //If they aren't logged in, display our log-in form.
     if (!isset($_SESSION['logged_in'])) {
-    	
-        include('login_form.php');
+    	include('viewerHomepage.php');
+
+        //include('login_form.php');
         die();
     } else if ($_SESSION['logged_in']) {
 

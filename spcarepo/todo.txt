@@ -1,5 +1,6 @@
 Ariana
 -homepage with inactive filter button
+-homepage with some highlight
 
 Jennifer:
 -submission form

@@ -5,5 +5,8 @@
 <form action="login_form.php" method="get">
 <input type="submit" value="Admin Login">
 </form>
+<form action="submissionEdit.php" method="get">
+<input type="submit" value="Submission Form">
+</form>
 </body>
 </html>

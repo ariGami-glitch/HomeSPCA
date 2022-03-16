@@ -44,7 +44,9 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$description = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
 		$pet_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_name'])));
 		$approved = 0;
-		$image = trim(str_replace('\\\'', '\'', htmlentities($_POST['image'])));
+		//$image1 = $_FILES['image']['tmp_name'];
+		//$image = addslashes(file_get_contents($image1));
+		$image = $_POST['image']; //trim(str_replace('\\\'', '\'', htmlentities($_POST['image'])));
 		
 		$dup = retrieve_submission($email);
 		
@@ -52,7 +54,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    echo('<p class="error"Unable to add your submission to the database. <br> Another person with the same email is already there.');
 		else {
 		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, 0, "");
+		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, 0, $image);
 		    $result = add_submission($newsubmission);
 		    
 		    if (!$result)
@@ -61,7 +63,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 			echo("<p>Your form has been successfully submitted.</p>");
 			echo("<form action='viewerHomepage.php' method='get'>
 			<input type='submit' value='Back to Homepage'>
-			</form>");
+			</form>");			
 		    } 
 		}
 	    }

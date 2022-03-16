@@ -30,6 +30,19 @@ function add_submission($submission) {
 	return false;
 }
 
+function print_approved_submissions($acceptedSubs){
+	for($i = 0; $i < count($acceptedSubs); $i++){		
+		echo $acceptedSubs[$i]->get_email();
+		echo $acceptedSubs[$i]->get_first_name();
+		echo $acceptedSubs[$i]->get_last_name();
+		echo $acceptedSubs[$i]->get_pet_type();
+		echo $acceptedSubs[$i]->get_description();
+		echo $acceptedSubs[$i]->get_pet_name();
+		echo $acceptedSubs[$i]->get_approved();
+		echo $acceptedSubs[$i]->get_image();
+	}
+}
+
 function remove_submission($email) {
 	$con=connect();
 	$query = 'SELECT * from dbSubmissions WHERE email = "' . $email . '"';
@@ -56,6 +69,40 @@ function retrieve_submission($email) {
 	$theSubmission = make_a_submission($result_row);
 	
 	return $theSubmission;
+}
+
+function retrieve_approved_submission($email) {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = true";
+	$result_row = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$acceptedSubs = array();
+	for($i = 0; $i < count($result_row); $i++){
+		$result = mysqli_fetch_assoc($result_row[$i]);
+		$theSubmission = make_a_submission($result);
+		$acceptedSubs[$i] = $theSubmission;
+	}
+	return $acceptedSubs;
+}
+
+function retrieve_unapproved_submission($email) {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = false";
+	$result_row = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$unacceptedSubs = array();
+	for($i = 0; $i < count($result_row); $i++){
+		$result = mysqli_fetch_assoc($result_row[$i]);
+		$theSubmission = make_a_submission($result);
+		$unacceptedSubs[$i] = $theSubmission;
+	}
+	return $unacceptedSubs;
 }
 
 function make_a_submission($result_row) {

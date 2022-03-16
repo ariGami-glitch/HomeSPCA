@@ -105,41 +105,22 @@ function replace_dbDates($old_s, $new_s) {
 }
 
 /**
- * selects a date from the table
- * @return RMHDate
+ * selects all emails from the dbsubmission
+ * @return emails
  */
-function select_dbEmail($id) {
-    if (strlen($id) < 12)
-        die("Invalid argument for dbDates->select_dbDates call =" . $id);
+function select_dbEmail() {
     $con=connect();
-    $query = "SELECT * FROM dbDates WHERE id =\"" . $id . "\"";
+    $query = "SELECT email FROM dbsubmissions";
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     if (!$result) {
-        echo 'Could not select from dbDates: ' . $id;
-        error_log('Could not select from dbDates: '. $id);
+        echo 'No emails at this time.' ;
+        error_log('No emails at this time. ');
         return null;
     } 
     else {
-        $result_row = mysqli_fetch_row($result);
-        if ($result_row) {
-            $shifts = $result_row[1];
-            $shifts = explode("*", $shifts);
-            $s = array();
-            foreach ($shifts as $i) {
-            	$temp = select_dbShifts($i);
-                if ($temp instanceof Shift) {
-                	$s[$temp->get_hours()] = $temp;
-                }
-            }
-            $parts = explode(":",$result_row[0]);
-            $d = new RMHdate($parts[0],$parts[1], $s, $result_row[2]);
-            return $d;
-        }
-        else {
-        	error_log("Could not fetch from dbDates ". $id);
-			return null;        	
-        }
+       
+            return $result;
     }
 }
 

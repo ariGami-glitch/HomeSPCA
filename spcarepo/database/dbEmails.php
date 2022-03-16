@@ -16,6 +16,10 @@
  * @version February 10, 2015
  * @author Phuong Le andMaxwell Palmer
  */
+/**
+ * Changing code to get emails from submission database. Will connect to submission form database
+ * and find and display all emails when "generate email list" button is clicked by admin
+ */
 include_once(dirname(__FILE__).'/../domain/RMHdate.php');
 include_once(dirname(__FILE__).'/dbShifts.php');
 include_once(dirname(__FILE__).'/../domain/Shift.php');

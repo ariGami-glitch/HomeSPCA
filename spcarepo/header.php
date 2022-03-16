@@ -27,7 +27,7 @@
     if (!isset($_SESSION['logged_in'])) {
         //include('login_form.php');
         include("viewerHomepage.php");
-        if($_POST['clicked'] == "true") {
+        if($_POST["clicked"] == "true") {
             include('login_form.php');
         }
         die();

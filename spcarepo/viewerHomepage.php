@@ -2,9 +2,11 @@
 <html>
 <body>
 <?php
+echo '<img src="spca.jpg" alt="SPCA Logo">';
 echo '<h1>SPCA Story Highlights';
-echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
+echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login"><br/>');
 echo( '<a href="submissionEdit.php">Make A Submission</a>');
+//echo('<p><form method="post" action="submissionEdit.php"><input type="hidden" name="clicke" value="true"><input type="submit" name="SubmissionForm" value="SubmissionForm">');
 
 /*if($_POST['clicked'] == "true") {
     include('login_form.php');

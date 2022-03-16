@@ -70,4 +70,21 @@ function make_a_submission($result_row) {
 			$result_row['image']);
 	return $theSubmission;
 }
+
+function retrieve_approved_submissions() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = true";
+	$result_row = mysqli_query($con,$query);
+	if (mysqli_num_rows($result_row) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$acceptedSubs = array();
+	for ($i = 0; $i < count($result_row); $i++) {
+		$result = mysqli_fetch_assoc($result_row[$i]);
+		$theSubmission = make_a_submission($result);
+		$acceptedSubs += $theSubmission;
+	}
+	return $acceptedSubs;
+}
 ?>

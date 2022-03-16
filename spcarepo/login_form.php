@@ -73,6 +73,9 @@
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
+                    echo('<div align="left"><h1>Administrative Login' .
+                    '<ul>'
+                    );
                     echo('<div align="left"><p class="error">Error: invalid username/password<br /></p>'); /**if you cannot remember your password, ask either the 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
         		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>. to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
@@ -86,6 +89,9 @@
                 }
             } else {
                 //At this point, they failed to authenticate
+                echo('<div align="left"><h1>Administrative Login' .
+                '<ul>'
+                );
                 echo('<div align="left"><p class="error">Error: invalid username/password<br /></p>');/**if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                 echo('<p>If you are a volunteer, your Username is your first name followed by your phone number with no spaces. ' .
                 'For instance, if your first name were John and your phone number were (207)-123-4567, ' .

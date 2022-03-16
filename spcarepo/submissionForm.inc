@@ -1,6 +1,6 @@
 <?php
 
-echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
+echo('<form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 echo('<p><strong>Adoption Story Submission Form</strong><br />');
 echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 //echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');

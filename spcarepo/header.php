@@ -21,16 +21,19 @@
 <div align="center" id="navigationLinks">
 
     <?PHP
+    //include("viewerHomepage.php");
     //Log-in security
     //If they aren't logged in, display our log-in form.
     if (!isset($_SESSION['logged_in'])) {
-    	
-        include('viewerHomepage.php');
+        //include('login_form.php');
+        include("viewerHomepage.php");
         if($_POST['clicked'] == "true") {
             include('login_form.php');
         }
         die();
-    } else if ($_SESSION['logged_in']) {
+
+    } 
+    else if ($_SESSION['logged_in']) {
 
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do

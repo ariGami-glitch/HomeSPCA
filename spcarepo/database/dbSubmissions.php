@@ -58,6 +58,20 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
+/**function retrieve_submissions() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result !== 1) {
+		mysqli_close($con);
+		return false;
+	}
+	$result_row = mysqli_fetch_assoc($result);
+	$theSubmission = make_a_submission($result_row);
+
+	return $theSubmission;
+}*/
+
 function make_a_submission($result_row) {
 	$theSubmission = new Submission(
 			$result_row['email'], 
@@ -73,18 +87,51 @@ function make_a_submission($result_row) {
 
 function retrieve_approved_submissions() {
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = true";
-	$result_row = mysqli_query($con,$query);
-	if (mysqli_num_rows($result_row) == 0) {
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 1";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
 		mysqli_close($con);
 		return false;
 	}
 	$acceptedSubs = array();
-	for ($i = 0; $i < count($result_row); $i++) {
+	while($row = mysqli_fetch_assoc($result)) {
+		$theSubmission = make_a_submission($row);
+		$acceptedSubs[] = $theSubmission;
+	}
+	/**for ($i = 0; $i < count($result_row); $i++) {
 		$result = mysqli_fetch_assoc($result_row[$i]);
 		$theSubmission = make_a_submission($result);
 		$acceptedSubs += $theSubmission;
-	}
+	}*/
 	return $acceptedSubs;
+}
+
+function retrieve_unapproved_submissions() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 0";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$newSubs = array();
+	while($row = mysqli_fetch_assoc($result)) {
+		$theSubmission = make_a_submission($row);
+		$newSubs[] = $theSubmission;
+	}
+	
+	return $newSubs;
+}
+
+function display_submissions($subs){
+	for ($i = 0; $i < count($subs); $i++){
+	//foreach($subs as $sub) {
+		echo $subs[$i]->get_email();
+		echo $subs[$i]->get_first_name();
+		echo $subs[$i]->get_last_name();
+		echo $subs[$i]->get_pet_name();
+		echo $subs[$i]->get_pet_type();
+		echo $subs[$i]->get_description();
+	}
 }
 ?>

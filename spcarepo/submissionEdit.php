@@ -40,10 +40,16 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$email = trim(str_replace('\\\'', '\'', htmlentities($_POST['email'])));
 		$first_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['first_name'])));
 		$last_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['last_name'])));
-		$pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
+		if ($_POST['pet_type'] !== 'Other') {
+		    $pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
+		}
+	        else {
+		    $pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type_other'])));
+		}	
 		$description = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
 		$pet_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_name'])));
 		$approved = 0;
+
 		
 		$name = $_FILES['image']['name'];
 		$image = $name.uniqid();

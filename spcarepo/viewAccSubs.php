@@ -17,14 +17,15 @@ include_once("domain/Submission.php");
         <div id="container">
             <div id="content">
 		<?php
-			$sub = retrieve_submission("s");
-			//$approvedSubs = retrieve_unapproved_submissions();
+			$approvedSubs = retrieve_approved_submissions();
 			//display_submissions($approvedSubs);
-			$image = $sub->get_image();
-			echo $image;
-			$image_src = "pictures/".$image;
+			for ($i = 0; $i < count($approvedSubs); $i++){
+				display_submission($approvedSubs[$i]);
+				$image = $approvedSubs[$i]->get_image();
+				$image_src = "pictures/".$image;
+				echo "<img src=".$image_src."><br>";	
+			}
 		?>
-		<img src='<?php echo $image_src; ?>'>
             </div>
         </div>
     </body>

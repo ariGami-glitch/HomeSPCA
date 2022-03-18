@@ -22,7 +22,15 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 	    <legend>Adoption Information:</legend>
 	<?php
 		echo '<p>Pet Name: <input type="text" name="pet_name" tabindex="4" value="'.$submission->get_pet_name().'">';
-	?>  &nbsp;&nbsp;&nbsp;&nbsp; <p> Pet Type: <input type="text" name="pet_type" tabindex="5" value="<?PHP echo($submission->get_pet_type()) ?>">
+	?>  &nbsp;&nbsp;&nbsp;&nbsp; 
+	<p> Pet Type: 
+	<select name="pet_type">
+	<option value="Dog">Dog</option>
+	<option value="Cat">Cat</option>
+	<option value="Other">Other</option>
+	</select>		
+	<p> If other, please specify:
+	<input type="text" name="pet_type_other" tabindex="5">
 	<?php 
 		echo('<p>Adoption Story:<br />');
 		echo('<textarea name="description" rows="7" cols="60">');

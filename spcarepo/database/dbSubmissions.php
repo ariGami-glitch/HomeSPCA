@@ -66,7 +66,7 @@ function make_a_submission($result_row) {
 			$result_row['first_name'], 
 			$result_row['last_name'], 
 			$result_row['pet_type'], 
-			$result_row['descrip'], 
+			$result_row['description'], 
 			$result_row['pet_name'], 
 			$result_row['approved'], 
 			$result_row['image'],
@@ -122,4 +122,13 @@ function display_submissions($subs){
 		echo $subs[$i]->get_description();
 	}
 }
+
+function display_submission($sub){
+	echo "Email: ".$sub->get_email()."<br>";
+	echo "Adopter name: ".$sub->get_first_name()." ".$sub->get_last_name()."<br>";
+	echo "Pet name: ".$sub->get_pet_name()."<br>";
+	echo "Pet type: ".$sub->get_pet_type()."<br>";
+	echo "Adoption story: ".$sub->get_description()."<br>";
+}
 ?>
+

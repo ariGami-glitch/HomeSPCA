@@ -21,7 +21,8 @@ function add_submission($submission) {
 			$submission->get_description() . '","' .
 			$submission->get_pet_name() . '","' .
 			$submission->get_approved() . '","' .
-			$submission->get_image() . 
+			$submission->get_image() . '","' .
+		        $submission->get_opt_in() .	
 			'");');
 		mysqli_close($con);
 		return true;
@@ -58,19 +59,6 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
-/**function retrieve_submissions() {
-	$con=connect();
-	$query = "SELECT * FROM dbSubmissions";
-	$result = mysqli_query($con,$query);
-	if (mysqli_num_rows($result !== 1) {
-		mysqli_close($con);
-		return false;
-	}
-	$result_row = mysqli_fetch_assoc($result);
-	$theSubmission = make_a_submission($result_row);
-
-	return $theSubmission;
-}*/
 
 function make_a_submission($result_row) {
 	$theSubmission = new Submission(
@@ -81,7 +69,8 @@ function make_a_submission($result_row) {
 			$result_row['descrip'], 
 			$result_row['pet_name'], 
 			$result_row['approved'], 
-			$result_row['image']);
+			$result_row['image'],
+			$result_row['opt_in']);
 	return $theSubmission;
 }
 
@@ -125,7 +114,6 @@ function retrieve_unapproved_submissions() {
 
 function display_submissions($subs){
 	for ($i = 0; $i < count($subs); $i++){
-	//foreach($subs as $sub) {
 		echo $subs[$i]->get_email();
 		echo $subs[$i]->get_first_name();
 		echo $subs[$i]->get_last_name();

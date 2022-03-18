@@ -15,6 +15,7 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 		echo '<p>First Name: <input type="text" name="first_name" tabindex="1" value="'.$submission->get_first_name().'">';
 	?>  &nbsp;&nbsp;&nbsp;&nbsp; <p>Last Name: <input type="text" name="last_name" tabindex="2" value="<?PHP echo($submission->get_last_name()) ?>">
 	<p>Email address: <input type="text" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>">
+	<p>Check box to be added to our email list. <input type="checkbox" name="opt_in">
 	</fieldset>
 	</br>
 	<fieldset>
@@ -29,7 +30,7 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 	?>
 	<p>Photo: <input type="file" name="image" tabindex="6" value="<?PHP echo($submission->get_image()) ?>">
 	</fieldset>
-	</br>
+	</br> 
 
 	<?php
 		echo('<input type="submit" value="Submit Form" name="Submit Story"><br /><br />');

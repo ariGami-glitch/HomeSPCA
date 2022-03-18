@@ -23,7 +23,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
     		$errors = validate_submission($submission);
 		if ($errors) {
 		    show_errors($errors);
-		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image']);
+		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
 		    include('submissionForm.inc');
 		}
     		else {
@@ -55,7 +55,13 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 
 		if (in_array($imageFileType, $extensions_arr)) {
 			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
+		}
+		if ($_POST['opt_in']) {
+			$opt_in = 1;
 		}	
+		else {
+			$opt_in = 0;
+		}
 		
 		$dup = retrieve_submission($email);
 		
@@ -63,14 +69,14 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    echo('<p class="error"Unable to add your submission to the database. <br> Another person with the same email is already there.');
 		else {
 		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image);
+		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
 		    $result = add_submission($newsubmission);
 		    
 		    if (!$result)
 			echo('Unable to add');
 		    else {
 			echo("<p>Your form has been successfully submitted.</p>");
-			echo("<form action='viewerHomepage.php' method='get'>
+			echo("<form action='index.php' method='get'>
 			<input type='submit' value='Back to Homepage'>
 			</form>");			
 		    } 

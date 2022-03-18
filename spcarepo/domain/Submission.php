@@ -10,8 +10,9 @@ class Submission {
 	private $pet_name;
 	private $approved;
 	private $image;
+	private $opt_in;
 
-	function __construct($e, $fn, $ln, $pt, $d, $pn, $a, $i) {
+	function __construct($e, $fn, $ln, $pt, $d, $pn, $a, $i, $oi) {
 		$this->email = $e;
 		$this->first_name = $fn;
 		$this->last_name = $ln;
@@ -20,6 +21,7 @@ class Submission {
 		$this->pet_name = $pn;
 		$this->approved = $a;
 		$this->image = $i;
+		$this->opt_in = $oi;
 	}
 
 	function get_email() {
@@ -52,6 +54,10 @@ class Submission {
 
 	function get_image() {
 		return $this->image;
+	}
+
+	function get_opt_in() {
+		return $this->opt_in;
 	}
 }
 ?>

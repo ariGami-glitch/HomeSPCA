@@ -17,7 +17,7 @@ include_once("domain/Submission.php");
         <div id="container">
             <div id="content">
 		<?php
-			$sub = retrieve_submission("w");
+			$sub = retrieve_submission("s");
 			//$approvedSubs = retrieve_unapproved_submissions();
 			//display_submissions($approvedSubs);
 			$image = $sub->get_image();

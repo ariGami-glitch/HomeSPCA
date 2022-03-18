@@ -46,7 +46,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$approved = 0;
 		
 		$name = $_FILES['image']['name'];
-		$image = $name;
+		$image = $name.uniqid();
 		$target_dir = "pictures/";
 		$target_file = $target_dir.basename($_FILES["image"]["name"]);
 
@@ -54,7 +54,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$extensions_arr = array("jpg","jpeg","png","gif");
 
 		if (in_array($imageFileType, $extensions_arr)) {
-			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$name)) {}
+			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
 		}	
 		
 		$dup = retrieve_submission($email);

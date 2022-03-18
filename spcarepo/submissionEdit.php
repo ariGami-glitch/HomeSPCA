@@ -54,7 +54,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$extensions_arr = array("jpg","jpeg","png","gif");
 
 		if (in_array($imageFileType, $extensions_arr)) {
-			move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$name)) {
+			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$name)) {}
 		}	
 		
 		$dup = retrieve_submission($email);

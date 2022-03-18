@@ -7,7 +7,7 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 
 ?>
 
-<form method="POST">
+<form method="POST" action="" enctype='multipart/form-data'>
 	<input type="hidden" name="_form_submit" value="1">
 	<fieldset>
 	    <legend>Adopter Information:</legend>

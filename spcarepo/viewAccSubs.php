@@ -17,10 +17,14 @@ include_once("domain/Submission.php");
         <div id="container">
             <div id="content">
 		<?php
-			//$sub = retrieve_submission("w");
-			$approvedSubs = retrieve_unapproved_submissions();
-                    	display_submissions($approvedSubs);
-                ?>
+			$sub = retrieve_submission("w");
+			//$approvedSubs = retrieve_unapproved_submissions();
+			//display_submissions($approvedSubs);
+			$image = $sub->get_image();
+			echo $image;
+			$image_src = "pictures/".$image;
+		?>
+		<img src='<?php echo $image_src; ?>'>
             </div>
         </div>
     </body>

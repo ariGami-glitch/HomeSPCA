@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 18, 2022 at 03:07 AM
+-- Generation Time: Mar 18, 2022 at 10:19 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -752,7 +752,8 @@ CREATE TABLE `dbsubmissions` (
 --
 
 INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`) VALUES
-('s', 'Jane', 'Does', 'Cat', 'adoption story goes here', 'Nelson', 0, 'black-cat-breeds.jpg6233f71fdecad', 1);
+('gmail2', 'Mary', 'Sue', 'Dog', 'adoption story', 'Freckles', 1, 'golden-retriever-dog-21668976.jpg6235005764367', 0),
+('s', 'Jane', 'Doe', 'Cat', 'adoption story goes here', 'Nelson', 1, 'black-cat-breeds.jpg6233f71fdecad', 1);
 
 -- --------------------------------------------------------
 

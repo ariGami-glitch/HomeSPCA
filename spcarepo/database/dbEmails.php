@@ -25,6 +25,8 @@ include_once(dirname(__FILE__).'/dbShifts.php');
 include_once(dirname(__FILE__).'/../domain/Shift.php');
 include_once(dirname(__FILE__).'/dbinfo.php');
 
+//test
+include_once(dirname(__FILE__).'/../domain/Submission.php');
 /**
  * Adds a RMHDate to the table
  * If the date already exists, the date is deleted and replaced.

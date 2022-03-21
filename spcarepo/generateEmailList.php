@@ -13,7 +13,7 @@ email=select_dbEmail();
 <body>
 <div id="emails">
 <?php
-include('emails.inc');
+include('emailList.inc');
 email=select_dbEmail();
 ?>
 </html>

@@ -59,6 +59,10 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
+function approve_submission($email){
+	$con=connect();
+	$query = "UPDATE dbSubmissions SET approved = 1 WHERE email = '" . $email . "'";
+}
 
 function make_a_submission($result_row) {
 	$theSubmission = new Submission(

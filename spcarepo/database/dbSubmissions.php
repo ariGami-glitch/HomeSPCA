@@ -184,5 +184,17 @@ function display_submission($sub){
 	echo "Adoption story: ".$sub->get_description()."<br>";
 }
 
+function display_emails($subs) {
+    for ($i = 0; $i < count($subs); $i++) {
+        echo $subs[$i]->get_first_name();
+        echo $subs[$i]->get_last_name();
+        echo $subs[$i]->get_email();
+    }
+}
+
+function display_email($sub) {
+    echo "Adopter name: ".$subs[$i]->get_first_name()." ".$subs[$i]->get_last_name(). " email: ".$subs[$i]->get_email()."<br>";
+    
+}
 ?>
 

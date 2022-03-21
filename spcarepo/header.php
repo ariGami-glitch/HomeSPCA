@@ -61,6 +61,7 @@
         $permission_array['addweek.php'] = 2;
         $permission_array['log.php'] = 2;
         $permission_array['reports.php'] = 2;
+        $permission_array['emailList.php'] = 2;
 
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
@@ -68,8 +69,7 @@
         
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
-		//we redirect them to the index page.
-	    echo "Hi";
+            //we redirect them to the index page.
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
             //note: if javascript is disabled for a user's browser, it would still show the page.
             //so we die().
@@ -99,6 +99,7 @@
 	            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
 				        <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+	        	echo(' | <a href="' . $path . 'emailList.php">generate emailing list</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }

@@ -36,7 +36,7 @@
 
     } 
     else if ($_SESSION['logged_in']) {
-
+	include("header2.php");
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do
          * anything a volunteer can do, a manager can do.
@@ -69,7 +69,6 @@
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
 		//we redirect them to the index page.
-	    echo "Hi";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
             //note: if javascript is disabled for a user's browser, it would still show the page.
             //so we die().

@@ -87,18 +87,14 @@
         else {
         	echo " <br><b>"."Homebase"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
-	        	echo('<a href="' . $path . 'index.php">home</a>');
-	        	echo(' | <a href="' . $path . 'about.php">about</a>');
-	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	            echo(' | calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-	            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
+	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
-	            echo('<br>View Submissions: <a href="' . $path . 'viewNewSubs.php'."".'">New Submissions</a>');
-	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">, Bangor</a>');
-	            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
-				        <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+	        	echo('<a href="' . $path . 'index.php">Home</a>');
+	        	echo(' | <a href="' . $path . 'submissionEdit.php">Edit Submission</a>');
+	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
+	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
+	        	echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }

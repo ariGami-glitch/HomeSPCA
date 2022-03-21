@@ -34,7 +34,7 @@ include_once("domain/Submission.php");
 		echo "<tr><td><b>Description:</b></td></tr>";
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
 
-		echo "<form action='viewAccSubs.php' method='get'>
+		echo "<form action='viewNewSubs.php' method='get'>
 		<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </body>

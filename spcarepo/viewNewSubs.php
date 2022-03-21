@@ -16,7 +16,7 @@ include_once("domain/Submission.php");
     <body>
 		<?php
 			include('header2.php');
-			echo "<center><h1>Adoption Stories</h1></center>";
+			echo "<center><h1>Unapproved Submissions</h1></center>";
 			echo "<br><form action='index.php' method='get'>
 			<input type='submit' value='Back to Homepage'></form><center>";
 			$subs = retrieve_unapproved_submissions();
@@ -37,7 +37,7 @@ include_once("domain/Submission.php");
 
 				echo "<form action='verifySubmission.php' method='post'>
 				<input type='hidden' value='".$email."' name='email'>
-				<input type='submit' value='View Adoption Story'>
+				<input type='submit' value='View Submission'>
 				</form><br>";
 			}
 			echo "<br>";

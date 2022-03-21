@@ -130,5 +130,6 @@ function display_submission($sub){
 	echo "Pet type: ".$sub->get_pet_type()."<br>";
 	echo "Adoption story: ".$sub->get_description()."<br>";
 }
+
 ?>
 

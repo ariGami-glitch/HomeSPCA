@@ -1,6 +1,6 @@
 <?php
 
-echo('<form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
+echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 echo('<p><strong>Adoption Story Submission Form</strong><br />');
 echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 //echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
@@ -42,6 +42,7 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 
 	<?php
 		echo('<input type="submit" value="Submit Form" name="Submit Story"><br /><br />');
+		//include('footer2.php');
 	?>
 </form>
 

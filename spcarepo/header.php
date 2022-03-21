@@ -29,7 +29,9 @@
         include("viewerHomepage.php");
         if($_POST["clicked"] == "true") {
             include('login_form.php');
-        }
+	}
+	//include("footer2.php");
+	
         die();
 
     } 

@@ -15,9 +15,11 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
     <body>
 	<div id="container">
 	    <?PHP
+	    include('header2.php');
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		include('submissionForm.inc');
+		    include('submissionForm.inc');
+		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_submission($submission);
@@ -29,7 +31,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
     		else {
     		    process_submission($submission);
 		    echo "</div>";
-		include('footer.inc');
+		//include('footer2.php');
 		echo('</div></body></html>');
 		die();
 		}
@@ -72,7 +74,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		$dup = retrieve_submission($email);
 		
 		if ($dup)
-		    echo('<p class="error"Unable to add your submission to the database. <br> Another person with the same email is already there.');
+			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
 		else {
 		    
 		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
@@ -89,6 +91,6 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		}
 	    }
 	    ?>
-	</div>    
+	</div>   
     </body>
 </html> 

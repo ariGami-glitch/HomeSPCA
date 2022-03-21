@@ -11,7 +11,7 @@ session_cache_expire(30);
 <html>
     <head>
         <title>
-            RMH Homebase
+            SPCA Adoption Stories
         </title>
         <link rel="stylesheet" href="styles.css" type="text/css" />
         <style>
@@ -21,8 +21,9 @@ session_cache_expire(30);
         </style> 
     </head>
     <body>
+	<?PHP include('header.php'); ?>
         <div id="container">
-            <?PHP include('header.php'); ?>
+            <?PHP //include('header.php'); ?>
             <div id="content">
                 <?PHP
                 include_once('database/dbPersons.php');
@@ -30,7 +31,7 @@ session_cache_expire(30);
                 include_once('database/dbLog.php');
                 include_once('domain/Shift.php');
                 include_once('database/dbShifts.php');
-                date_default_timezone_set('America/New_York');
+		date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
                 if ($_SESSION['_id'] != "guest") {
                     $person = retrieve_person($_SESSION['_id']);
@@ -164,7 +165,7 @@ session_cache_expire(30);
                     }
                     ?>
                     </div>
-                    <?PHP include('footer.inc'); ?>
+                    <?PHP include('footer.php'); ?>
         </div>
     </body>
 </html>

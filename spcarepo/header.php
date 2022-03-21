@@ -50,17 +50,12 @@
         $permission_array['about.php'] = 0;
         $permission_array['apply.php'] = 0;
         //pages volunteers can view
-        $permission_array['help.php'] = 1;
-        $permission_array['calendar.php'] = 1;
         //pages only managers can view
-        $permission_array['verifySubmission.php'] = 2;
+        $permission_array['submissionEdit.php'] = 2;
+        $permission_array['viewAccSubs.php'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
-        $permission_array['personsearch.php'] = 2;
-        $permission_array['personedit.php'] = 2;
-        $permission_array['viewschedule.php'] = 2;
-        $permission_array['addweek.php'] = 2;
+        $permission_array['viewSubmission.php'] = 2;
         $permission_array['log.php'] = 2;
-        $permission_array['reports.php'] = 2;
 
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
@@ -90,12 +85,12 @@
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	        	echo('<a href="' . $path . 'index.php">Home</a>');
-	        	echo(' | <a href="' . $path . 'submissionEdit.php">Edit Submission</a>');
+	        	echo(' | <a href="' . $path . 'submissionEdit.php">Make New Submission</a>');
 	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        }
-	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
+	        echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
         }
         
     }

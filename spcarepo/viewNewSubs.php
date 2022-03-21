@@ -14,7 +14,7 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
-		<?php
+<?php
 			include('header2.php');
 			echo "<center><h1>Unapproved Submissions</h1></center>";
 			echo "<br><form action='index.php' method='get'>

@@ -35,12 +35,14 @@ include_once("domain/Submission.php");
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
 
 		echo "<form action='approveSub.php' method='get'>
+		<input type='hidden' value='"$email"' name='email'>
 		<input type='submit' value='Approve Submission'></form><br><br>";
 		/*
 		echo "<form action='viewNewSubs.php' method='get'>
 		<input type='submit' value='Edit Submission'></form><br><br>";
 		*/
 		echo "<form action='denySub.php' method='get'>
+		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Deny Submission'></form><br><br>";
 		echo "<form action='viewNewSubs.php' method='get'>
 		<input type='submit' value='View Other Submissions'></form><br><br>";

@@ -5,15 +5,15 @@ include_once('database/dbEmails.php');
 include_once('database/dbLog.php');
 echo('<p><strong>Email List</strong><br />');
 ?>
-<table>
-	<fieldset>
+<html>
 <?php
-select_dbEmail();
-	?> 
-	</fieldset>
-	</br>
-	<fieldset>
-	<?php
-	?>
-</table>
-
+email=select_dbEmail();
+?>
+<head></head>
+<body>
+<div id="emails">
+<?php
+include('emails.inc');
+email=select_dbEmail();
+?>
+</html>

@@ -16,8 +16,11 @@ include_once("domain/Submission.php");
     <body>
 		<?php
 			include('header2.php');
-		
-			
+			$email = $_POST['email'];
+			approve_submission($email);
+			echo "<center><br><h2>The submission has been approved!</h2><br>";	
+			echo "<form action='viewNewSubs.php' method='get'>
+			<input type='submit' value='View Other Submissions'></form>";	
 		?>
     </body>
 </html>

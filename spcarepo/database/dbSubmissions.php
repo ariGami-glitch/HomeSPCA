@@ -21,7 +21,8 @@ function add_submission($submission) {
 			$submission->get_description() . '","' .
 			$submission->get_pet_name() . '","' .
 			$submission->get_approved() . '","' .
-			$submission->get_image() . 
+			$submission->get_image() . '","' .
+		        $submission->get_opt_in() .	
 			'");');
 		mysqli_close($con);
 		return true;
@@ -71,6 +72,7 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
+/*<<<<<<< HEAD
 function retrieve_approved_submission($email) {
 	$con=connect();
 	$query = "SELECT * FROM dbSubmissions WHERE approved = true";
@@ -103,6 +105,12 @@ function retrieve_unapproved_submission($email) {
 		$unacceptedSubs[$i] = $theSubmission;
 	}
 	return $unacceptedSubs;
+=======*/
+function approve_submission($email){
+	$con=connect();
+	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE email = "'.$email.'"';
+	$result = mysqli_query($con,$query);
+	return true;
 }
 
 function make_a_submission($result_row) {
@@ -111,10 +119,70 @@ function make_a_submission($result_row) {
 			$result_row['first_name'], 
 			$result_row['last_name'], 
 			$result_row['pet_type'], 
-			$result_row['descrip'], 
+			$result_row['description'], 
 			$result_row['pet_name'], 
 			$result_row['approved'], 
-			$result_row['image']);
+			$result_row['image'],
+			$result_row['opt_in']);
 	return $theSubmission;
 }
+
+function retrieve_approved_submissions() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 1";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$acceptedSubs = array();
+	while($row = mysqli_fetch_assoc($result)) {
+		$theSubmission = make_a_submission($row);
+		$acceptedSubs[] = $theSubmission;
+	}
+	/**for ($i = 0; $i < count($result_row); $i++) {
+		$result = mysqli_fetch_assoc($result_row[$i]);
+		$theSubmission = make_a_submission($result);
+		$acceptedSubs += $theSubmission;
+	}*/
+	return $acceptedSubs;
+}
+
+function retrieve_unapproved_submissions() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 0";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$newSubs = array();
+	while($row = mysqli_fetch_assoc($result)) {
+		$theSubmission = make_a_submission($row);
+		$newSubs[] = $theSubmission;
+	}
+	
+	return $newSubs;
+}
+
+function display_submissions($subs){
+	for ($i = 0; $i < count($subs); $i++){
+		echo $subs[$i]->get_email();
+		echo $subs[$i]->get_first_name();
+		echo $subs[$i]->get_last_name();
+		echo $subs[$i]->get_pet_name();
+		echo $subs[$i]->get_pet_type();
+		echo $subs[$i]->get_description();
+	}
+}
+
+function display_submission($sub){
+	echo "Email: ".$sub->get_email()."<br>";
+	echo "Adopter name: ".$sub->get_first_name()." ".$sub->get_last_name()."<br>";
+	echo "Pet name: ".$sub->get_pet_name()."<br>";
+	echo "Pet type: ".$sub->get_pet_type()."<br>";
+	echo "Adoption story: ".$sub->get_description()."<br>";
+}
+
 ?>
+

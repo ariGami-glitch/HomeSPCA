@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 14, 2022 at 02:40 PM
+-- Generation Time: Mar 18, 2022 at 10:19 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -742,18 +742,18 @@ CREATE TABLE `dbsubmissions` (
   `pet_type` text,
   `description` text,
   `pet_name` text,
-  `approved` text,
-  `image` text
+  `approved` tinyint(1) DEFAULT NULL,
+  `image` longtext,
+  `opt_in` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dbsubmissions`
 --
 
-INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`) VALUES
-('fakeemail@gmail', 'John', 'Does', 'Cat', 'Adoption story goes here', 'Nelson', '', ''),
-('s', 's', 's', 's', 's', 's', '', ''),
-('test@gmail', 'Jane', 'Doe', 'Dog', 'Adoption story', 'Milo', '0', NULL);
+INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`) VALUES
+('gmail2', 'Mary', 'Sue', 'Dog', 'adoption story', 'Freckles', 1, 'golden-retriever-dog-21668976.jpg6235005764367', 0),
+('s', 'Jane', 'Doe', 'Cat', 'adoption story goes here', 'Nelson', 1, 'black-cat-breeds.jpg6233f71fdecad', 1);
 
 -- --------------------------------------------------------
 

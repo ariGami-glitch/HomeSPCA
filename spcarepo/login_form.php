@@ -42,7 +42,8 @@
         		<tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
     } else {
         //check if they logged in as a guest:
-        if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
+	if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
+	    echo "here";
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
             $_SESSION['venue'] = "";
@@ -105,7 +106,7 @@
         }
     }
     ?>
-    <?PHP include('footer.inc'); ?>
+    <?PHP //include('footer2.php'); ?>
 </div>
 </div>
 </body>

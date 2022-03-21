@@ -29,7 +29,9 @@
         include("viewerHomepage.php");
         if($_POST["clicked"] == "true") {
             include('login_form.php');
-        }
+	}
+	//include("footer2.php");
+	
         die();
 
     } 
@@ -51,6 +53,8 @@
         $permission_array['help.php'] = 1;
         $permission_array['calendar.php'] = 1;
         //pages only managers can view
+        $permission_array['verifySubmission.php'] = 2;
+        $permission_array['viewNewSubs.php'] = 2;
         $permission_array['personsearch.php'] = 2;
         $permission_array['personedit.php'] = 2;
         $permission_array['viewschedule.php'] = 2;
@@ -64,7 +68,8 @@
         
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
-            //we redirect them to the index page.
+		//we redirect them to the index page.
+	    echo "Hi";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
             //note: if javascript is disabled for a user's browser, it would still show the page.
             //so we die().
@@ -89,8 +94,8 @@
 	            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
-	            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
-	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
+	            echo('<br>View Submissions: <a href="' . $path . 'viewNewSubs.php'."".'">New Submissions</a>');
+	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">, Bangor</a>');
 	            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
 				        <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
 	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');

@@ -14,30 +14,30 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
-		<?php
+<?php
 			include('header2.php');
-			echo "<center><h1>Adoption Stories</h1></center>";
+			echo "<center><h1>Unapproved Submissions</h1></center>";
 			echo "<br><form action='index.php' method='get'>
 			<input type='submit' value='Back to Homepage'></form><center>";
-			$approvedSubs = retrieve_approved_submissions();
+			$subs = retrieve_unapproved_submissions();
 			
-			for ($i = 0; $i < count($approvedSubs); $i++){
+			for ($i = 0; $i < count($subs); $i++){
 				//echo "<br><table style width='800'>";
-				$email = $approvedSubs[$i]->get_email();
-				$name = $approvedSubs[$i]->get_pet_name();
-				$adopter = $approvedSubs[$i]->get_first_name()." ".$approvedSubs[$i]->get_last_name();
-				$type = $approvedSubs[$i]->get_pet_type();
+				$email = $subs[$i]->get_email();
+				$name = $subs[$i]->get_pet_name();
+				$adopter = $subs[$i]->get_first_name()." ".$subs[$i]->get_last_name();
+				$type = $subs[$i]->get_pet_type();
 				
-				$image = $approvedSubs[$i]->get_image();
+				$image = $subs[$i]->get_image();
 				$image_src = "pictures/".$image;
 				echo "<br><table style width='400'>";
 				echo "<tr><td><img src=".$image_src." width='400' height='300'></td></tr>";
 				echo "<tr><td><center><p style='font-size:25px;margin-bottom:0;'><b>".$name."</b></p>";
 				echo "<br>Adopted by ".$adopter."</td></tr></table><br>";	
 
-				echo "<form action='viewSubmission.php' method='post'>
+				echo "<form action='verifySubmission.php' method='post'>
 				<input type='hidden' value='".$email."' name='email'>
-				<input type='submit' value='View Adoption Story'>
+				<input type='submit' value='View Submission'>
 				</form><br>";
 			}
 			echo "<br>";

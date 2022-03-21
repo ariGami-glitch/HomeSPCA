@@ -10,7 +10,7 @@ function validate_submission($submission) {
 		$errors[] = 'Please enter a valid email';
 	if ($_POST['pet_name'] == null)
 		$errors[] = 'Please enter the name of your pet';
-	if ($_POST['pet_type'] == null)
+	if ($_POST['pet_type'] == 'Other' & $_POST['pet_type_other'] == null)
 		$errors[] = 'Please enter your type of pet';
 	if ($_POST['description'] == null)
 		$errors[] = 'Please enter your adoption story';

@@ -51,7 +51,7 @@
         $permission_array['apply.php'] = 0;
         //pages volunteers can view
         //pages only managers can view
-        $permission_array['submissionEdit.php'] = 2;
+        $permission_array['makeNewSubmission.php'] = 2;
         $permission_array['viewAccSubs.php'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
         $permission_array['viewSubmission.php'] = 2;
@@ -85,7 +85,7 @@
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	        	echo('<a href="' . $path . 'index.php">Home</a>');
-	        	echo(' | <a href="' . $path . 'submissionEdit.php">Make New Submission</a>');
+	        	echo(' | <a href="' . $path . 'makeNewSubmission.php">Make New Submission</a>');
 	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');

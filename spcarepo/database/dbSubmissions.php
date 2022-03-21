@@ -61,7 +61,8 @@ function retrieve_submission($email) {
 
 function approve_submission($email){
 	$con=connect();
-	$query = "UPDATE dbSubmissions SET approved = 1 WHERE email = '" . $email . "'";
+	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE email = "'.$email.'"';
+	$result = mysqli_query($con,$query);
 	return true;
 }
 

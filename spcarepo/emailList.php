@@ -9,7 +9,7 @@ include_once("domain/Submission.php");
 <html>
     <head>
         <title>
-            <?PHP echo('Volunteer Hours Log');?>
+            <?PHP echo('Generate Emailing List');?>
         </title>
         <link rel="stylesheet" href="lib/jquery-ui.css" />
         <link rel="stylesheet" href="styles.css" type="text/css" />

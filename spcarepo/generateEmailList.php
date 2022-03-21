@@ -6,14 +6,13 @@ include_once('database/dbLog.php');
 echo('<p><strong>Email List</strong><br />');
 ?>
 <html>
-<?php
-email=select_dbEmail();
-?>
-<head></head>
+<head>Email List</head>
 <body>
 <div id="emails">
 <?php
 include('emailList.inc');
-email=select_dbEmail();
+$email=select_dbEmail();
+echo[$email];
 ?>
+</div>
 </html>

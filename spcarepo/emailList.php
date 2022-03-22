@@ -10,7 +10,9 @@ include_once("domain/Submission.php");
 <html>
     <head>
         <title>
-            <?PHP echo('Generate Emailing List');?>
+            <?PHP 
+            echo('Generate Emailing List');
+            ?>
         </title>
         <link rel="stylesheet" href="lib/jquery-ui.css" />
         <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -25,8 +27,12 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
+    <?php
+        include('header2.php');
+    ?>
     <div id="container">
     <?PHP include('header.php'); ?>
+            <div id="content">
 <?php 
             echo "<center><h1>Emailing List</h1></center>";
             //display the emails
@@ -39,5 +45,7 @@ include_once("domain/Submission.php");
                 echo"<tr><td><p style='font-size':30px;margin-bottom:1;'><b>".$name."</b></p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr></table>";
             }
 ?>
+    </div>
+    </div>
     </body>
 </html>

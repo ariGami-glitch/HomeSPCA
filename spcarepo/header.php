@@ -80,7 +80,7 @@
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
         }
         else {
-        	echo " <br><b>"."Homebase"."</b> ";
+        	echo " <br><b>"."Administrative"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
 	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	        }

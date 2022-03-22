@@ -41,8 +41,8 @@ include_once("domain/Submission.php");
             for($i = 0; $i < count($subs); $i++) {
                 $name = $subs[$i]->get_first_name()." ".$subs[$i]->get_last_name();
                 $email = $subs[$i]->get_email();
-                echo "<br><table style width='500'>";
-                echo"<tr><td><p style='font-size':30px;margin-bottom:1;'><b>".$name."</b></p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr></table>";
+                echo "<center/><br><table style width='500' border='2'>";
+                echo"<center/><tr><td><p style='font-size':30px;margin-bottom:1;'><b>".$name."</b></p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr></table>";
             }
 ?>
     </div>

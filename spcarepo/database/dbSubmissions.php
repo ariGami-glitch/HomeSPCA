@@ -196,5 +196,25 @@ function display_email($sub) {
     echo "Adopter name: ".$subs[$i]->get_first_name()." ".$subs[$i]->get_last_name(). " email: ".$subs[$i]->get_email()."<br>";
     
 }
+function retrieve_optin() {
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$Subs = array();
+	while($row = mysqli_fetch_assoc($result)) {
+		$theSubmission = make_a_submission($row);
+		$Subs[] = $theSubmission;
+	}
+	/**for ($i = 0; $i < count($result_row); $i++) {
+		$result = mysqli_fetch_assoc($result_row[$i]);
+		$theSubmission = make_a_submission($result);
+		$acceptedSubs += $theSubmission;
+	}*/
+	return $Subs;
+}
 ?>
 

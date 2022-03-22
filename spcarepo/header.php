@@ -36,7 +36,7 @@
 
     } 
     else if ($_SESSION['logged_in']) {
-
+	include("header2.php");
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do
          * anything a volunteer can do, a manager can do.
@@ -50,17 +50,12 @@
         $permission_array['about.php'] = 0;
         $permission_array['apply.php'] = 0;
         //pages volunteers can view
-        $permission_array['help.php'] = 1;
-        $permission_array['calendar.php'] = 1;
         //pages only managers can view
-        $permission_array['verifySubmission.php'] = 2;
+        $permission_array['makeNewSubmission.php'] = 2;
+        $permission_array['viewAccSubs.php'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
-        $permission_array['personsearch.php'] = 2;
-        $permission_array['personedit.php'] = 2;
-        $permission_array['viewschedule.php'] = 2;
-        $permission_array['addweek.php'] = 2;
+        $permission_array['viewSubmission.php'] = 2;
         $permission_array['log.php'] = 2;
-        $permission_array['reports.php'] = 2;
         $permission_array['emailList.php'] = 2;
 
         //Check if they're at a valid page for their access level.
@@ -69,7 +64,7 @@
         
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
-            //we redirect them to the index page.
+		//we redirect them to the index page.
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
             //note: if javascript is disabled for a user's browser, it would still show the page.
             //so we die().
@@ -87,21 +82,17 @@
         else {
         	echo " <br><b>"."Homebase"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
-	        	echo('<a href="' . $path . 'index.php">home</a>');
-	        	echo(' | <a href="' . $path . 'about.php">about</a>');
-	            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	            echo(' | calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-	            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
+	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
-	            echo('<br>View Submissions: <a href="' . $path . 'viewNewSubs.php'."".'">New Submissions</a>');
-	            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">, Bangor</a>');
-	            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
-				        <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-	            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
+	        	echo('<a href="' . $path . 'index.php">Home</a>');
+	        	echo(' | <a href="' . $path . 'makeNewSubmission.php">Make New Submission</a>');
+	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
+	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
+	        	echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        	echo(' | <a href="' . $path . 'emailList.php">generate emailing list</a>');
 	        }
-	        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
+	        echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
         }
         
     }

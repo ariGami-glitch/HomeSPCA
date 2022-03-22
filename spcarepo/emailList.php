@@ -27,9 +27,6 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
-    <?php
-        include('header2.php');
-    ?>
     <div id="container">
     <?PHP include('header.php'); ?>
             <div id="content">

@@ -1,4 +1,6 @@
 <?php 
+session_start();
+session_cache_expire(30);
 include_once("database/dbSubmissions.php");
 include_once("domain/Submission.php");
 
@@ -8,17 +10,17 @@ include_once("domain/Submission.php");
     <head>
         <title>Accepted Submissions</title>
         <!--  Choose a style sheet -->
-        <!--<link rel="stylesheet" href="styles.css" type="text/css"/>
-        <link rel="stylesheet" href="calendar.css" type="text/css"/> -->
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
+        <!-- <link rel="stylesheet" href="calendar.css" type="text/css"/> -->
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
     <body>
 <?php
-			include('header2.php');
-			echo "<center><h1>Unapproved Submissions</h1></center>";
-			echo "<br><form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'></form><center>";
+			include('header.php');
+			echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Unapproved Submissions</h1>";
+			//echo "<br><form action='index.php' method='get'>
+			//<input type='submit' value='Back to Homepage'></form><center>";
 			$subs = retrieve_unapproved_submissions();
 			
 			for ($i = 0; $i < count($subs); $i++){

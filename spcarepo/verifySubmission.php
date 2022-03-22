@@ -1,4 +1,7 @@
-<?php 
+
+<?php
+session_start();
+session_cache_expire(30);
 include_once("database/dbSubmissions.php");
 include_once("domain/Submission.php");
 
@@ -8,18 +11,19 @@ include_once("domain/Submission.php");
     <head>
         <title>Submission</title>
         <!--  Choose a style sheet -->
-        <!--<link rel="stylesheet" href="styles.css" type="text/css"/>
-        <link rel="stylesheet" href="calendar.css" type="text/css"/>-->
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
+        <link rel="stylesheet" href="calendar.css" type="text/css"/>
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
     <body>
 	<?php
-		include('header2.php');
+		//include('header2.php');
+		include('header.php');
 		$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 
-		echo "<center><h1>New Submission</h1>";	
+		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;New Submission</h1>";	
 		//display_submission($sub);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
@@ -37,9 +41,8 @@ include_once("domain/Submission.php");
 		echo "<form action='approveSub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Approve Submission'></form><br>";
-		/*echo "<form action='viewNewSubs.php' method='get'>
+		echo "<form action='submissionEdit.php' method='get'>
 		<input type='submit' value='Edit Submission'></form><br><br>";
-		*/
 		echo "<form action='denySub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Deny Submission'></form><br>";

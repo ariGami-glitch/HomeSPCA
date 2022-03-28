@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 18, 2022 at 10:19 PM
+-- Generation Time: Mar 28, 2022 at 10:40 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `homebasedb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dbadmins`
+--
+
+CREATE TABLE `dbadmins` (
+  `email` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `first_name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `last_name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `username` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(100) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -752,8 +766,13 @@ CREATE TABLE `dbsubmissions` (
 --
 
 INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`) VALUES
-('gmail2', 'Mary', 'Sue', 'Dog', 'adoption story', 'Freckles', 1, 'golden-retriever-dog-21668976.jpg6235005764367', 0),
-('s', 'Jane', 'Doe', 'Cat', 'adoption story goes here', 'Nelson', 1, 'black-cat-breeds.jpg6233f71fdecad', 1);
+('fakeemail18', 'J', 'W', 'Dog', 'example text', 'Little Bear', 1, 'dog-g8dd2fc397_1280.jpg623b1b0a89ffc', 1),
+('fakeemail2', 'Mary', 'Sue', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Milo', 1, 'golden-retriever-dog-21668976.jpg623813029e4b6', 1),
+('fakeemail4', 'Sarah', 'Ryan', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Lucy', 1, 'yorkshire-terrier-ge4a4a1fa3_1280.jpg62393da9c60de', 1),
+('fakeemail5', 'Jane', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Butterscotch', 1, 'cat-ge27c14279_1280.jpg62393e09c4cba', 1),
+('fakeemail6', 'John', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Kitty', 0, 'cat-g6cfeb1294_1280.jpg62393e2013ca7', 0),
+('gmail4', 'Jenn', 'W', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nelson', 1, 'black-cat-breeds.jpg6237be8b5be83', 1),
+('test', 'hi', 'there', 'Dog', 'example', 'Dog', 0, 'australian-shepherd-gb379f0c41_1280.jpg6242177b90b0f', 1);
 
 -- --------------------------------------------------------
 

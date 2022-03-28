@@ -18,12 +18,12 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
-    <?PHP include('header.php'); ?>
+    <?PHP //include('header.php'); ?>
 		<?php
-			//include('header2.php');
+			include('header2.php');
 			echo "<center><h1>Adoption Stories</h1></center>";
-			echo "<br><form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'></form><center>";
+			echo "<br><center><form action='index.php' method='get'>
+			<input type='submit' value='Back to Homepage'></form>";
 			$approvedSubs = retrieve_approved_submissions();
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){

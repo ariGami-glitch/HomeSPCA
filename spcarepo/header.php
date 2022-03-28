@@ -52,12 +52,11 @@
         //pages volunteers can view
         //pages only managers can view
         $permission_array['makeNewSubmission.php'] = 2;
-        $permission_array['viewAccSubs.php'] = 2;
+        $permission_array['viewAccSubs.php'] = 0;
         $permission_array['viewNewSubs.php'] = 2;
         $permission_array['viewSubmission.php'] = 2;
         $permission_array['log.php'] = 2;
         $permission_array['emailList.php'] = 2;
-        $permission_array['viewAccSubs.php'] = 2;
 
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
@@ -90,7 +89,7 @@
 	        	echo(' | <a href="' . $path . 'makeNewSubmission.php">Make New Submission</a>');
 	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
-	        	echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
+	        	//echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        	echo(' | <a href="' . $path . 'emailList.php">generate emailing list</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');

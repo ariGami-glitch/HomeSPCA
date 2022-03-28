@@ -1,13 +1,12 @@
 <?php
 
-
 session_start();
 session_cache_expire(30);
-include_once('database/dbSubmissions.php');
-include_once('domain/Submission.php');
+include_once('database/dbAdmins.php');
+include_once('domain/Admin.php');
 include_once('database/dbLog.php');
 
-$submission = new Submission(null, null, null, null, null, null, null, null, null);
+$admin = new Admin(null, null, null, null, null);
 
 ?>
 <html>
@@ -16,20 +15,20 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	<div id="container">
 	    <?PHP
 	    include('header2.php');
-	    include('submissionValidate.inc');
+	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    include('submissionForm.inc');
+		    include('adminForm.inc');
 		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_submission($submission);
 		if ($errors) {
 		    show_errors($errors);
-		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
-		    include('submissionForm.inc');
+		    $admin = new Admin($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['password']);
+		    include('adminForm.inc');
 		}
     		else {
-    		    process_submission($submission);
+    		    process_admin($admin);
 		    echo "</div>";
 		//include('footer2.php');
 		echo('</div></body></html>');
@@ -37,49 +36,20 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		}
 	    }
 
-
-	    function process_submission($submission) {
+	    function process_admin($admin) {
 		$email = trim(str_replace('\\\'', '\'', htmlentities($_POST['email'])));
 		$first_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['first_name'])));
 		$last_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['last_name'])));
-		if ($_POST['pet_type'] !== 'Other') {
-		    $pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
-		}
-	        else {
-		    $pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type_other'])));
-		}	
-		$description = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
-		$pet_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_name'])));
-		$approved = 0;
-
+		$username = trim(str_replace('\\\'', '\'', htmlentities($_POST['username'])));
+		$password = trim(str_replace('\\\'', '\'', htmlentities($_POST['password'])));
 		
-		$name = $_FILES['image']['name'];
-		$image = $name.uniqid();
-		$target_dir = "pictures/";
-		$target_file = $target_dir.basename($_FILES["image"]["name"]);
-
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		$extensions_arr = array("jpg","jpeg","png","gif");
-
-		if (in_array($imageFileType, $extensions_arr)) {
-			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
-		}
-		if ($_POST['opt_in']) {
-			$opt_in = 1;
-		}	
-		else {
-			$opt_in = 0;
-		}
-		
-		$dup = retrieve_submission($email);
-		
+		$dup = retrieve_admin($email);
 		if ($dup)
-			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
+			echo('<p class="error"Unable to add your admin to the database. <br> Email is already in the database.');
 		else {
-		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
-		    $result = add_submission($newsubmission);
-		    
+		    $new_admin = new Admin($email, $first_name, $last_name, $username, $password);
+		    $result = add_admin($new_admin);
+
 		    if (!$result)
 			echo('Unable to add');
 		    else {

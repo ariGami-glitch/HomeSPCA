@@ -21,7 +21,7 @@ $admin = new Admin(null, null, null, null, null);
 		    //include('footer2.php');
 	    }
 	    else {
-    		$errors = validate_submission($submission);
+    		$errors = validate_admin($admin);
 		if ($errors) {
 		    show_errors($errors);
 		    $admin = new Admin($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['password']);

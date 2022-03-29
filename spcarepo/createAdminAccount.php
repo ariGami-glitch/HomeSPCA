@@ -24,7 +24,7 @@ $admin = new Admin(null, null, null, null, null);
     		$errors = validate_admin($admin);
 		if ($errors) {
 		    show_errors($errors);
-		    $admin = new Admin($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['password']);
+		    $admin = new Admin($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['username'], $_POST['password']);
 		    include('adminForm.inc');
 		}
     		else {
@@ -47,7 +47,7 @@ $admin = new Admin(null, null, null, null, null);
 		if ($dup)
 			echo('<p class="error"Unable to add your admin to the database. <br> Email is already in the database.');
 		else {
-		    $new_admin = new Admin($email, $first_name, $last_name, $username, $password);
+		    $new_admin = new Admin($first_name, $last_name, $email, $username, $password);
 		    $result = add_admin($new_admin);
 
 		    if (!$result)

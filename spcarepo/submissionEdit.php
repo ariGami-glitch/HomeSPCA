@@ -54,7 +54,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 
 		
 		$name = $_FILES['image']['name'];
-		$image = $name.uniqid();
+		$image = "picture".uniqid();
 		$target_dir = "pictures/";
 		$target_file = $target_dir.basename($_FILES["image"]["name"]);
 

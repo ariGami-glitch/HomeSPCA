@@ -17,7 +17,9 @@ include_once("domain/Submission.php");
 		<?php
 			include('header2.php');
 			$email = $_POST['email'];
+			$sub = retrieve_submission($email);
 			remove_submission($email);
+			unlink("pictures/".$sub->get_image());
 			echo "<center><br><h2>The submission has been denied</h2><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
 			<input type='submit' value='View Other Submissions'></form>";	

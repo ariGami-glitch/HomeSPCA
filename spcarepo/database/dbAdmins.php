@@ -30,12 +30,12 @@ function add_admin($admin) {
     //if there's no entry for this email, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
         mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
+                $admin->get_email() . '","' .
                 $admin->get_first_name() . '","' .
                 $admin->get_last_name() . '","' .
-                $admin->get_email() . '","' .
                 $admin->get_username() . '","' .
                 $admin->get_password() .
-                '");';							
+		'");');						
         mysqli_close($con);
         return true;
     }

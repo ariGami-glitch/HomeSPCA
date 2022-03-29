@@ -1,7 +1,7 @@
 <?php
 
 echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
-echo('<p><strong>Adoption Story Submission Form</strong><br />');
+echo('<p><strong>Create New Admin Account</strong><br />');
 echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 //echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 
@@ -10,12 +10,11 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 <form method="POST" action="" enctype='multipart/form-data'>
 	<input type="hidden" name="_form_submit" value="1">
 	<fieldset>
-	    <legend>Adopter Information:</legend>
+	    <legend>New Admin Information:</legend>
 	<?php
-		echo '<p>First Name: <input type="text" name="first_name" tabindex="1" value="'.$submission->get_first_name().'">';
-	?>  &nbsp;&nbsp;&nbsp;&nbsp; <p>Last Name: <input type="text" name="last_name" tabindex="2" value="<?PHP echo($submission->get_last_name()) ?>">
-	<p>Email address: <input type="text" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>">
-	<p>Check box to be added to our email list. <input type="checkbox" name="opt_in">
+		echo '<p>First Name: <input type="text" name="first_name" tabindex="1" value="'.$admin->get_first_name().'">';
+	?>  &nbsp;&nbsp;&nbsp;&nbsp; <p>Last Name: <input type="text" name="last_name" tabindex="2" value="<?PHP echo($admin->get_last_name()) ?>">
+	<p>Email address: <input type="text" name="email" tabindex="3" value="<?PHP echo($admin->get_email()) ?>">
 	</fieldset>
 	</br>
 	<fieldset>

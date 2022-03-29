@@ -17,7 +17,7 @@ echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 	<p>Email address: <input type="text" name="email" tabindex="3" value="<?PHP echo($admin->get_email()) ?>">
 	<p>Username: <input type="text" name="username" tabindex="4" value="<?PHP echo($admin->get_username()) ?>">
 	<p>Password: <input type="text" name="password" tabindex="5" value="<?PHP echo($admin->get_password()) ?>">
-	<p>Re-enter Password: <input type="text" name="password2" tabindex="6" value="<?PHP echo($admin->get_password()) ?>">
+	<p>Re-enter Password: <input type="text" name="password2" tabindex="6" value="">
 	</fieldset>
 	</br> 
 

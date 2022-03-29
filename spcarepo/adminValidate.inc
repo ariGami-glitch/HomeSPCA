@@ -14,6 +14,8 @@ function validate_admin($admin) {
 		$errors[] = 'Please enter your password';
 	if ($_POST['password2'] == null)
 		$errors[] = 'Please enter your password confirmation';
+	if (strcmp($_POST['password'], $_POST['password2']) != 0)
+		$errors[] = 'Your passwords do not match';
 	return $errors;
 }
 

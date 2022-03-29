@@ -18,7 +18,7 @@ $admin = new Admin(null, null, null, null, null);
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    include('adminForm.inc');
-		    include('footer2.php');
+		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_admin($admin);

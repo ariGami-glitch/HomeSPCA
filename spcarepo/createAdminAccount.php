@@ -43,9 +43,11 @@ $admin = new Admin(null, null, null, null, null);
 		$username = trim(str_replace('\\\'', '\'', htmlentities($_POST['username'])));
 		$password = trim(str_replace('\\\'', '\'', htmlentities($_POST['password'])));
 		
-		$dup = retrieve_admin($email);
-		if ($dup)
-			echo('<p class="error"Unable to add your admin to the database. <br> Email is already in the database.');
+		$dup = retrieve_admin($username);
+		if ($dup){
+			echo('<p>Username is already taken.<br>');
+			include('adminForm.inc');
+		}
 		else {
 		    $new_admin = new Admin($first_name, $last_name, $email, $username, $password);
 		    $result = add_admin($new_admin);

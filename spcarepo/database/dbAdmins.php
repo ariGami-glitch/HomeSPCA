@@ -66,9 +66,9 @@ function remove_admin($email) {
  * if not in table, return false
  */
 
-function retrieve_admin($email) {
+function retrieve_admin($username) {
     $con=connect();
-    $query = "SELECT * FROM dbAdmins WHERE email = '" . $email . "'";
+    $query = "SELECT * FROM dbAdmins WHERE username = '" . $username . "'";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);

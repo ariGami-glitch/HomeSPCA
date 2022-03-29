@@ -12,9 +12,9 @@ $admin = new Admin(null, null, null, null, null);
 <html>
     <head></head>
     <body>
+	<?PHP include('header.php'); ?>
 	<div id="container">
 	    <?PHP
-	    include('header2.php');
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    include('adminForm.inc');

@@ -18,7 +18,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    include('header2.php');
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    include('adminForm.inc');
+		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }
 	    else {

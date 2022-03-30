@@ -30,7 +30,13 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
         <div class="slide-wrapper">
         <div class="slide">
             <h1 class="slide-number">
-                Test 1
+                <?php
+                $approved = retrieve_approved_submissions();
+                $image = $approved[0]->get_image();
+                $image_src = "pictures/".$image;
+                echo $approved[0]->get_email();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                ?>
             </h1>
         </div>
         <div class="slide">

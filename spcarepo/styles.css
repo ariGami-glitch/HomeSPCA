@@ -174,7 +174,7 @@ p.error {color: #FF0000;}
 
 .slide-wrapper {
     width: calc(728px * 4);
-    animation: slide 10s ease infinite;
+    animation: slide 30s ease infinite;
 }
 
 @keyframes slide {

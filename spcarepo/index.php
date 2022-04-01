@@ -119,7 +119,8 @@ session_cache_expire(30);
                             
                         	//active applicants box
                         	$con=connect();
-                        	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
+                        	$app_query = "SELECT first_name,last_name FROM dbAdmins".
+                       /* 	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         			$_SESSION['venue']."'order by start_date desc";
                         	$applicants_tab = mysqli_query($con,$app_query);
                         	$numLines = 0;
@@ -132,6 +133,7 @@ session_cache_expire(30);
                         	}
                         	echo('</ul></p></div><br>');
                         	//    }
+							*/
                         	mysqli_close($con);
                         	
                             //log box

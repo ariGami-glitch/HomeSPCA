@@ -17,8 +17,10 @@
 
 <div id="content">
     <?PHP
-    include_once('database/dbPersons.php');
-    include_once('domain/Person.php');
+    include_once('database/dbAdmins.php');
+    include_once('domain/Admin.php');
+    //include_once('database/dbPersons.php');
+    //include_once('domain/Person.php');
     if (($_SERVER['PHP_SELF']) == "/logout.php") {
         //prevents infinite loop of logging in to the page which logs you out...
         echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
@@ -43,7 +45,6 @@
     } else {
         //check if they logged in as a guest:
 	if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
-	    echo "here";
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
             $_SESSION['venue'] = "";
@@ -52,15 +53,15 @@
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
         }
         //otherwise authenticate their password
-        else {
-            $db_pass = md5($_POST['pass']);
+    else {
+            $db_pass = $_POST['pass'];//md5($_POST['pass']);
             $db_id = $_POST['user'];
-            $person = retrieve_person($db_id);
+            $person = retrieve_admin($db_id);
             if ($person) { //avoids null results
                 if ($person->get_password() == $db_pass) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
                     date_default_timezone_set ("America/New_York");
-                    if ($person->get_status() == "applicant")
+                    /*if ($person->get_status() == "applicant")
                         $_SESSION['access_level'] = 0;
                     else if (in_array('manager', $person->get_type()))
                         $_SESSION['access_level'] = 2;
@@ -69,7 +70,8 @@
                     $_SESSION['f_name'] = $person->get_first_name();
                     $_SESSION['l_name'] = $person->get_last_name();
                     $_SESSION['venue'] = $person->get_venue();
-                    $_SESSION['type'] = $person->get_type();
+		    $_SESSION['type'] = $person->get_type();*/
+		    $_SESSION['access_level'] = 2;
                     $_SESSION['_id'] = $_POST['user'];
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }

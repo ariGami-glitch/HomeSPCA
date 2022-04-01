@@ -120,8 +120,8 @@ session_cache_expire(30);
                         	//active applicants box
                         	$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins".
-                       /* 	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
-                        	/*$con=connect();
+                        	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
+                        	$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         			$_SESSION['venue']."'order by start_date desc";
                         	$applicants_tab = mysqli_query($con,$app_query);
@@ -135,12 +135,9 @@ session_cache_expire(30);
                         	}
                         	echo('</ul></p></div><br>');
                         	//    }
-<<<<<<< HEAD
-							*/
+							
                         	mysqli_close($con);
-=======
-				mysqli_close($con);*/
->>>>>>> 6e964ee707e11af29e5ec2b2e98b326b24ae27e7
+				mysqli_close($con);
                         	
                             //log box
                             /*echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');

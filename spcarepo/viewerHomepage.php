@@ -13,7 +13,7 @@ include('header2.php');
 echo '<h1>&emsp; &emsp; &emsp; &emsp;SPCA Story Highlights</h1>';
 echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
 //echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
-echo( '<a href="submissionEdit.php"><h2>Make A Submission</h2></a>');
+echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
 echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
 
 //echo('<p><form method="post" action="submissionEdit.php"><input type="hidden" name="clicke" value="true"><input type="submit" name="SubmissionForm" value="SubmissionForm">');

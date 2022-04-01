@@ -34,7 +34,7 @@ session_cache_expire(30);
 		date_default_timezone_set('America/New_York');
             //    fix_all_birthdays();
                 if ($_SESSION['_id'] != "guest") {
-                    $person = retrieve_person($_SESSION['_id']);
+                    $person = retrieve_admin($_SESSION['_id']);
                     echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!";
                 }
                 else 
@@ -59,7 +59,7 @@ session_cache_expire(30);
                          */
 
                         //APPLICANT CHECK
-                        if ($person->get_first_name() != 'guest' && $person->get_status() == 'applicant') {
+                        if ($person->get_first_name() != 'guest'){// && $person->get_status() == 'applicant') {
                             //SHOW STATUS
                             echo('<div class="infobox"><p><strong>Your application has been submitted.</strong><br><br /><table><tr><td><strong>Step</strong></td><td><strong>Completed?</strong></td></tr><tr><td>Background Check</td><td>' . $person['background_check'] . '</td></tr><tr><td>Interview</td><td>' . $person['interview'] . '</td></tr><tr><td>Shadow</td><td>' . $person['shadow'] . '</td></tr></table></p></div>');
                         }
@@ -68,7 +68,7 @@ session_cache_expire(30);
                         if ($_SESSION['access_level'] == 1) {
                         	
                         	// display upcoming schedule
-                            $shifts = selectScheduled_dbShifts($person->get_id());
+                            /*$shifts = selectScheduled_dbShifts($person->get_id());
 
                             $scheduled_shifts = array();
                             foreach ($shifts as $shift) {
@@ -111,7 +111,7 @@ session_cache_expire(30);
                             echo('<br><div class="scheduleBox"><p><strong>Your Log Sheet:</strong><br /></p><ul>');
                                 echo('</ul><p>Go <strong><a href="volunteerLog.php?id='.$person->get_id()
                         	   .'">here</a></strong> to view or enter your recent volunteering hours.</p></div>');
-              
+              		    */
                         }
                         
                         if ($_SESSION['access_level'] == 2) {
@@ -121,6 +121,8 @@ session_cache_expire(30);
                         	$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins".
                        /* 	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
+                        	/*$con=connect();
+                        	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         			$_SESSION['venue']."'order by start_date desc";
                         	$applicants_tab = mysqli_query($con,$app_query);
                         	$numLines = 0;
@@ -133,11 +135,15 @@ session_cache_expire(30);
                         	}
                         	echo('</ul></p></div><br>');
                         	//    }
+<<<<<<< HEAD
 							*/
                         	mysqli_close($con);
+=======
+				mysqli_close($con);*/
+>>>>>>> 6e964ee707e11af29e5ec2b2e98b326b24ae27e7
                         	
                             //log box
-                            echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');
+                            /*echo('<div class="logBox"><p><strong>Recent Schedule Changes:</strong><br />');
                             echo('<table class="searchResults">');
                             echo('<tr><td class="searchResults"><u>Time</u></td><td class="searchResults"><u>Message</u></td></tr>');
                             $log = get_last_log_entries(5);
@@ -145,10 +151,10 @@ session_cache_expire(30);
                                 echo('<tr><td class="searchResults">' . $lo[1] . '</td>' .
                                 '<td class="searchResults">' . $lo[2] . '</td></tr>');
                             }
-                            echo ('</table><br><a href="' . $path . 'log.php">View full log</a></p></div><br>');
+			    echo ('</table><br><a href="' . $path . 'log.php">View full log</a></p></div><br>');*/
                         }
                         //DEFAULT PASSWORD CHECK
-                        if (md5($person->get_id()) == $person->get_password()) {
+                        /*if (md5($person->get_id()) == $person->get_password()) {
                             if (!isset($_POST['_rp_submitted']))
                                 echo('<p><div class="warning"><form method="post"><p><strong>We recommend that you change your password, which is currently default.</strong><table class="warningTable"><tr><td class="warningTable">Old Password:</td><td class="warningTable"><input type="password" name="_rp_old"></td></tr><tr><td class="warningTable">New password</td><td class="warningTable"><input type="password" name="_rp_newa"></td></tr><tr><td class="warningTable">New password<br />(confirm)</td><td class="warningTable"><input type="password" name="_rp_newb"></td></tr><tr><td colspan="2" align="right" class="warningTable"><input type="hidden" name="_rp_submitted" value="1"><input type="submit" value="Change Password"></td></tr></table></p></form></div>');
                             else {
@@ -163,7 +169,7 @@ session_cache_expire(30);
                                 }
                             }
                             echo('<br clear="all">');
-                        }
+			}*/
                     }
                     ?>
                     </div>

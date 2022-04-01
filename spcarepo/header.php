@@ -76,11 +76,11 @@
 		$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
         
         //they're logged in and session variables are set.
-        if ($_SESSION['venue'] =="") { 
+        /*if ($_SESSION['venue'] =="") { 
         	echo(' <a href="' . $path . 'personEdit.php?id=' . 'new' . '">apply</a>');
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-        }
-        else {
+		}
+	else {*/
         	echo " <br><b>"."Administrative"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
 	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
@@ -95,7 +95,7 @@
 	        	echo(' | <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>');
 	        }
 	        echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
-        }
+        //}
         
     }
     ?>

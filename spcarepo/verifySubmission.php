@@ -41,7 +41,8 @@ include_once("domain/Submission.php");
 		echo "<form action='approveSub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Approve Submission'></form><br>";
-		echo "<form action='editSubmission.php' method='get'>
+		echo "<form action='editSubmission.php' method='post'>
+		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Edit Submission'></form><br>";
 		echo "<form action='denySub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>

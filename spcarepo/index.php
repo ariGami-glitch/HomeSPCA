@@ -26,8 +26,8 @@ session_cache_expire(30);
             <?PHP //include('header.php'); ?>
             <div id="content">
                 <?PHP
-                include_once('database/dbPersons.php');
-                include_once('domain/Person.php');
+                include_once('database/dbAdmins.php');
+                include_once('domain/Admin.php');
                 include_once('database/dbLog.php');
                 include_once('domain/Shift.php');
                 include_once('database/dbShifts.php');
@@ -119,7 +119,7 @@ session_cache_expire(30);
                             
                         	//active applicants box
                         	$con=connect();
-                        	$app_query = "SELECT first_name,last_name,id,start_date FROM dbPersons WHERE status LIKE '%applicant%'  AND venue='".
+                        	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         			$_SESSION['venue']."'order by start_date desc";
                         	$applicants_tab = mysqli_query($con,$app_query);
                         	$numLines = 0;

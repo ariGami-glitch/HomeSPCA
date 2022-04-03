@@ -21,14 +21,16 @@ include_once("domain/Submission.php");
 		//include('header2.php');
 		include('header.php');
 		$email = $_POST['email'];
-		$sub = retrieve_submission($email);
+		//$sub = retrieve_submission($email);
 		
 		if ($_POST['updated'] == 'updated') {
+			//echo $_POST['email'];
 			update_submission($email, $_POST['description'], $_POST['pet_type']);
 			echo "<center><br><br>Successfully updated!</center>";		
 		}
 		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;New Submission</h1>";	
 		//display_submission($sub);
+		$sub = retrieve_submission($email);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
 		$pet_type = $sub->get_pet_type();

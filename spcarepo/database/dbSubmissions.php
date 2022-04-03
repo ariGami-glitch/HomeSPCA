@@ -4,7 +4,6 @@
 include_once('dbinfo.php');
 include_once(dirname(__FILE__).'/../domain/Submission.php');
 
-
 function add_submission($submission) {
 	if (!$submission instanceof Submission)
 		die("Error: add_submission type mismatch");
@@ -35,17 +34,17 @@ function update_submission($email, $desc, $pt) {
 	//if (!$submission instanceof Submission)
 	//	die("Error: add_submission type mismatch");
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
-	$result = mysqli_query($con,$query);
+//	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
+//	$result = mysqli_query($con,$query);
 
-	if ($result == null || mysqli_num_rows($result) == 0) {
-		mysqli_query($con,"UPDATE dbSubmissions SET
-		pet_type = '" . $pet_type . "', 
-		description = '" . $description . "',
-		WHERE email = '" . $email . "';'");
-		mysqli_close($con);
-		return true;
-	}
+	//if ($result != null || mysqli_num_rows($result) == 1) {
+	mysqli_query($con,"UPDATE dbSubmissions SET
+	pet_type = '" . $pt . "', 
+	description = '" . $desc . "',
+	WHERE email = '" . $email . "';'");
+	mysqli_close($con);
+	return true;
+//	}
 	mysqli_close($con);
 	return false;
 }

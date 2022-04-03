@@ -38,11 +38,11 @@ function update_submission($email, $desc, $pt) {
 	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
 	$result = mysqli_query($con,$query);
 
-	if ($result == null || mysqli_num_rows($result) == 0) {
+	if ($result !== null && mysqli_num_rows($result) !== 0) {
 		mysqli_query($con,"UPDATE dbSubmissions SET
-		pet_type = '" . $pet_type . "', 
-		description = '" . $description . "',
-		WHERE email = '" . $email . "';'");
+		pet_type = '" . $pt . "', 
+		description = '" . $desc . "'
+		WHERE email = '" . $email . "';");
 		mysqli_close($con);
 		return true;
 	}

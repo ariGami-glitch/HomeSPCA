@@ -34,9 +34,9 @@ include_once("domain/Submission.php");
 		echo "<table style width='500'><tr><td><img src=".$image_src." width='500' height='350'></td></tr>";
 		echo "<tr><td><br><b>Pet Name:</b> ".$pet_name."</td></tr>";
 		echo "<tr><td><b>Adopter:</b> ".$adopter."</td></tr>";
+		echo "<form method='POST' action='verifySubmission.php'>";
 		echo "<tr><td><b>Pet Type:</b> <input type='text' name='pet_type' value='".$pet_type."'></td></tr>";
 		echo "<tr><td><b>Description:</b></td></tr>";
-		echo "<form method='POST' action='verifySubmission.php'>";
 		echo "<tr><td><textarea name='description' rows='9' cols='65'>".$story."</textarea></td></tr></table><br><br>";
 		echo "<input type='hidden' value='".$email."' name='email'>
 		<input type='hidden' value='updated' name='updated'>

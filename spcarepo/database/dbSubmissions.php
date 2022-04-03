@@ -32,8 +32,8 @@ function add_submission($submission) {
 }
 
 function update_submission($email, $desc, $pt) {
-	if (!$submission instanceof Submission)
-		die("Error: add_submission type mismatch");
+	//if (!$submission instanceof Submission)
+	//	die("Error: add_submission type mismatch");
 	$con=connect();
 	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
 	$result = mysqli_query($con,$query);

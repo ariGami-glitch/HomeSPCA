@@ -23,7 +23,7 @@ include_once("domain/Submission.php");
 		$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 
-		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;New Submission</h1>";	
+		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Edit Submission</h1>";	
 		//display_submission($sub);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
@@ -34,15 +34,15 @@ include_once("domain/Submission.php");
 		echo "<table style width='500'><tr><td><img src=".$image_src." width='500' height='350'></td></tr>";
 		echo "<tr><td><br><b>Pet Name:</b> ".$pet_name."</td></tr>";
 		echo "<tr><td><b>Adopter:</b> ".$adopter."</td></tr>";
-		echo "<tr><td><b>Pet Type:</b><input type='text' name='pet_type' value=".$pet_type."></td></tr>";
+		echo "<tr><td><b>Pet Type:</b> <input type='text' name='pet_type' value='".$pet_type."'></td></tr>";
 		echo "<tr><td><b>Description:</b></td></tr>";
-		echo "<tr><td>".$story."</td></tr></table><br><br>";
-
-		/*echo "<form action='approveSub.php' method='post'>
-		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit' value='Approve Submission'></form><br>";*/
+		echo "<form method='POST' action='verifySubmission.php'>";
+		echo "<tr><td><textarea name='description' rows='9' cols='65'>".$story."</textarea></td></tr></table><br><br>";
+		echo "<input type='hidden' value='".$email."' name='email'>
+		<input type='hidden' value='updated' name='updated'>
+		<input type='submit' value='Save Changes'></form><br><br><br>";
 		echo "<form action='viewNewSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br><br>";
+		<input type='submit' value='View Other Submissions'></form><br><br><br>";
 	?>
     </body>
 </html>

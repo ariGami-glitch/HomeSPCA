@@ -22,7 +22,11 @@ include_once("domain/Submission.php");
 		include('header.php');
 		$email = $_POST['email'];
 		$sub = retrieve_submission($email);
-
+		
+		if ($_POST['updated'] == 'updated') {
+			update_submission($email, $_POST['description'], $_POST['pet_type']);
+			echo "<center><br><br>Successfully updated!</center>";		
+		}
 		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;New Submission</h1>";	
 		//display_submission($sub);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();

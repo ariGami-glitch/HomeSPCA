@@ -11,13 +11,16 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 
 ?>
 <html>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
     <head></head>
     <body>
 	<div id="container">
 	    <?PHP
 	    include('header2.php');
+	    echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
+		    echo "<br><form action='index.php' method='get'><input type='submit' value='Back to Homepage'></form>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }

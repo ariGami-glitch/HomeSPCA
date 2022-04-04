@@ -16,8 +16,10 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
+	<div id="container">
 <?php
-			include('header.php');
+		include('header.php');
+		echo "<div id='content'>";
 			echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Unapproved Submissions</h1>";
 			//echo "<br><form action='index.php' method='get'>
 			//<input type='submit' value='Back to Homepage'></form><center>";
@@ -43,7 +45,8 @@ include_once("domain/Submission.php");
 				</form><br>";
 			}
 			echo "<br>";
-		?>
+	?>
+    </div></div>
     </body>
 </html>
 

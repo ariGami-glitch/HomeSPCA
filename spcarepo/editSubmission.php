@@ -17,9 +17,10 @@ include_once("domain/Submission.php");
     </head>
     <!--  Body portion starts here -->
     <body>
+    <div id="container">
 	<?php
-		//include('header2.php');
 		include('header.php');
+		echo "<div id='content'>";
 		$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 
@@ -44,6 +45,7 @@ include_once("domain/Submission.php");
 		echo "<form action='viewNewSubs.php' method='get'>
 		<input type='submit' value='View Other Submissions'></form><br><br><br>";
 	?>
+    </div></div>
     </body>
 </html>
 

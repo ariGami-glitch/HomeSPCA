@@ -8,20 +8,23 @@ include_once("domain/Submission.php");
     <head>
         <title>Approved Submission</title>
         <!--  Choose a style sheet -->
-        <!--<link rel="stylesheet" href="styles.css" type="text/css"/>
-        <link rel="stylesheet" href="calendar.css" type="text/css"/> -->
+        <link rel="stylesheet" href="styles.css" type="text/css"/>
+        <!--<link rel="stylesheet" href="calendar.css" type="text/css"/> -->
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
     <body>
+    <div id="container">
 		<?php
 			include('header2.php');
+			echo "<div id='content'>";
 			$email = $_POST['email'];
 			approve_submission($email);
 			echo "<center><br><h2>The submission has been approved!</h2><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
 			<input type='submit' value='View Other Submissions'></form>";	
 		?>
+    </div></div>
     </body>
 </html>
 

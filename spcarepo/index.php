@@ -66,7 +66,7 @@ session_cache_expire(30);
 
                         //VOLUNTEER CHECK
                         if ($_SESSION['access_level'] == 1) {
-                        	
+                            	
                         	// display upcoming schedule
                             /*$shifts = selectScheduled_dbShifts($person->get_id());
 
@@ -116,9 +116,9 @@ session_cache_expire(30);
                         
                         if ($_SESSION['access_level'] == 2) {
                             //We have a manager authenticated
-                            
+
                         	//active applicants box
-                        	$con=connect();
+                        	/*$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins".
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         	$con=connect();

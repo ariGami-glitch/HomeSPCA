@@ -58,7 +58,9 @@
         $permission_array['emailList.php'] = 2;
 	$permission_array['createAdminAccount.php'] = 2;
 	$permission_array['adminViewSubs.php'] = 2;
-	$permission_array['adminNewSubmission'] = 2;
+	$permission_array['adminNewSubmission.php'] = 2;
+	$permission_array['approveSub.php'] = 2;
+	$permission_array['denySub.php'] = 2;
 
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));

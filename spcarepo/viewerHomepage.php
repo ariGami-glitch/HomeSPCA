@@ -34,8 +34,14 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
                 $approved = retrieve_approved_submissions();
                 $image = $approved[0]->get_image();
                 $image_src = "pictures/".$image;
-                echo $approved[0]->get_email();
+                $name = $approved[0]->get_first_name();
+                $petname = $approved[0]->get_pet_name();
+                $petType = $approved[0]->get_pet_type();
                 echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.
                 ?>
             </h1>
         </div>

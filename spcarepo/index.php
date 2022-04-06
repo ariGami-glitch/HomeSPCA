@@ -23,19 +23,19 @@ session_cache_expire(30);
     <body>
 	<?PHP include('header.php'); ?>
         <div id="container">
-            <?PHP //include('header.php'); ?>
             <div id="content">
                 <?PHP
                 include_once('database/dbAdmins.php');
                 include_once('domain/Admin.php');
-                include_once('database/dbLog.php');
-                include_once('domain/Shift.php');
-                include_once('database/dbShifts.php');
-		date_default_timezone_set('America/New_York');
-            //    fix_all_birthdays();
+                //include_once('database/dbLog.php');
+                //include_once('domain/Shift.php');
+                //include_once('database/dbShifts.php');
+		//date_default_timezone_set('America/New_York');
+		//    fix_all_birthdays();
+		
                 if ($_SESSION['_id'] != "guest") {
                     $person = retrieve_admin($_SESSION['_id']);
-                    echo "<p>Welcome, " . $person->get_first_name() . ", to Homebase!";
+                    echo "<p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
                 }
                 else 
                     echo "<p>Welcome!";
@@ -66,7 +66,7 @@ session_cache_expire(30);
 
                         //VOLUNTEER CHECK
                         if ($_SESSION['access_level'] == 1) {
-                        	
+                            	
                         	// display upcoming schedule
                             /*$shifts = selectScheduled_dbShifts($person->get_id());
 
@@ -116,9 +116,9 @@ session_cache_expire(30);
                         
                         if ($_SESSION['access_level'] == 2) {
                             //We have a manager authenticated
-                            
+
                         	//active applicants box
-                        	$con=connect();
+                        	/*$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins".
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins WHERE status LIKE '%applicant%'  AND venue='".
                         	$con=connect();

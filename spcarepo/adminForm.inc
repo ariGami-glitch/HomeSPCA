@@ -1,7 +1,7 @@
 <?php
 
-echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
-echo('<p><strong>Create New Admin Account</strong><br />');
+//echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
+echo('<br><p><strong>Create New Admin Account</strong><br />');
 echo('When finished, hit <b>Submit</b> at the bottom of this page.');
 //echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 

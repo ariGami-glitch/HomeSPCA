@@ -10,10 +10,14 @@ $admin = new Admin(null, null, null, null, null);
 
 ?>
 <html>
+    <link rel="stylesheet" href="lib/jquery-ui.css" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <!--<link rel="stylesheet" href="lib/jquery.timepicker.css" />-->
     <head></head>
     <body>
-	<?PHP include('header.php'); ?>
 	<div id="container">
+	<?PHP include('header.php'); ?>
+	    <div id="content">
 	    <?PHP
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
@@ -62,7 +66,8 @@ $admin = new Admin(null, null, null, null, null);
 		    } 
 		}
 	    }
-	    ?>
+	?>
+	</div>
 	</div>   
     </body>
 </html> 

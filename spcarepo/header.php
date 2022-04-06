@@ -25,7 +25,6 @@
     //Log-in security
     //If they aren't logged in, display our log-in form.
     if (!isset($_SESSION['logged_in'])) {
-        //include('login_form.php');
         include("viewerHomepage.php");
         if($_POST["clicked"] == "true") {
             include('login_form.php');
@@ -51,13 +50,17 @@
         $permission_array['apply.php'] = 0;
         //pages volunteers can view
         //pages only managers can view
-        $permission_array['makeNewSubmission.php'] = 2;
+        $permission_array['makeNewSubmission.php'] = 0;
         $permission_array['viewAccSubs.php'] = 0;
         $permission_array['viewNewSubs.php'] = 2;
         $permission_array['viewSubmission.php'] = 2;
         $permission_array['log.php'] = 2;
         $permission_array['emailList.php'] = 2;
-        $permission_array['createAdminAccount.php'] = 2;
+	$permission_array['createAdminAccount.php'] = 2;
+	$permission_array['adminViewSubs.php'] = 2;
+	$permission_array['adminNewSubmission.php'] = 2;
+	$permission_array['approveSub.php'] = 2;
+	$permission_array['denySub.php'] = 2;
 
         //Check if they're at a valid page for their access level.
         $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
@@ -87,8 +90,8 @@
 	        }
 	        if ($_SESSION['access_level'] >= 2) {
 	        	echo('<a href="' . $path . 'index.php">Home</a>');
-	        	echo(' | <a href="' . $path . 'makeNewSubmission.php">Make New Submission</a>');
-	        	echo(' | <a href="' . $path . 'viewAccSubs.php">View Accepted Submissions</a>');
+	        	echo(' | <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>');
+	        	echo(' | <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
 	        	//echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        	echo(' | <a href="' . $path . 'emailList.php">Generate Emailing List</a>');

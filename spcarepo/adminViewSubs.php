@@ -13,7 +13,7 @@ include_once("domain/Submission.php");
         </title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>
-        <!-- <link rel="stylesheet" href="calendar.css" type="text/css"/> -->
+        <!--<link rel="stylesheet" href="calendar.css" type="text/css"/> -->
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
@@ -21,11 +21,11 @@ include_once("domain/Submission.php");
     <div id="container">
     <?PHP //include('header.php'); ?>
 		<?php
-			include('header2.php');
+			include('header.php');
 			echo "<div id='content'>";
-			echo "<center><h1>Adoption Stories</h1></center>";
-			echo "<br><center><form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'></form>";
+			echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Adoption Stories</h1>";
+			//echo "<br><center><form action='index.php' method='get'>
+			//<input type='submit' value='Back to Homepage'></form>";
 			$approvedSubs = retrieve_approved_submissions();
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){
@@ -49,6 +49,7 @@ include_once("domain/Submission.php");
 			}
 			echo "<br>";
 		?>
+    </div></div>
     </body>
 </html>
 

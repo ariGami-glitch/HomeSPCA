@@ -47,12 +47,36 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
         </div>
         <div class="slide">
             <h1 class="slide-number">
-                Test 2
+                <?php
+                $approved = retrieve_approved_submissions();
+                $image = $approved[1]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[1]->get_first_name();
+                $petname = $approved[1]->get_pet_name();
+                $petType = $approved[1]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.
+                ?>
             </h1>
         </div>
         <div class="slide">
             <h1 class="slide-number">
-                Test 3
+                <?php
+                $approved = retrieve_approved_submissions();
+                $image = $approved[2]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[2]->get_first_name();
+                $petname = $approved[2]->get_pet_name();
+                $petType = $approved[2]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.
+                ?>
             </h1>
         </div>
     </div>

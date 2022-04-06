@@ -19,7 +19,7 @@ include_once('domain/Submission.php');
 <?php
 include('header2.php');
 //echo '<img src="spca.jpg" alt="SPCA Logo">';
-echo '<h1>&emsp; &emsp; &emsp; &emsp;SPCA Story Highlights</h1>';
+echo '<h1>SPCA Story Highlights</h1>';
 echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
 //echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
 echo( '<a href="submissionEdit.php"><h2>Make A Submission</h2></a>');

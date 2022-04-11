@@ -29,7 +29,7 @@ function add_adopter($adopter) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this email, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
+        mysqli_query($con,'INSERT INTO dbAdopters VALUES("' .
                 $adopter->get_first_name() . '","' .
                 $adopter->get_last_name() . '","' .
                 $adopter->get_email() . '","' .

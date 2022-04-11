@@ -23,7 +23,7 @@
 		$this->first_name = $f;
 		$this->last_name = $l;
 		$this->email = $e;
-		$this->opt_in = $o
+		$this->opt_in = $o;
 	}
 
 	function get_first_name() {

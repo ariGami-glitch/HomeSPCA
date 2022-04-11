@@ -25,7 +25,7 @@ function add_admin($admin) {
     if (!$admin instanceof Admin)
         die("Error: add_admin type mismatch");
     $con=connect();
-    $query = "SELECT * FROM dbAdmins WHERE email = '" . $admin->get_email() . "'";
+    $query = "SELECT * FROM dbAdmins WHERE username = '" . $admin->get_username() . "'";
     $result = mysqli_query($con,$query);
     //if there's no entry for this email, add it
     if ($result == null || mysqli_num_rows($result) == 0) {

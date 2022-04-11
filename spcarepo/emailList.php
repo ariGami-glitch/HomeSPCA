@@ -46,5 +46,6 @@ include_once("domain/Submission.php");
 ?>
     </div>
     </div>
+                    <?PHP include('footer2.inc'); ?>
     </body>
 </html>

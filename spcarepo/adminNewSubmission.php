@@ -95,5 +95,6 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    }
 	    ?>
 	</div>   
+                    <?PHP include('footer2.inc'); ?>
     </body>
 </html> 

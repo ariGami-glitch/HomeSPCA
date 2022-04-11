@@ -21,7 +21,7 @@ include_once("domain/Submission.php");
     <div id="container">
     <?PHP //include('header.php'); ?>
 		<?php
-			include('header2.php');
+			include('header.php');
 			echo "<div id='content'>";
 			echo "<center><h1>Adoption Stories</h1></center>";
 			echo "<br><center><form action='index.php' method='get'>

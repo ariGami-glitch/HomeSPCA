@@ -8,13 +8,16 @@
  * 
  */
 ?><?php
+session_start();
 /*
  * Created on Mar 28, 2008
  * @author Oliver Radwan <oradwan@bowdoin.edu>, Sam Roberts, Allen Tucker
  * @version 3/28/2008, revised 7/1/2015
  */
 ?>
-
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<div id="container">
+<?PHP include('header.php') ?>
 <div id="content">
     <?PHP
     include_once('database/dbAdmins.php');
@@ -44,16 +47,16 @@
         		<tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
     } else {
         //check if they logged in as a guest:
-	if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
+	/*if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
             $_SESSION['logged_in'] = 1;
             $_SESSION['access_level'] = 0;
             $_SESSION['venue'] = "";
             $_SESSION['type'] = "";
             $_SESSION['_id'] = "guest";
             echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
-        }
+    }
         //otherwise authenticate their password
-    else {
+    else {*/
 	    $db_pass = $_POST['pass'];//md5($_POST['pass']);
 	    $db_pass = md5($db_pass);
             $db_id = $_POST['user'];
@@ -62,9 +65,10 @@
             if ($admin) { //avoids null results
                 if ($admin->get_password() == $db_pass) { //if the passwords match, login
                     $_SESSION['logged_in'] = 1;
-					$_SESSION['access_level'] = 2;
+		    $_SESSION['access_level'] = 2;
                     date_default_timezone_set ("America/New_York");
-                    //if ($admin->get_status() == "applicant")
+		     
+		    //if ($admin->get_status() == "applicant")
                     //    $_SESSION['access_level'] = 0;
                     //else if (in_array('manager', $admin->get_type()))
                     //    $_SESSION['access_level'] = 2;
@@ -74,7 +78,7 @@
                     $_SESSION['l_name'] = $admin->get_last_name();
                     //$_SESSION['venue'] = $person->get_venue();
 		    //$_SESSION['type'] = $person->get_type();
-		    $_SESSION['access_level'] = 2;
+		    //$_SESSION['access_level'] = 2;
 
                     $_SESSION['_id'] = $_POST['user'];
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
@@ -109,7 +113,7 @@
 		//change another
                 echo('<p><table><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td><td><input type="text" name="user" tabindex="1"></td></tr><tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
             }
-        }
+        //}
     }
     ?>
     <?PHP //include('footer2.php'); ?>

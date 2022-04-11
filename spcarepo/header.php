@@ -21,10 +21,16 @@
 <div align="center" id="navigationLinks">
 
     <?PHP
+    include("header2.php");
+    /*if ($_SESSION['first_visit'] == 0) {
+	    $_SESSION['first_visit'] = 1;
+	    //include("viewerHomepage.php");
+	    $_SESSION['access_level'] = 0;
+    }*/
     //include("viewerHomepage.php");
     //Log-in security
     //If they aren't logged in, display our log-in form.
-    if (!isset($_SESSION['logged_in'])) {
+    /*if (!isset($_SESSION['logged_in'])) {
         include("viewerHomepage.php");
         if($_POST["clicked"] == "true") {
             include('login_form.php');
@@ -32,10 +38,10 @@
 	//include("footer2.php");
 	
         die();
+    } */
+   if ($_SESSION['first_visit'] !== 0) {
 
-    } 
-    else if ($_SESSION['logged_in']) {
-	include("header2.php");
+	//include("header2.php");
         /*         * Set our permission array.
          * anything a guest can do, a volunteer and manager can also do
          * anything a volunteer can do, a manager can do.
@@ -48,29 +54,32 @@
         $permission_array['index.php'] = 0;
         $permission_array['about.php'] = 0;
         $permission_array['apply.php'] = 0;
-        $permission_array['viewAccSubs.php'] = 0;
+	$permission_array['viewAccSubs.php'] = 0;
+	$permission_array['viewSubmission.php'] = 0;
         //pages volunteers can view
         //pages only managers can view
         $permission_array['makeNewSubmission.php'] = 0;
        
         $permission_array['viewNewSubs.php'] = 2;
-        $permission_array['viewSubmission.php'] = 2;
-        $permission_array['log.php'] = 2;
+	$permission_array['log.php'] = 2;
+	$permission_array['verifySubmission.php'] = 2;
+	$permission_array['editSubmission.php'] = 2;
         $permission_array['emailList.php'] = 2;
         $permission_array['createAdminAccount.php'] = 2;
         $permission_array['adminViewSubs.php'] = 2;
         $permission_array['adminNewSubmission.php'] = 2;
         $permission_array['approveSub.php'] = 2;
         $permission_array['denySub.php'] = 2;
-
+	//echo $_SESSION['access_level'];
         //Check if they're at a valid page for their access level.
-        $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
-        $current_page = substr($current_page, strpos($current_page,"/")+1);
+        $current_page = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1);
+	$current_page = substr($current_page, strpos($current_page,"/")+1);
+	$current_page = substr($current_page, strpos($current_page,"/")+1);
         
         if($permission_array[$current_page]>$_SESSION['access_level']){
             //in this case, the user doesn't have permission to view this page.
-		//we redirect them to the index page.
-            echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
+		//we redirect them to the index page.		
+	    echo "<script type=\"text/javascript\">window.location = \"viewerHomepage.php\";</script>";
             //note: if javascript is disabled for a user's browser, it would still show the page.
             //so we die().
             die();
@@ -85,20 +94,22 @@
         	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
 		}
 	else {*/
-        	echo " <br><b>"."Administrative"."</b> ";
+        	//echo " <br><b>"."Administrative"."</b> ";
 	        if ($_SESSION['access_level'] >= 1) {
 	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	        }
-	        if ($_SESSION['access_level'] >= 2) {
+		if ($_SESSION['access_level'] >= 2) {
+			echo " <br><b>"."Administrative"."</b> ";
 	        	echo('<a href="' . $path . 'index.php">Home</a>');
 	        	echo(' | <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>');
 	        	echo(' | <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>');
 	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
 	        	//echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        	echo(' | <a href="' . $path . 'emailList.php">Generate Emailing List</a>');
-	        	echo(' | <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>');
+			echo(' | <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>');
+			echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
 	        }
-	        echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
+	        //echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
         //}
         
     }

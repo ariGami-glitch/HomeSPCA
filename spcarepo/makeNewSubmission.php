@@ -19,12 +19,12 @@ $adopter = new Adopter(null, null, null, null);
     <body>
 	<div id="container">
 	    <?PHP
-	    include('header2.php');
+	    include('header.php');
 	    echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    echo "<center><h1>Submit Your Adoption Story</h1></center>";
-		    echo "<br><form action='index.php' method='get'><input type='submit' value='Back to Homepage'></form>";
+		    echo "<br><form action='viewerHomepage.php' method='get'><input type='submit' value='Back to Homepage'></form>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }

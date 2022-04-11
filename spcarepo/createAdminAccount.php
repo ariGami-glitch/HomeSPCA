@@ -70,5 +70,6 @@ $admin = new Admin(null, null, null, null, null);
 	?>
 	</div>
 	</div>   
+                    <?PHP include('footer2.inc'); ?>
     </body>
 </html> 

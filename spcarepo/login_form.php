@@ -116,8 +116,9 @@ session_start();
         //}
     }
     ?>
-    <?PHP //include('footer2.php'); ?>
+    <?PHP //include('footer2.inc'); ?>
 </div>
 </div>
+    <?PHP include('footer2.inc'); ?>
 </body>
 </html>

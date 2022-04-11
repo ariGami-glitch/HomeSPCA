@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 11, 2022 at 03:51 AM
+-- Generation Time: Apr 11, 2022 at 12:25 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -40,7 +40,8 @@ CREATE TABLE `dbadmins` (
 --
 
 INSERT INTO `dbadmins` (`email`, `first_name`, `last_name`, `username`, `password`) VALUES
-('none', 'Admin', 'Admin', 'Admin7037806282', 'be6bef2c7a57bead38826deed4077d03');
+('none1', 'new', 'account', 'Admin', 'e3afed0047b08059d0fada10f400c1e5'),
+('none', 'Admin', 'Admin', 'Admin7037806282', 'Admin7037806282');
 
 -- --------------------------------------------------------
 

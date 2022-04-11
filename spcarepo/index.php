@@ -53,7 +53,7 @@ session_cache_expire(30);
 			
 		    }
 		    else if ($_SESSION['access_level'] == 0) { 
-			    echo ("second");
+			    header("Location: viewerHomepage.php");
 	     	    }
                     if ($person) {
                         /*

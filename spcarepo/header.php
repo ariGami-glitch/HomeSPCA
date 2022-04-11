@@ -55,11 +55,12 @@
         $permission_array['about.php'] = 0;
         $permission_array['apply.php'] = 0;
 	$permission_array['viewAccSubs.php'] = 0;
-	$permission_array['viewSubmission.php'] = 0;
+	$permission_array['viewStory.php'] = 0;
         //pages volunteers can view
         //pages only managers can view
         $permission_array['makeNewSubmission.php'] = 0;
-       
+
+	$permission_array['viewSubmission'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
 	$permission_array['log.php'] = 2;
 	$permission_array['verifySubmission.php'] = 2;

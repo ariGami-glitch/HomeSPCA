@@ -42,7 +42,7 @@ include_once("domain/Submission.php");
 				echo "<tr><td><center><p style='font-size:25px;margin-bottom:0;'><b>".$name."</b></p>";
 				echo "<br>Adopted by ".$adopter."</td></tr></table><br>";	
 
-				echo "<form action='viewSubmission.php' method='post'>
+				echo "<form action='viewStory.php' method='post'>
 				<input type='hidden' value='".$email."' name='email'>
 				<input type='submit' value='View Adoption Story'>
 				</form><br>";

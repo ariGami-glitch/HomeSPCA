@@ -31,7 +31,7 @@ echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
 ?>
     <div id="slideshow">
         <div class="slide-wrapper">
-        <div class="slide">
+ 	<div class="slide">
             <h1 class="slide-number">
                 <?php
                 $approved = retrieve_approved_submissions();
@@ -101,7 +101,7 @@ echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
                 //echo (' <a href="viewStory.php">read more</a><br>');.*/
                 ?>
             </h1>
-        </div>
+	</div>
     </div>
     </div>
 	<?php include('footer2.inc'); ?>

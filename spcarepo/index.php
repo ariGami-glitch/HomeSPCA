@@ -31,7 +31,7 @@ session_cache_expire(30);
                 //include_once('database/dbLog.php');
                 //include_once('domain/Shift.php');
                 //include_once('database/dbShifts.php');
-		//date_default_timezone_set('America/New_York');
+		date_default_timezone_set('America/New_York');
 		//    fix_all_birthdays();
 			
                 if ($_SESSION['access_level'] == 2) {

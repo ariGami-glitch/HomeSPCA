@@ -1,4 +1,6 @@
+
 <?php 
+session_start();
 include_once("database/dbSubmissions.php");
 include_once("domain/Submission.php");
 
@@ -36,7 +38,7 @@ include_once("domain/Submission.php");
 		echo "<tr><td><b>Description:</b></td></tr>";
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
 
-		echo "<form action='viewAccSubs.php' method='get'>
+		echo "<form action='adminViewSubs.php' method='get'>
 		<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </div></div>

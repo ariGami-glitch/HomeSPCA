@@ -157,3 +157,37 @@ p.error {color: #FF0000;}
     background:#FCFCFC;
     overflow:hidden;
 }
+
+/* styling the area of the slides */
+#slideshow {
+    overflow: hidden;
+    height: 510px;
+    width: 728px;
+    margin: 0 auto;
+}
+
+.slide {
+    float: left;
+    height: 510px;
+    width: 728px;
+}
+
+.slide-wrapper {
+    width: calc(728px * 4);
+    animation: slide 30s ease infinite;
+}
+
+@keyframes slide {
+    20% {
+        margin-left: 0px;
+    }
+    40% {
+        margin-left: calc(-728px * 1);
+    }
+    60% {
+        margin-left: calc(-728px * 2);
+    }
+    80% {
+        margin-left: calc(-728px * 3);
+    }
+}

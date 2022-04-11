@@ -54,7 +54,8 @@
         }
         //otherwise authenticate their password
     else {
-            $db_pass = $_POST['pass'];//md5($_POST['pass']);
+	    $db_pass = $_POST['pass'];//md5($_POST['pass']);
+	    $db_pass = md5($db_pass);
             $db_id = $_POST['user'];
 
             $admin = retrieve_admin($db_id);

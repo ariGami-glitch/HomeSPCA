@@ -24,7 +24,7 @@ include_once("domain/Submission.php");
 		$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 
-		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Edit Submission</h1>";	
+		echo "<center><h1>Edit Submission</h1>";	
 		//display_submission($sub);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();

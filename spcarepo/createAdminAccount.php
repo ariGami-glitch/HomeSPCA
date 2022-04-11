@@ -21,6 +21,7 @@ $admin = new Admin(null, null, null, null, null);
 	    <?PHP
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
+		    echo "<center><h1>Create New Admin Account</h1></center><br>";
 		    include('adminForm.inc');
 		    //include('footer2.php');
 	    }
@@ -46,7 +47,7 @@ $admin = new Admin(null, null, null, null, null);
 		$last_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['last_name'])));
 		$username = trim(str_replace('\\\'', '\'', htmlentities($_POST['username'])));
 		$password = trim(str_replace('\\\'', '\'', htmlentities($_POST['password'])));
-		
+		$password = md5($password);	
 		$dup = retrieve_admin($username);
 		if ($dup){
 			echo('<p>Username is already taken.<br>');

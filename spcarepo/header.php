@@ -10,7 +10,7 @@
 ?>
 <!-- Begin Header -->
 <style type="text/css">
-    h1 {padding-left: 0px; padding-right:165px;}
+    h1 {padding-left: 0px; padding-right:0px;}
 </style>
 <div id="header">
 <!--<br><br><img src="images/rmhHeader.gif" align="center"><br>

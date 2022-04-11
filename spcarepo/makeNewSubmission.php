@@ -5,9 +5,12 @@ session_start();
 session_cache_expire(30);
 include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
+include_once('database/dbAdopters.php');
+include_once('domain/Adopter.php');
 include_once('database/dbLog.php');
 
 $submission = new Submission(null, null, null, null, null, null, null, null, null);
+$adopter = new Adopter(null, null, null, null);
 
 ?>
 <html>
@@ -20,6 +23,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
+		    echo "<center><h1>Submit Your Adoption Story</h1></center>";
 		    echo "<br><form action='index.php' method='get'><input type='submit' value='Back to Homepage'></form>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
@@ -29,6 +33,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		if ($errors) {
 		    show_errors($errors);
 		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
+		    $adopter = new Adopter($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['opt_in']);
 		    include('submissionForm.inc');
 		}
     		else {
@@ -82,6 +87,8 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    
 		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
 		    $result = add_submission($newsubmission);
+		    $new_adopter = new Adopter($first_name, $last_name, $email, $opt_in);
+		    add_adopter($new_adopter);
 		    
 		    if (!$result)
 			echo('Unable to add');

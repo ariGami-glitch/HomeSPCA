@@ -34,13 +34,15 @@ include_once("domain/Submission.php");
             echo "<center><h1>Emailing List</h1></center>";
             //display the emails
             //get the subs
-            $subs = retrieve_optin();
+	    $subs = retrieve_optin();
+	    echo "<center/><br><table style width='500' border='2'>";
             for($i = 0; $i < count($subs); $i++) {
                 $name = $subs[$i]->get_first_name()." ".$subs[$i]->get_last_name();
                 $email = $subs[$i]->get_email();
-                echo "<center/><br><table style width='500' border='2'>";
-                echo"<center/><tr><td><p style='font-size':30px;margin-bottom:1;'><b>".$name."</b></p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr></table>";
-            }
+                //echo "<center/><br><table style width='500' border='2'>";
+                echo"<center/><tr><td><p style='font-size':30px;margin-bottom:1;'><b>".$name."</b></p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr>";
+	    }
+	    echo "</table>";
 ?>
     </div>
     </div>

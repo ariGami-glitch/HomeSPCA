@@ -30,7 +30,7 @@ include_once("domain/Submission.php");
 			update_submission($email, $_POST['description'], $_POST['pet_type']);
 			echo "<center><br><br>Successfully updated!</center>";		
 		}
-		echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;New Submission</h1>";	
+		echo "<center><h1>New Submission</h1>";	
 		//display_submission($sub);
 		$sub = retrieve_submission($email);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
@@ -48,7 +48,7 @@ include_once("domain/Submission.php");
 
 		echo "<form action='approveSub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit' value='Approve Submission'></form><br>";
+		<input type='submit', value='Approve Submission'></form><br>";
 		echo "<form action='editSubmission.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
 		<input type='submit' value='Edit Submission'></form><br>";

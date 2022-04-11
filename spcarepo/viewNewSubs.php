@@ -20,7 +20,7 @@ include_once("domain/Submission.php");
 <?php
 		include('header.php');
 		echo "<div id='content'>";
-			echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Unapproved Submissions</h1>";
+			echo "<center><h1>Unapproved Submissions</h1>";
 			//echo "<br><form action='index.php' method='get'>
 			//<input type='submit' value='Back to Homepage'></form><center>";
 			$subs = retrieve_unapproved_submissions();

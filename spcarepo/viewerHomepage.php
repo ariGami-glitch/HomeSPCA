@@ -23,7 +23,7 @@ echo '<h1>SPCA Story Highlights</h1>';
 echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
 //echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
 echo( '<a href="submissionEdit.php"><h2>Make A Submission</h2></a>');
-echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
+//echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
 
 ?>
     <div id="slideshow">
@@ -48,6 +48,7 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
         <div class="slide">
             <h1 class="slide-number">
                 <?php
+                //echo "hi";
                 $approved = retrieve_approved_submissions();
                 $image = $approved[1]->get_image();
                 $image_src = "pictures/".$image;
@@ -58,13 +59,14 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
                 echo $name." and ". $petname. "<br>";
                 echo "Pet type: ". $petType. "<br>";
                 echo( '<a href="viewStory.php">read more</a>');
-                //echo (' <a href="viewStory.php">read more</a><br>');.
+                //echo (' <a href="viewStory.php">read more</a><br>');.*/
                 ?>
             </h1>
         </div>
         <div class="slide">
             <h1 class="slide-number">
                 <?php
+                //echo "hi";
                 $approved = retrieve_approved_submissions();
                 $image = $approved[2]->get_image();
                 $image_src = "pictures/".$image;
@@ -75,12 +77,15 @@ echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>'
                 echo $name." and ". $petname. "<br>";
                 echo "Pet type: ". $petType. "<br>";
                 echo( '<a href="viewStory.php">read more</a>');
-                //echo (' <a href="viewStory.php">read more</a><br>');.
+                //echo (' <a href="viewStory.php">read more</a><br>');.*/
                 ?>
             </h1>
         </div>
     </div>
     </div>
 </div>
+<?php
+include('footer2.inc');
+?>
 </body>
 </html>

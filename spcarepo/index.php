@@ -36,7 +36,7 @@ session_cache_expire(30);
 			
                 if ($_SESSION['access_level'] == 2) {
                     $person = retrieve_admin($_SESSION['_id']);
-                    echo "<p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
+                    echo "<br><p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
                 }
                 else 
                     echo "<p>Welcome!";

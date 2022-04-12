@@ -19,18 +19,16 @@ include_once("domain/Submission.php");
     <body>
 	<div id="container">
 	<?php
-		//include('header2.php');
 		include('header.php');
 		echo "<div id='content'>";	
 		$email = $_POST['email'];
-		//$sub = retrieve_submission($email);
 		
+	 	echo "<center><h1>New Submission</h1>";	
 		if ($_POST['updated'] == 'updated') {
-			//echo $_POST['email'];
 			update_submission($email, $_POST['description'], $_POST['pet_type']);
-			echo "<center><br><br>Successfully updated!</center>";		
+			echo "<br>Successfully updated!<br><br><br>";		
 		}
-		echo "<center><h1>New Submission</h1>";	
+		
 		//display_submission($sub);
 		$sub = retrieve_submission($email);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();

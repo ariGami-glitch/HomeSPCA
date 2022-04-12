@@ -1,6 +1,6 @@
 <div class="header2">
-	<img src="fredspca.png" alt="SPCA Logo">
-	<br><b>Adoption Stories</b>
+	<img src="fredspca.png" alt="SPCA Logo" >
+	<br><br>
 </div>
 
 <style>

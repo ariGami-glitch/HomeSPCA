@@ -60,7 +60,7 @@ $admin = new Admin(null, null, null, null, null);
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("<p>Your form has been successfully submitted.</p>");
+			echo("<p>Account has been successfully created!</p>");
 			echo("<form action='index.php' method='get'>
 			<input type='submit' value='Back to Homepage'>
 			</form>");			

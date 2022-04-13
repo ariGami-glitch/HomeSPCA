@@ -1,93 +1,110 @@
 <!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <?php
-
+session_start();
+session_cache_expire(30);
 include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
-
-include('header2.php');
-//echo '<img src="spca.jpg" alt="SPCA Logo">';
-echo '<h1>&emsp; &emsp; &emsp; &emsp;SPCA Story Highlights</h1>';
-echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
-//echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
-echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
-echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
-
-//echo('<p><form method="post" action="submissionEdit.php"><input type="hidden" name="clicke" value="true"><input type="submit" name="SubmissionForm" value="SubmissionForm">');
-
-/*if($_POST['clicked'] == "true") {
-    include('login_form.php');
-    die();
-
-} else if ($_SESSION['logged_in']) {
-
-    /*         * Set our permission array.
-     * anything a guest can do, a volunteer and manager can also do
-     * anything a volunteer can do, a manager can do.
-     *
-     * If a page is not specified in the permission array, anyone logged into the system
-     * can view it. If someone logged into the system attempts to access a page above their
-     * permission level, they will be sent back to the home page.
-     */
-    //pages guests are allowed to view
-    /*$permission_array['index.php'] = 0;
-    $permission_array['about.php'] = 0;
-    $permission_array['apply.php'] = 0;
-    //pages volunteers can view
-    $permission_array['help.php'] = 1;
-    $permission_array['calendar.php'] = 1;
-    //pages only managers can view
-    $permission_array['personsearch.php'] = 2;
-    $permission_array['personedit.php'] = 2;
-    $permission_array['viewschedule.php'] = 2;
-    $permission_array['addweek.php'] = 2;
-    $permission_array['log.php'] = 2;
-    $permission_array['reports.php'] = 2;
-
-    //Check if they're at a valid page for their access level.
-    $current_page = strtolower(substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1));
-    $current_page = substr($current_page, strpos($current_page,"/")+1);
-    
-    if($permission_array[$current_page]>$_SESSION['access_level']){
-        //in this case, the user doesn't have permission to view this page.
-        //we redirect them to the index page.
-        echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
-        //note: if javascript is disabled for a user's browser, it would still show the page.
-        //so we die().
-        die();
-    }
-    //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
-    $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
-    $venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
-    
-    //they're logged in and session variables are set.
-    if ($_SESSION['venue'] =="") { 
-        echo(' <a href="' . $path . 'personEdit.php?id=' . 'new' . '">apply</a>');
-        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-    }
-    else {
-        echo " <br><b>"."Homebase"."</b> ";
-        if ($_SESSION['access_level'] >= 1) {
-            echo('<a href="' . $path . 'index.php">home</a>');
-            echo(' | <a href="' . $path . 'about.php">about</a>');
-            echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-            echo(' | calendars: <a href="' . $path . 'calendar.php?venue=portland'.''.'">Portland, </a>');
-            echo(' <a href="' . $path . 'calendar.php?venue=bangor'.''.'">Bangor</a>');
-        }
-        if ($_SESSION['access_level'] >= 2) {
-            echo('<br>master schedules: <a href="' . $path . 'viewSchedule.php?venue=portland'."".'">Portland, </a>');
-            echo('<a href="' . $path . 'viewSchedule.php?venue=bangor'."".'">Bangor</a>');
-            echo(' | volunteers: <a href="' . $path . 'personSearch.php">search</a>, 
-                    <a href="personEdit.php?id=' . 'new' . '">add, </a> <a href="viewScreenings.php?type=new">screenings</a>');
-            echo(' | <a href="' . $path . 'reports.php?venue='.$_SESSION['venue'].'">reports</a>');
-        }
-        echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-    }
-    
-}*/
 ?>
+<html>
+<head>
+        <title>
+        <?php
+        echo('HOME');
+        ?>
+        </title>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+<?php
+include('header.php');
+//echo '<img src="spca.jpg" alt="SPCA Logo">';
+echo '<div id="content"><center>';
+echo '<h1>SPCA Story Highlights</h1>';
+//echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
+//echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
+//echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
+echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
+echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
+//echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
+//echo $_SESSION['logged_in'];
+?>
+    <div id="slideshow">
+        <div class="slide-wrapper">
+ 	<div class="slide">
+            <h1 class="slide-number">
+                <?php
+                $approved = retrieve_approved_submissions();
+                $image = $approved[0]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[0]->get_first_name();
+                $petname = $approved[0]->get_pet_name();
+                $petType = $approved[0]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.
+                ?>
+            </h1>
+        </div>
+        <div class="slide">
+            <h1 class="slide-number">
+                <?php
+                //echo "hi";
+                $approved = retrieve_approved_submissions();
+                $image = $approved[1]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[1]->get_first_name();
+                $petname = $approved[1]->get_pet_name();
+                $petType = $approved[1]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.*/
+                ?>
+            </h1>
+        </div>
+        <div class="slide">
+            <h1 class="slide-number">
+                <?php
+                //echo "hi";
+                $approved = retrieve_approved_submissions();
+                $image = $approved[2]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[2]->get_first_name();
+                $petname = $approved[2]->get_pet_name();
+                $petType = $approved[2]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.*/
+                ?>
+            </h1>
+        </div>
+        <div class="slide">
+            <h1 class="slide-number">
+                <?php
+                //echo "hi";
+                $approved = retrieve_approved_submissions();
+                $image = $approved[3]->get_image();
+                $image_src = "pictures/".$image;
+                $name = $approved[3]->get_first_name();
+                $petname = $approved[3]->get_pet_name();
+                $petType = $approved[3]->get_pet_type();
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
+                echo $name." and ". $petname. "<br>";
+                echo "Pet type: ". $petType. "<br>";
+                echo( '<a href="viewStory.php">read more</a>');
+                //echo (' <a href="viewStory.php">read more</a><br>');.*/
+                ?>
+            </h1>
+	</div>
+    </div>
+    </div>
+	<?php include('footer2.inc'); ?>
+</div></div></div>
 </body>
 </html>

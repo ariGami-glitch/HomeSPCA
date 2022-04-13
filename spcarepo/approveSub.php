@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+session_start();
 include_once("database/dbSubmissions.php");
 include_once("domain/Submission.php");
 
@@ -16,7 +18,7 @@ include_once("domain/Submission.php");
     <body>
     <div id="container">
 		<?php
-			include('header2.php');
+			include('header.php');
 			echo "<div id='content'>";
 			$email = $_POST['email'];
 			approve_submission($email);

@@ -20,7 +20,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    echo "<br>";
+		    echo "<center><h1>Make New Submission</h1></center><br>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }
@@ -95,5 +95,6 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    }
 	    ?>
 	</div>   
+                    <?PHP include('footer2.inc'); ?>
     </body>
 </html> 

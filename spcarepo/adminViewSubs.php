@@ -23,7 +23,7 @@ include_once("domain/Submission.php");
 		<?php
 			include('header.php');
 			echo "<div id='content'>";
-			echo "<center><h1>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Adoption Stories</h1>";
+			echo "<center><h1>Approved Submissions</h1>";
 			//echo "<br><center><form action='index.php' method='get'>
 			//<input type='submit' value='Back to Homepage'></form>";
 			$approvedSubs = retrieve_approved_submissions();
@@ -50,6 +50,7 @@ include_once("domain/Submission.php");
 			echo "<br>";
 		?>
     </div></div>
+                    <?PHP include('footer2.inc'); ?>
     </body>
 </html>
 

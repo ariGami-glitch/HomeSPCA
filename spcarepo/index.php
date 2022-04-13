@@ -24,30 +24,38 @@ session_cache_expire(30);
 	<?PHP include('header.php'); ?>
         <div id="container">
             <div id="content">
-                <?PHP
+		<?PHP
+		
                 include_once('database/dbAdmins.php');
                 include_once('domain/Admin.php');
                 //include_once('database/dbLog.php');
                 //include_once('domain/Shift.php');
                 //include_once('database/dbShifts.php');
-		//date_default_timezone_set('America/New_York');
+		date_default_timezone_set('America/New_York');
 		//    fix_all_birthdays();
-		
-                if ($_SESSION['_id'] != "guest") {
+			
+                if ($_SESSION['access_level'] == 2) {
                     $person = retrieve_admin($_SESSION['_id']);
-                    echo "<p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
+                    echo "<br><p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
                 }
                 else 
                     echo "<p>Welcome!";
                 echo "   Today is " . date('l F j, Y') . ".<p>";
                 ?>
 
+                    <?PHP include('footer2.inc'); ?>
                 <!-- your main page data goes here. This is the place to enter content -->
                 <p>
                     <?PHP
-                    if ($_SESSION['access_level'] == 0)
-                        echo('<p> To apply for volunteering at the Portland or Bangor Ronald McDonald House, '.
-                        		'please select <b>apply</b>.');
+		    if ($_SESSION['first_visit'] !== 1) {
+			    $_SESSION['first_visit'] = 1;
+			    $_SESSION['access_level'] = 0;
+			    header("Location: viewerHomepage.php");
+			
+		    }
+		    else if ($_SESSION['access_level'] == 0) { 
+			    header("Location: viewerHomepage.php");
+	     	    }
                     if ($person) {
                         /*
                          * Check type of person, and display home page based on that.
@@ -116,7 +124,6 @@ session_cache_expire(30);
                         
                         if ($_SESSION['access_level'] == 2) {
                             //We have a manager authenticated
-
                         	//active applicants box
                         	/*$con=connect();
                         	$app_query = "SELECT first_name,last_name FROM dbAdmins".
@@ -170,7 +177,6 @@ session_cache_expire(30);
                     }
                     ?>
                     </div>
-                    <?PHP include('footer.php'); ?>
         </div>
     </body>
 </html>

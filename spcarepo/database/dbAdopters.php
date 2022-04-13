@@ -15,26 +15,25 @@
  * @author Oliver Radwan and Allen Tucker
  */
 include_once('dbinfo.php');
-include_once(dirname(__FILE__).'/../domain/Admin.php');
+include_once(dirname(__FILE__).'/../domain/Adopter.php');
 
 /*
- * add a admin to dbAdmins table: if already there, return false
+ * add an adopter to dbAdopters table: if already there, return false
  */
 
-function add_admin($admin) {
-    if (!$admin instanceof Admin)
+function add_adopter($adopter) {
+    if (!$adopter instanceof Adopter)
         die("Error: add_admin type mismatch");
     $con=connect();
-    $query = "SELECT * FROM dbAdmins WHERE username = '" . $admin->get_username() . "'";
+    $query = "SELECT * FROM dbAdopters WHERE email = '" . $adopter->get_email() . "'";
     $result = mysqli_query($con,$query);
     //if there's no entry for this email, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
-                $admin->get_email() . '","' .
-                $admin->get_first_name() . '","' .
-                $admin->get_last_name() . '","' .
-                $admin->get_username() . '","' .
-                $admin->get_password() .
+        mysqli_query($con,'INSERT INTO dbAdopters VALUES("' .
+                $adopter->get_first_name() . '","' .
+                $adopter->get_last_name() . '","' .
+                $adopter->get_email() . '","' .
+                $adopter->get_opt_in() .
 		'");');						
         mysqli_close($con);
         return true;
@@ -44,31 +43,31 @@ function add_admin($admin) {
 }
 
 /*
- * remove a admin from dbAdmins table.  If already there, return false
+ * remove an adopter from dbAdopters table.  If already there, return false
  */
 
-function remove_admin($email) {
+function remove_adopter($email) {
     $con=connect();
-    $query = 'SELECT * FROM dbAdmins WHERE email = "' . $email . '"';
+    $query = 'SELECT * FROM dbAdopters WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {
         mysqli_close($con);
         return false;
     }
-    $query = 'DELETE FROM dbAdmins WHERE email = "' . $email . '"';
+    $query = 'DELETE FROM dbAdopters WHERE email = "' . $email . '"';
     $result = mysqli_query($con,$query);
     mysqli_close($con);
     return true;
 }
 
 /*
- * @return a Admin from dbAdmins table matching a particular email.
+ * @return an Adopter from dbAdopters table matching a particular email.
  * if not in table, return false
  */
 
-function retrieve_admin($username) {
+function retrieve_adopter($email) {
     $con=connect();
-    $query = "SELECT * FROM dbAdmins WHERE username = '" . $username . "'";
+    $query = "SELECT * FROM dbAdopters WHERE email = '" . $email . "'";
     $result = mysqli_query($con,$query);
     if (mysqli_num_rows($result) !== 1) {
         mysqli_close($con);
@@ -76,14 +75,15 @@ function retrieve_admin($username) {
     }
     $result_row = mysqli_fetch_assoc($result);
     // var_dump($result_row);
-    $theAdmin = make_a_admin($result_row);
+    $theAdopter = make_an_adopter($result_row);
 //    mysqli_close($con);
-    return $theAdmin;
+    return $theAdopter;
 }
+
 // Name is first concat with last name. Example 'James Jones'
-// return array of Admins.
-function retrieve_admins_by_name ($name) {
-	$admins = array();
+// return array of Adopters.
+function retrieve_adopters_by_name ($name) {
+	$adopters = array();
 	if (!isset($name) || $name == "" || $name == null) return $admins;
 	$con=connect();
 	$name = explode(" ", $name);
@@ -92,31 +92,21 @@ function retrieve_admins_by_name ($name) {
     $query = "SELECT * FROM dbAdmins WHERE first_name = '" . $first_name . "' AND last_name = '". $last_name ."'";
     $result = mysqli_query($con,$query);
     while ($result_row = mysqli_fetch_assoc($result)) {
-        $the_admin = make_a_admin($result_row);
-        $admins[] = $the_admin;
+        $the_adopter = make_an_adopter($result_row);
+        $adopters[] = $the_adopter;
     }
-    return $admins;	
+    return $adopters;	
 }
 
-function change_password($email, $newPass) {
-    $con=connect();
-    $query = 'UPDATE dbAdmins SET password = "' . $newPass . '" WHERE email = "' . $email . '"';
-    $result = mysqli_query($con,$query);
-    mysqli_close($con);
-    return $result;
-}
 
 /*
- * @return all rows from dbAdmins table ordered by last name
+ * @return all rows from dbAdopters table
  * if none there, return false
  */
 
-function getall_dbAdmins($name_from, $name_to, $venue) {
+function getall_dbAdopters() {
     $con=connect();
-    $query = "SELECT * FROM dbAdmins";
-    $query.= " WHERE venue = '" .$venue. "'"; 
-    $query.= " AND last_name BETWEEN '" .$name_from. "' AND '" .$name_to. "'"; 
-    $query.= " ORDER BY last_name,first_name";
+    $query = "SELECT * FROM dbAdopters WHERE opt_in = 1";
     $result = mysqli_query($con,$query);
     if ($result == null || mysqli_num_rows($result) == 0) {
         mysqli_close($con);
@@ -125,28 +115,21 @@ function getall_dbAdmins($name_from, $name_to, $venue) {
     $result = mysqli_query($con,$query);
     $theAdmins = array();
     while ($result_row = mysqli_fetch_assoc($result)) {
-        $theAdmin = make_a_admin($result_row);
-        $theAdmins[] = $theAdmin;
+        $theAdopter = make_an_adopter($result_row);
+        $theAdopters[] = $theAdopters;
     }
 
-    return $theAdmins;
+    return $theAdopters;
 }
 
-function make_a_admin($result_row) {
-    $theAdmin = new Admin(
+function make_an_adopter($result_row) {
+    $theAdopter = new Adopter(
                     $result_row['first_name'],
                     $result_row['last_name'],
                     $result_row['email'],
-                    $result_row['username'],
-                    $result_row['password']);   
-    return $theAdmin;
+                    $result_row['opt_in']);   
+    return $theAdopter;
 }
 
-function getall_names($status, $type, $venue) {
-    $con=connect();
-    $result = mysqli_query($con,"SELECT email,first_name,last_name,type FROM dbAdmins " .
-            "WHERE venue='".$venue."' AND status = '" . $status . "' AND TYPE LIKE '%" . $type . "%' ORDER BY last_name,first_name");
-    mysqli_close($con);
-    return $result;
-}
+
 ?>

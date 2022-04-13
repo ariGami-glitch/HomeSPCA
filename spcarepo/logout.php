@@ -38,7 +38,7 @@ session_cache_expire(30);
                 session_write_close();
                 ?>
                 <p>You are now logged out of Homebase.</p>
-                <?PHP include('footer.inc'); ?>
+                <?PHP //include('footer.inc'); ?>
             </div>
         </div>
     </body>

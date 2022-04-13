@@ -22,6 +22,7 @@
 
     <?PHP
     include("header2.php");
+    
     /*if ($_SESSION['first_visit'] == 0) {
 	    $_SESSION['first_visit'] = 1;
 	    //include("viewerHomepage.php");
@@ -60,7 +61,7 @@
         //pages only managers can view
         $permission_array['makeNewSubmission.php'] = 0;
 
-	$permission_array['viewSubmission'] = 2;
+	$permission_array['viewSubmission.php'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
 	$permission_array['log.php'] = 2;
 	$permission_array['verifySubmission.php'] = 2;

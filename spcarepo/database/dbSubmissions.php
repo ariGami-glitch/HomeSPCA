@@ -62,8 +62,6 @@ function print_approved_submissions($acceptedSubs){
 	}
 }
 
-function remove_submission($email) {
-	$con=connect();
 	$query = 'SELECT * from dbSubmissions WHERE email = "' . $email . '"';
 	$result = mysqli_query($con,$query);
 	if ($result == null || mysqli_num_rows($result) == 0) {
@@ -127,6 +125,13 @@ function retrieve_unapproved_submission($email) {
 function approve_submission($email){
 	$con=connect();
 	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE email = "'.$email.'"';
+	$result = mysqli_query($con,$query);
+	return true;
+}
+
+function unapprove_submission($email){
+	$con=connect();
+	$query = 'UPDATE dbSubmissions SET approved = 0 WHERE email = "'.$email.'"';
 	$result = mysqli_query($con,$query);
 	return true;
 }

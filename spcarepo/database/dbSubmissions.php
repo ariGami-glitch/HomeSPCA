@@ -129,12 +129,12 @@ function approve_submission($email){
 	return true;
 }
 
-/*function unapprove_submission($email){
+function unapprove_submission($email){
 	$con=connect();
 	$query = 'UPDATE dbSubmissions SET approved = 0 WHERE email = "'.$email.'"';
 	$result = mysqli_query($con,$query);
 	return true;
-}*/
+}
 
 function make_a_submission($result_row) {
 	$theSubmission = new Submission(

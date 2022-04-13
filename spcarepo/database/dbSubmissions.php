@@ -49,7 +49,7 @@ function update_submission($email, $desc, $pt) {
 	return false;
 }
 
-function print_approved_submissions($acceptedSubs){
+/*function print_approved_submissions($acceptedSubs){
 	for($i = 0; $i < count($acceptedSubs); $i++){		
 		echo $acceptedSubs[$i]->get_email();
 		echo $acceptedSubs[$i]->get_first_name();
@@ -72,7 +72,7 @@ function print_approved_submissions($acceptedSubs){
 	$result = mysqli_query($con,$query);
 	mysqli_close($con);
 	return true;
-}
+}*/
 
 function retrieve_submission($email) {
 	$con=connect();
@@ -129,12 +129,12 @@ function approve_submission($email){
 	return true;
 }
 
-function unapprove_submission($email){
+/*function unapprove_submission($email){
 	$con=connect();
 	$query = 'UPDATE dbSubmissions SET approved = 0 WHERE email = "'.$email.'"';
 	$result = mysqli_query($con,$query);
 	return true;
-}
+}*/
 
 function make_a_submission($result_row) {
 	$theSubmission = new Submission(

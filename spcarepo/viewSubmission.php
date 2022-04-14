@@ -59,6 +59,7 @@ include_once("domain/Submission.php");
 		<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </div></div>
+    <?php include('footer2.inc'); ?>
     </body>
 </html>
 

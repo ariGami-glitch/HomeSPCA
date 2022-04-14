@@ -42,7 +42,7 @@ session_cache_expire(30);
                     echo "<p>Welcome!";
                 echo "   Today is " . date('l F j, Y') . ".<p>";
                 ?>
-
+		</div>
                     <?PHP include('footer2.inc'); ?>
                 <!-- your main page data goes here. This is the place to enter content -->
                 <p>
@@ -176,7 +176,7 @@ session_cache_expire(30);
 			}*/
                     }
                     ?>
-                    </div>
+		    </div>
         </div>
     </body>
 </html>

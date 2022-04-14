@@ -18,10 +18,11 @@ $admin = new Admin(null, null, null, null, null);
 	<div id="container">
 	<?PHP include('header.php'); ?>
 	    <div id="content">
-	    <?PHP
+	   <?PHP
+	    echo "<center><h1>Create New Admin Account</h1></center>";
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    echo "<center><h1>Create New Admin Account</h1></center><br>";
+		    //echo "<center><h1>Create New Admin Account</h1></center><br>";
 		    include('adminForm.inc');
 		    //include('footer2.php');
 	    }
@@ -50,22 +51,23 @@ $admin = new Admin(null, null, null, null, null);
 		$password = md5($password);	
 		$dup = retrieve_admin($username);
 		if ($dup){
-			echo('<p>Username is already taken.<br>');
+			echo('<center><p class="error">Username is already taken.<br>');
 			include('adminForm.inc');
 		}
 		else {
 		    $new_admin = new Admin($first_name, $last_name, $email, $username, $password);
 		    $result = add_admin($new_admin);
-
+		    echo "<center><br><br>";
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("<p>Account has been successfully created!</p>");
-			echo("<form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'>
-			</form>");			
+			echo("Account has been successfully created!");
+			//echo("<form action='index.php' method='get'>
+			//<input type='submit' value='Back to Homepage'>
+			//</form>");			
 		    } 
 		}
+		include('footer2.inc'); 
 	    }
 	?>
 	</div>

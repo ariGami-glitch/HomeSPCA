@@ -33,14 +33,16 @@ session_cache_expire(30);
                 //include_once('database/dbShifts.php');
 		date_default_timezone_set('America/New_York');
 		//    fix_all_birthdays();
-			
+	        //echo "<br><center><table>";		
                 if ($_SESSION['access_level'] == 2) {
-                    $person = retrieve_admin($_SESSION['_id']);
-                    echo "<br><p>Welcome, " . $person->get_first_name() . ", to the Admin homepage!<br><br>";
+		    $person = retrieve_admin($_SESSION['_id']);
+                    echo "<br><br><center><table>";
+                    echo "<tr><td><h2>Welcome, " . $person->get_first_name() . ", to the Admin homepage!</td></tr>";
                 }
                 else 
                     echo "<p>Welcome!";
-                echo "   Today is " . date('l F j, Y') . ".<p>";
+		echo "<tr><td>Today is " . date('l F j, Y') . ".<p></h2></td></tr></table>";
+		echo "<br><br><br>";
                 ?>
 		</div>
                     <?PHP include('footer2.inc'); ?>

@@ -37,7 +37,7 @@ session_cache_expire(30);
                 session_unset();
                 session_write_close();
                 ?>
-                <p>You are now logged out.</p><br><br><br>
+                <br><center><h2>You are now logged out.</h2></center><br><br><br>
                 <?PHP //include('footer.inc'); ?>
             </div>
 	</div>

@@ -83,15 +83,14 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    
 		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
 		    $result = add_submission($newsubmission);
-		    
+		    echo "<center>"; 
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("<p>Your form has been successfully submitted.</p>");
-			echo("<form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'>
-			</form>");			
+			echo("Your form has been successfully submitted!<br><br><br>");			
 		    } 
+		    echo "</div>";
+		    include('footer2.inc');
 		}
 	    }
 	    ?>

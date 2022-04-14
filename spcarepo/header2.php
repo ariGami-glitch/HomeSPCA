@@ -23,9 +23,9 @@
 	background: #00488A;
 	color: #FEE94E;
 	font-size: 30px;
-	left: 0;
-	right: 0;
-	top: 0;
+	left: 0px;
+	right: 0px;
+	top: 0px;
 }
 
 .button {

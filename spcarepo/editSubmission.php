@@ -51,9 +51,10 @@ include_once("domain/Submission.php");
 		<input type='hidden' value='updated' name='updated'>
 		<input type='submit' value='Save Changes' onclick='clicked(event)'></form><br><br><br>";
 		echo "<form action='viewNewSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br><br><br>";
+		<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </div></div>
+    <?php include('footer2.inc'); ?>
     </body>
 </html>
 

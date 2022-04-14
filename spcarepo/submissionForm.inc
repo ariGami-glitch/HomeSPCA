@@ -1,49 +1,58 @@
+<style>
+td {padding:5px;}
+input[type=submit] {
+    background: #3ABBAD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
 <?php
 
 //echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 
-echo('<p><strong>Adoption Story Submission Form</strong><br />');
-echo('When finished, hit <b>Submit</b> at the bottom of this page.<br>');
+//echo('<p><strong>Adoption Story Submission Form</strong><br />');
+//echo('When finished, hit <b>Submit</b> at the bottom of this page.<br>');
 //echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
 
 ?>
 <form method="POST" action="" enctype='multipart/form-data'>
 	<input type="hidden" name="_form_submit" value="1">
-	<fieldset>
-	    <legend>Adopter Information:</legend>
+	<center><table>	
+	    <tr><td><strong>Adopter Information</strong></td></tr>
 	<?php
-		echo '<p>First Name: <input type="text" name="first_name" tabindex="1" value="'.$submission->get_first_name().'">';
-	?>  &nbsp;&nbsp;&nbsp;&nbsp; <p>Last Name: <input type="text" name="last_name" tabindex="2" value="<?PHP echo($submission->get_last_name()) ?>">
-	<p>Email address: <input type="text" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>">
-	<p>Check box to be added to our email list. <input type="checkbox" name="opt_in">
-	</fieldset>
-	</br>
-	<fieldset>
-	    <legend>Adoption Information:</legend>
+		echo '<tr><td><br>First Name: </td></tr><tr><td><input type="text" size="62" name="first_name" tabindex="1" value="'.$submission->get_first_name().'"></td></tr>';
+	?>  &nbsp;&nbsp;&nbsp;&nbsp; <tr><td>Last Name: </td></tr><tr><td><input type="text" size="62" name="last_name" tabindex="2" value="<?PHP echo($submission->get_last_name()) ?>"></td></tr>
+	<tr><td>Email address: </td></tr><tr><td><input type="text" size="62" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>"></td></tr>
+	<tr><td>Check box to be added to our email list. <input type="checkbox" name="opt_in"></td></tr>
+	
+	    <tr><td><br><strong>Adoption Information</strong></td></tr>
 	<?php
-		echo '<p>Pet Name: <input type="text" name="pet_name" tabindex="4" value="'.$submission->get_pet_name().'">';
+		echo '<tr><td><br>Pet Name: </td></tr><tr><td><input type="text" size="62" name="pet_name" tabindex="4" value="'.$submission->get_pet_name().'"></td></tr>';
 	?>  &nbsp;&nbsp;&nbsp;&nbsp; 
-	<p> Pet Type: 
+	<tr><td> Pet Type: 
 	<select name="pet_type">
 	<option value="Dog">Dog</option>
 	<option value="Cat">Cat</option>
 	<option value="Other">Other</option>
-	</select>		
-	<p> If other, please specify:
-	<input type="text" name="pet_type_other" tabindex="5">
+	</select></td><tr>		
+	<tr><td> If other, please specify:
+	</td></tr><tr><td><input type="text" size="62" name="pet_type_other" tabindex="5"></td></tr>
 	<?php 
-		echo('<p>Adoption Story:<br />');
-		echo('<textarea name="description" rows="7" cols="60">');
-		echo($submission->get_description().'</textarea>');
+		echo('<tr><td>Adoption Story:</td><tr>');
+		echo('<tr><td><textarea name="description" rows="7" cols="61">');
+		echo($submission->get_description().'</textarea></td></tr>');
 	?>
-	<p>Photo: <input type="file" name="image" tabindex="6" value="<?PHP echo($submission->get_image()) ?>">
-	</fieldset>
-	</br> 
+	<tr><td>Photo: <input type="file" name="image" tabindex="6" value="<?PHP echo($submission->get_image()) ?>"></td></tr>
+	</table><br><br>
 
 	<?php
 		echo('<input type="submit" value="Submit Form" name="Submit Story"><br /><br />');
 		//include('footer2.php');
 	?>
-	</tr></table>
 </form>
 

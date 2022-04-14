@@ -1,3 +1,16 @@
+<style>
+input[type=submit] {
+    background: #3ABBAD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;   
+}
+</style>
+
 <?php
 /*
  * Copyright 2013 by Allen Tucker. 
@@ -40,9 +53,7 @@ session_start();
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
         		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.) ');
         echo '</ul>';*/
-        echo('<br><br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td>
-        		<td><input type="text" name="user" tabindex="1"></td></tr>
-        		<tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
+echo('<br><br><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login">');
     } else {
         //check if they logged in as a guest:
 	/*if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
@@ -82,8 +93,8 @@ session_start();
                     echo "<script type=\"text/javascript\">window.location = \"index.php\";</script>";
                 }
                 else {
-                    echo('<center><h1>Administrative Login');
-                    echo('<center><p class="error">Error: invalid username/password<br /></p>'); /**if you cannot remember your password, ask either the 
+                    echo('<center><h1>Administrative Login</h1>');
+                    echo('<p class="error">Error: invalid username/password<br /></p>'); /**if you cannot remember your password, ask either the 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
         		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>. to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                     echo('<p>If you are a volunteer, your Username is your first name followed by your phone number with no spaces. ' .
@@ -92,12 +103,12 @@ session_start();
                     echo('If you do not remember your password, please contact either the 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
 			or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.');*/
-                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td><td><input type="text" name="user" tabindex="1"></td></tr><tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
+                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
                 }
             } else {
                 //At this point, they failed to authenticate
-                echo('<center><h1>Administrative Login');
-                echo('<center><p class="error">Error: invalid username/password');/**if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
+                echo('<center><h1>Administrative Login</h1>');
+                echo('<p class="error">Error: invalid username/password');/**if you cannot remember your password, ask the House Manager to reset it for you.</p><p>Access to Homebase requires a Username and a Password. <p>For guest access, enter Username <strong>guest</strong> and no Password.</p>');
                 echo('<p>If you are a volunteer, your Username is your first name followed by your phone number with no spaces. ' .
                 'For instance, if your first name were John and your phone number were (207)-123-4567, ' .
                 'then your Username would be <strong>John2071234567</strong>.  ');
@@ -105,10 +116,11 @@ session_start();
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
 			or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.'); */
 		//change another
-                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td><td><input type="text" name="user" tabindex="1"></td></tr><tr><td>Password:</td><td><input type="password" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"><input type="submit" name="Login" value="Login"></td></tr></table>');
+                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
             }
         //}
     }
+    echo "<br><br><br>";
     ?>
     <?PHP //include('footer2.inc'); ?>
 </div>

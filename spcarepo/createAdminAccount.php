@@ -61,13 +61,15 @@ $admin = new Admin(null, null, null, null, null);
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("Account has been successfully created!");
+			echo("Account has been successfully created!<br><br><br>");
+ 			echo "</div>";
+			include('footer2.inc');
 			//echo("<form action='index.php' method='get'>
 			//<input type='submit' value='Back to Homepage'>
 			//</form>");			
 		    } 
 		}
-		include('footer2.inc'); 
+		//include('footer2.inc'); 
 	    }
 	?>
 	</div>

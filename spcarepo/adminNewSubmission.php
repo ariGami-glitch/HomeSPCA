@@ -18,9 +18,10 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    <?PHP
 	    include('header.php');
 	    echo "<div id='content'>";
+	    echo "<center><h1>Make New Submission</h1></center><br>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    echo "<center><h1>Make New Submission</h1></center><br>";
+		    //echo "<center><h1>Make New Submission</h1></center><br>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }

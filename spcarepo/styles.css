@@ -2,16 +2,20 @@
 
 
 /* GENERAL STYLES */
-html, body {
+html {
+    position: relative;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
+
 body{
     /* background:#001460; */
     background:#FCFCFC;
     font-family:verdana, arial, sans-serif;
     font-size:12px;
     color: 	#000000;
+    margin: 0 0 100px;
 }
 
 p {padding-left: 15px; padding-right:15px;}

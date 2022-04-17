@@ -57,6 +57,7 @@ include_once("domain/Submission.php");
 		}
 		echo "<form action='adminViewSubs.php' method='get'>
 		<input type='submit' value='View Other Submissions'></form><br><br>";
+
 	?>
     </div></div>
     <?php include('footer2.inc'); ?>

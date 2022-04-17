@@ -50,8 +50,9 @@ include_once("domain/Submission.php");
 		echo "<input type='hidden' value='".$email."' name='email'>
 		<input type='hidden' value='updated' name='updated'>
 		<input type='submit' value='Save Changes' onclick='clicked(event)'></form><br><br><br>";
-		echo "<form action='viewNewSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br><br>";
+		echo "<form action='verifySubmission.php' method='POST'>
+		<input type='hidden' value='".$email."' name='email'>
+		<input type='submit' value='      Return       '></form><br><br>";
 	?>
     </div></div>
     <?php include('footer2.inc'); ?>

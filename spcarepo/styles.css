@@ -2,6 +2,10 @@
 
 
 /* GENERAL STYLES */
+html, body {
+    margin: 0;
+    padding: 0;
+}
 body{
     /* background:#001460; */
     background:#FCFCFC;

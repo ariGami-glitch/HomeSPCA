@@ -40,12 +40,12 @@
     font-size: 16px;
     margin-left: 0px;
     left: 40px;
-    top: 18px;
+    top: 9px;
     cursor: pointer;
     border-radius: 50%;
 }
 
 .button1 {background-color: #CAA900;}
-.button2 {background-color: #3ABBAD; top: 74px}
+.button2 {background-color: #3ABBAD; top: 65px}
 .button3 {background-color: #3ABBAD;}
 </style>

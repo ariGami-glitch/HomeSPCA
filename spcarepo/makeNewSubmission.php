@@ -9,7 +9,7 @@ include_once('database/dbAdopters.php');
 include_once('domain/Adopter.php');
 include_once('database/dbLog.php');
 
-$submission = new Submission($_POST['email'], null, null, null, null, null, null, null, null);
+$submission = new Submission($_POST['email'], null, null, null, null, null, null, null, null, null);
 $adopter = new Adopter(null, null, null, null);
 
 ?>
@@ -33,7 +33,7 @@ $adopter = new Adopter(null, null, null, null);
 		
 		if ($errors) {
 		    show_errors($errors);
-		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
+		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in'], null);
 		    $adopter = new Adopter($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['opt_in']);
 		    include('submissionForm.inc');
 		}
@@ -83,10 +83,10 @@ $adopter = new Adopter(null, null, null, null);
 		
 		$dup = retrieve_submission($email);
 		
-		if ($dup)
-			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
-		else {   
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
+		//if ($dup)
+		//	echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
+		//else {   
+		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
 		    $result = add_submission($newsubmission);
 		    $new_adopter = new Adopter($first_name, $last_name, $email, $opt_in);
 		    add_adopter($new_adopter);
@@ -94,10 +94,12 @@ $adopter = new Adopter(null, null, null, null);
 		    if (!$result)
 			    echo('<center>Unable to add');
 		    else {
-			    echo("<center>Your form has been successfully submitted!</div>");
+			    echo("<center>Your form has been successfully submitted!
+			    <br><br><br><br><form action='viewerHomepage.php'>
+			    <input type='submit' value='Back to Homepage'></form></div>");
 			    include('footer2.inc');	    
 		    } 
-		}
+		//}
 	    }
 	    ?>
 	</div>  

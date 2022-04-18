@@ -21,7 +21,8 @@ function add_submission($submission) {
 			$submission->get_pet_name() . '","' .
 			$submission->get_approved() . '","' .
 			$submission->get_image() . '","' .
-		        $submission->get_opt_in() .	
+			$submission->get_opt_in() . '","' .
+			0 . '","' . 0 . '","' . 0 . 	
 			'");');
 		mysqli_close($con);
 		return true;

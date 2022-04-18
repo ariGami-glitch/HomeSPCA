@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 11, 2022 at 12:25 PM
+-- Generation Time: Apr 18, 2022 at 06:15 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -41,7 +41,8 @@ CREATE TABLE `dbadmins` (
 
 INSERT INTO `dbadmins` (`email`, `first_name`, `last_name`, `username`, `password`) VALUES
 ('none1', 'new', 'account', 'Admin', 'e3afed0047b08059d0fada10f400c1e5'),
-('none', 'Admin', 'Admin', 'Admin7037806282', 'Admin7037806282');
+('none', 'Admin', 'Admin', 'Admin7037806282', 'be6bef2c7a57bead38826deed4077d03'),
+('email', 'Jennifer', 'Werme', 'JRW', '5f4dcc3b5aa765d61d8327deb882cf99');
 
 -- --------------------------------------------------------
 
@@ -767,18 +768,23 @@ CREATE TABLE `dbsubmissions` (
   `pet_name` text,
   `approved` tinyint(1) DEFAULT NULL,
   `image` longtext,
-  `opt_in` tinyint(1) NOT NULL
+  `opt_in` tinyint(1) NOT NULL,
+  `id` int(11) NOT NULL,
+  `is_highlight` tinyint(1) NOT NULL,
+  `num_highlights` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dbsubmissions`
 --
 
-INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`) VALUES
-('fakeemail18', 'J', 'W', 'Dog', 'example  new text', 'Little Bear', 0, 'dog-g8dd2fc397_1280.jpg623b1b0a89ffc', 1),
-('fakeemail5', 'Jane', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Butterscotch', 1, 'cat-ge27c14279_1280.jpg62393e09c4cba', 1),
-('fakegmail', 'Mary', 'Sue', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Lucy', 1, 'picture624a4e0da93b4', 1),
-('gmail4', 'John', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nelson', 1, 'black-cat-breeds.jpg6237be8b5be83', 1);
+INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`, `id`, `is_highlight`, `num_highlights`) VALUES
+('fakeemail10', 'J', 'W', 'Dog', 'example text edit', 'Milo', 1, 'picture62542f66c3b60', 1, 1, 0, 0),
+('fakeemail5', 'Jane', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Butterscotch', 1, 'cat-ge27c14279_1280.jpg62393e09c4cba', 1, 3, 0, 0),
+('fakegmail', 'Mary', 'Sue', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Lucy', 1, 'picture624a4e0da93b4', 1, 4, 0, 0),
+('gmail4', 'John', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nelson', 1, 'black-cat-breeds.jpg6237be8b5be83', 1, 5, 0, 0),
+('new', 'Hi', 'There', 'Cat', 'example text', 'Kitty', 0, 'picture62571a88c0bc8', 1, 7, 0, 0),
+('email9', 'J', 'W', 'Dog', 'example text edit', 'Little Bear', 0, 'picture6259c27d29de6', 1, 23, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -848,7 +854,7 @@ ALTER TABLE `dbshifts`
 -- Indexes for table `dbsubmissions`
 --
 ALTER TABLE `dbsubmissions`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dbweeks`
@@ -865,6 +871,12 @@ ALTER TABLE `dbweeks`
 --
 ALTER TABLE `dblog`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `dbsubmissions`
+--
+ALTER TABLE `dbsubmissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

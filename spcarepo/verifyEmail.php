@@ -58,19 +58,38 @@ session_cache_expire(30);
 		    <input type='submit' value='Send Code'></form><br><br>";
 	    }
 	    else {
-		
+		$email = trim(str_replace('\\\'', '\'', htmlentities($_POST['email'])));	
 		if ($_POST['_enter_code'] != 1) {
 		    // test if email is valid
+		    $valid = valid_email($email);
 	
 		    if (!$valid) {
-		    	// enter email again
+		        // enter email again
+			
 		    }
 		    else {
 			// send and enter access code
+			$access = substr(md5(uniqid(rand(), true)), 10, 10);
+			echo $access;
+			echo "<center><h2>Verify your email address</h2><br><br>
+			<table><tr><td>Enter the code that was sent to your email:</td></tr>
+			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>
+			<input type='hidden' name='email' value='".$email."'>
+			<input type='hidden' name='access' value='".$access."'>
+			<input type='hidden' name='_email_enter' value=1>
+			<input type='hidden' name='_enter_code' value=1></table><br><br>
+			<input type='submit' value='Enter Code'></form><br><br><br>";
 		    }
 		}
 		else {
-		    // code was entered, test if it is correct or not
+		    $code = trim(str_replace('\\\'', '\'', htmlentities($_POST['code'])));
+			// code was entered, test if it is correct or not
+		    if (strcmp($code, $_POST['access']) == 0) {
+			echo "<center><h2>Your email has been verified!</h2><br><br>
+			<form method='POST' action='makeNewSubmission.php>
+			<input type='hidden' name='email' value='".$email."'>
+			<input type='submit' name='Submit' value='Enter your adoption story'></form>";
+		    }
 		}
 	    }
 

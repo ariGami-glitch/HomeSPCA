@@ -21,6 +21,7 @@ include_once("domain/Submission.php");
 		?>
         <div id='container'>
         <?php
+        echo $_POST['adopter'];
         /*$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 

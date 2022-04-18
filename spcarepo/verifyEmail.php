@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 $mail = new PHPMailer(true);
 try {
-	$mail->SMTPDebug = 2;
+	//$mail->SMTPDebug = 2;
 	$mail->isSMTP();
 	$mail->Host  = 'smtp.gmail.com;';
 	$mail->SMTPAuth = true;
@@ -13,14 +13,14 @@ try {
 	$mail->SMTPSecure = 'tls';
 	$mail->Port  = 587;
 	$mail->setFrom('from@gmail.com', 'FXBG_SPCA');
-	$mail->addAddress('spca430@gmail.com');
+	//$mail->addAddress('spca430@gmail.com');
 	//$mail->addAddress('brian2wolf2@gmail.com', 'Name');
 	$mail->isHTML(true);
 	$mail->Subject = 'Email Verification';
-	$mail->Body = 'Please enter the access code to verify your email address with the <b>Fredericksburg SPCA</b>: ';
+	//$mail->Body = 'Please enter the access code to verify your email address with the <b>Fredericksburg SPCA</b>: ';
 	$mail->AltBody = 'Body in plain text for non-HTML mail clients';
-	$mail->send();
-	echo "Mail has been sent successfully!";
+	//$mail->send();
+	//echo "Mail has been sent successfully!";
 } catch (Exception $e) {
 	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
@@ -63,6 +63,10 @@ session_cache_expire(30);
 			// send and enter access code
 			$access = substr(md5(uniqid(rand(), true)), 10, 10);
 			echo $access;
+			$mail->addAddress($email);
+			$mail->Body = 'Please enter the access code to verify your email address with
+				the <b>Fredericksburg SPCA</b>: '.$access;
+			$mail->send();
 			echo "<center><h2>Verify your email address</h2><br><br>
 			<table><tr><td>Enter the code that was sent to your email:</td></tr>
 			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>

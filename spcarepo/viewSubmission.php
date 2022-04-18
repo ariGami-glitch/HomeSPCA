@@ -50,13 +50,15 @@ include_once("domain/Submission.php");
 		    <input type='hidden' name='_form_submit' value='1'>
 		    <input type='hidden' name='email' value='".$email."'>
 		    <input type='submit' value='Remove Post' onclick='clicked(event)'></form><br>";
+		    echo "<form action='adminViewSubs.php' method='get'>
+		    <input type='submit' value='     Return      '></form><br><br>";
 		}
 		else {
 		    unapprove_submission($email);
 		    echo "<br><h2>This submission has been unapproved.</h2><br>";
+		    echo "<form action='adminViewSubs.php' method='get'>
+		    <input type='submit' value='View Other Submissions'></form><br><br>";
 		}
-		echo "<form action='adminViewSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br><br>";
 
 	?>
     </div></div>

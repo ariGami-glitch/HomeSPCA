@@ -67,7 +67,7 @@ include_once("domain/Submission.php");
 		<input type='submit' value='Decline' onclick='clicked2(event)'></form>&emsp;&emsp;&emsp;&emsp;";
 		echo "<form action='editSubmission.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit' value='  Edit  '></form></tr></table><br><br>";
+		<input type='submit' value='  Edit  '></form></tr></table><br><br><br>";
 		//echo "<form action='viewNewSubs.php' method='get'>
 		//<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>

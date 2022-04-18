@@ -1,38 +1,5 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php';
-
-$mail = new PHPMailer(true);
-
-try {
-	$mail->SMTPDebug = 2;									
-	$mail->isSMTP();											
-	$mail->Host	 = 'smtp.gmail.com;';					
-	$mail->SMTPAuth = true;							
-	$mail->Username = 'fredspca430@gmail.com';				
-	$mail->Password = 'kittens123!';						
-	$mail->SMTPSecure = 'tls';							
-	$mail->Port	 = 587;
-	$mail->setFrom('from@gmail.com', 'FXBG_SPCA');		
-	$mail->addAddress('spca430@gmail.com');
-	$mail->addAddress('brian2wolf2@gmail.com', 'Name');
-	$mail->isHTML(true);								
-	$mail->Subject = 'Email Verification';
-	$mail->Body = 'Please enter the access code to verify your email address with the <b>Fredericksburg SPCA</b>: ';
-	$mail->AltBody = 'Body in plain text for non-HTML mail clients';
-	$mail->send();
-	echo "Mail has been sent successfully!";
-} catch (Exception $e) {
-	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
-
-?>
-
-<?php
-
 session_start();
 session_cache_expire(30);
 

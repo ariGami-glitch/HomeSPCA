@@ -22,7 +22,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    //echo "<center><h1>Make New Submission</h1></center><br>";
-		    include('submissionForm.inc');
+		    include('submissionForm2.inc');
 		    //include('footer2.php');
 	    }
 	    else {

@@ -82,7 +82,7 @@ session_cache_expire(30);
 			// code was entered, test if it is correct or not
 		    if (strcmp($code, $_POST['access']) == 0) {
 			echo "<center><h2>Your email has been verified!</h2><br><br>
-			<form method='POST' action='makeNewSubmission.php>
+			<form method='POST' action='makeNewSubmission.php'>
 			<input type='hidden' name='email' value='".$email."'>
 			<input type='submit' name='Submit' value='Enter your adoption story'></form>";
 		    }

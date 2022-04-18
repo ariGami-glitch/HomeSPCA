@@ -47,8 +47,10 @@ echo '<h1>SPCA Story Highlights</h1>';
 //echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
 //echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
 //echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
-echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
-echo( '<a href="verifyEmail.php"><h2>Make A Submission</h2></a><br>');
+
+//echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
+//echo( '<a href="verifyEmail.php"><h2>Make A Submission</h2></a><br>');
+
 //echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
 //echo $_SESSION['logged_in'];
 ?>

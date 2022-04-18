@@ -31,6 +31,11 @@ session_start();
 <link rel="stylesheet" href="styles.css" type="text/css" />
 <div id="container">
 <?PHP include('header.php') ?>
+<div class="topnav">
+<a href="index.php">Home</a>
+<a href="makeNewSubmission.php">Make A Submission</a>
+<a class="active" href="login_form.php">Admin Login</a>
+</div>
 <div id="content">
     <?PHP
     include_once('database/dbAdmins.php');

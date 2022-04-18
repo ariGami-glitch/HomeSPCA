@@ -1,8 +1,8 @@
 <div class="header2">
 	<center><img src="fredspca.png" alt="SPCA Logo"></center>
 	<!--<form action="index.php"><input type="submit" class="button button3" value=" Home Page "></form>-->
-	<?php 
-	if ($_SESSION['access_level'] != 2) {
+    <?php 
+	/*if ($_SESSION['access_level'] != 2) {
 		echo "<form action='index.php'><input type ='submit' class='button button3' value=' Home Page '></form>";
 		echo "<form action='login_form.php'>
 		      <input type='submit' class='button button2' value='Admin Login'></form>";
@@ -48,4 +48,24 @@
 .button1 {background-color: #CAA900;}
 .button2 {background-color: #3ABBAD; top: 65px}
 .button3 {background-color: #3ABBAD;}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.topnav a:hover {
+    background-color: blue;
+    color: white;
+}  
+.topnav a.active {
+    background-color: #C60070;
+    color: white;
+}
 </style>

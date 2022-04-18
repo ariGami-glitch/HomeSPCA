@@ -55,7 +55,14 @@ $adopter = new Adopter(null, null, null, null);
 	<div id="container">
 	    <?PHP
 	    include('header.php');
-	    echo "<div id='content'>";
+	    ?>
+        <div class="topnav">
+        <a href="index.php">Home</a>
+        <a class="active" href="makeNewSubmission.php">Make A Submission</a>
+        <a href="login_form.php">Admin Login</a>
+        </div>
+        <?php
+        echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    echo "<center><h1>Submit Your Adoption Story</h1></center>
 		  <br>";

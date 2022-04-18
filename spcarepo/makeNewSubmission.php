@@ -7,7 +7,6 @@ require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
-/*
 try {
 	$mail->SMTPDebug = 2;									
 	$mail->isSMTP();											
@@ -30,7 +29,6 @@ try {
 	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 }
-*/
 ?>
 
 <?php

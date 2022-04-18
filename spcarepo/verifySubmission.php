@@ -35,16 +35,16 @@ include_once("domain/Submission.php");
 	<?php
 		include('header.php');
 		echo "<div id='content'>";	
-		$email = $_POST['email'];
-		
+		$id = $_POST['id'];
+
 	 	echo "<center><h1>New Submission</h1>";	
 		if ($_POST['updated'] == 'updated') {
-			update_submission($email, $_POST['description'], $_POST['pet_type']);
+			update_submission($id, $_POST['description'], $_POST['pet_type']);
 			echo "<br>Successfully updated!<br><br><br>";		
 		}
 		
 		//display_submission($sub);
-		$sub = retrieve_submission($email);
+		$sub = retrieve_submission($id);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
 		$pet_type = $sub->get_pet_type();
@@ -60,13 +60,13 @@ include_once("domain/Submission.php");
 		
 		echo "<table style width='400'>";
 		echo "<tr><form action='approveSub.php' method='post'>
-		<input type='hidden' value='".$email."' name='email'>
+		<input type='hidden' value='".$id."' name='id'>
 		<input type='submit', value='Accept' onclick='clicked1(event)'></form>&emsp;&emsp;&emsp;&emsp;";
 		echo "<form action='denySub.php' method='post'>
-		<input type='hidden' value='".$email."' name='email'>
+		<input type='hidden' value='".$id."' name='id'>
 		<input type='submit' value='Decline' onclick='clicked2(event)'></form>&emsp;&emsp;&emsp;&emsp;";
 		echo "<form action='editSubmission.php' method='post'>
-		<input type='hidden' value='".$email."' name='email'>
+		<input type='hidden' value='".$id."' name='id'>
 		<input type='submit' value='  Edit  '></form></tr></table><br><br><br>";
 		//echo "<form action='viewNewSubs.php' method='get'>
 		//<input type='submit' value='View Other Submissions'></form><br><br>";

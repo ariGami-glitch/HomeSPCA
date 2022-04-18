@@ -9,6 +9,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer;
 }
 </style>
 <?php
@@ -27,7 +28,7 @@ input[type=submit] {
 	<?php
 		echo '<tr><td><br>First Name: </td></tr><tr><td><input type="text" size="62" name="first_name" tabindex="1" value="'.$submission->get_first_name().'"></td></tr>';
 	?>  &nbsp;&nbsp;&nbsp;&nbsp; <tr><td>Last Name: </td></tr><tr><td><input type="text" size="62" name="last_name" tabindex="2" value="<?PHP echo($submission->get_last_name()) ?>"></td></tr>
-	<tr><td>Email address: </td></tr><tr><td><input type="text" size="62" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>"></td></tr>
+	<tr><td>Email address: </td></tr><tr><td><input type="text" size="62" name="email" tabindex="3" value="<?PHP echo($submission->get_email()) ?>" readonly></td></tr>
 	<tr><td>Check box to be added to our email list. <input type="checkbox" name="opt_in"></td></tr>
 	
 	    <tr><td><br><strong>Adoption Information</strong></td></tr>

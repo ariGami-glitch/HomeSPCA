@@ -30,7 +30,7 @@ include_once("domain/Submission.php");
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){
 				//echo "<br><table style width='800'>";
-				$email = $approvedSubs[$i]->get_email();
+				$id = $approvedSubs[$i]->get_id();
 				$name = $approvedSubs[$i]->get_pet_name();
 				$adopter = $approvedSubs[$i]->get_first_name()." ".$approvedSubs[$i]->get_last_name();
 				$type = $approvedSubs[$i]->get_pet_type();
@@ -43,7 +43,7 @@ include_once("domain/Submission.php");
 				echo "<br>Adopted by ".$adopter."</td></tr></table><br>";	
 
 				echo "<form action='viewSubmission.php' method='post'>
-				<input type='hidden' value='".$email."' name='email'>
+				<input type='hidden' value='".$id."' name='id'>
 				<input type='submit' value='View Adoption Story'>
 				</form><br>";
 			}

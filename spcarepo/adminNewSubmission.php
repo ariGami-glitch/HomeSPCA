@@ -7,7 +7,7 @@ include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
 include_once('database/dbLog.php');
 
-$submission = new Submission(null, null, null, null, null, null, null, null, null);
+$submission = new Submission(null, null, null, null, null, null, null, null, null, null);
 
 ?>
 <html>
@@ -21,15 +21,13 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    echo "<center><h1>Make New Submission</h1></center><br>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    //echo "<center><h1>Make New Submission</h1></center><br>";
 		    include('submissionForm2.inc');
-		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_submission($submission);
 		if ($errors) {
 		    show_errors($errors);
-		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
+		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in'], null);
 		    include('submissionForm.inc');
 		}
     		else {
@@ -81,7 +79,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
 		else {
 		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
+		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
 		    $result = add_submission($newsubmission);
 		    echo "<center>"; 
 		    if (!$result)

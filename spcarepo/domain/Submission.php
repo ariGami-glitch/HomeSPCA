@@ -12,7 +12,7 @@ class Submission {
 	private $image;
 	private $opt_in;
 
-	function __construct($e, $fn, $ln, $pt, $d, $pn, $a, $i, $oi) {
+	function __construct($e, $fn, $ln, $pt, $d, $pn, $a, $i, $oi, $id) {
 		$this->email = $e;
 		$this->first_name = $fn;
 		$this->last_name = $ln;
@@ -22,10 +22,15 @@ class Submission {
 		$this->approved = $a;
 		$this->image = $i;
 		$this->opt_in = $oi;
+		$this->id = $id;
 	}
 
 	function get_email() {
 		return $this->email;
+	}
+
+	function get_id() {
+		return $this->id;
 	}
 
 	function get_first_name() {

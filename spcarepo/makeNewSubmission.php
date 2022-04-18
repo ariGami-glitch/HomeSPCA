@@ -7,7 +7,8 @@ require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
-/*try {
+/*
+try {
 	$mail->SMTPDebug = 2;									
 	$mail->isSMTP();											
 	$mail->Host	 = 'smtp.gmail.com;';					
@@ -28,8 +29,8 @@ $mail = new PHPMailer(true);
 } catch (Exception $e) {
 	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-}*/
-
+}
+*/
 ?>
 
 <?php

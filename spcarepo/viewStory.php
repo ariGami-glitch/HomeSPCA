@@ -17,8 +17,12 @@ include_once("domain/Submission.php");
     <div id="container">
 	<?php
 		include('header.php');
-		echo "<div id='content'>";
-		$email = $_POST['email'];
+		//echo "<div id='content'>";
+		?>
+        <div id='container'>
+        <?php
+        echo $_POST['adopter'];
+        /*$email = $_POST['email'];
 		$sub = retrieve_submission($email);
 
 		echo "<center><h1>Adoption Story</h1>";	
@@ -37,7 +41,7 @@ include_once("domain/Submission.php");
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
 
 		echo "<form action='viewAccSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br>";
+		<input type='submit' value='View Other Submissions'></form><br>";*/
 	?>
     </div></div>
     <?php include('footer2.inc'); ?>

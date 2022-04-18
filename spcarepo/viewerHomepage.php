@@ -43,7 +43,9 @@ echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
                 echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></tr></td></table>";
                 echo $name." and ". $petname. "<br>";
                 echo "Pet type: ". $petType. "<br>";
-                echo( '<a href="viewStory.php">read more</a>');
+                //echo( '<a href="viewStory.php">read more</a>');
+                echo( '<form method="post"><input type="hidden" name="adopter" value="hi"><a href="viewStory.php">read more</a>');
+                //echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
                 //echo (' <a href="viewStory.php">read more</a><br>');.
                 ?>
             </h1>

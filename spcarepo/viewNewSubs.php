@@ -27,7 +27,7 @@ include_once("domain/Submission.php");
 			
 			for ($i = 0; $i < count($subs); $i++){
 				//echo "<br><table style width='800'>";
-				$email = $subs[$i]->get_email();
+				$id = $subs[$i]->get_id();
 				$name = $subs[$i]->get_pet_name();
 				$adopter = $subs[$i]->get_first_name()." ".$subs[$i]->get_last_name();
 				$type = $subs[$i]->get_pet_type();
@@ -40,7 +40,7 @@ include_once("domain/Submission.php");
 				echo "<br>Adopted by ".$adopter."</td></tr></table><br>";	
 
 				echo "<form action='verifySubmission.php' method='post'>
-				<input type='hidden' value='".$email."' name='email'>
+				<input type='hidden' value='".$id."' name='id'>
 				<input type='submit' value='View Submission'>
 				</form><br>";
 			}

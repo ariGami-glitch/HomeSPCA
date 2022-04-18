@@ -59,12 +59,12 @@ echo( '<a href="verifyEmail.php"><h2>Make A Submission</h2></a><br>');
                 $name = $approved[$i]->get_first_name();
                 $petname = $approved[$i]->get_pet_name();
 		$petType = $approved[$i]->get_pet_type();
-		$email = $approved[$i]->get_email();
+		$id = $approved[$i]->get_id();
                 echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></td></tr>";
                 echo "<tr><td style='text-align:center'><strong><font size='5'>" .$petname. "</font></strong>";
 		echo "<tr><td style='text-align:center'><font size='3'>Adopted by ". $name . "</font></td></tr>";
 		echo "<tr><td style='text-align:center'><form method='POST' action='viewStory.php'>
-		<input type='hidden' name='email' value='".$email."'>
+		<input type='hidden' name='id' value='".$id."'>
 		<input type='submit' class='buttonlink' value='read more'></form></td></tr></table>";
                 
 		echo "</div></div>";

@@ -88,6 +88,20 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
+function remove_submission($email) {
+	$con=connect();
+	$query = 'SELECT * FROM dbSubmissions WHERE email= "'.$email.'"';
+	$result = mysqli_query($con,$query);
+	if ($result == null || mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$query = 'DELETE FROM dbSubmissions WHERE email= "'.$email.'"';
+	$result = mysqli_query($con, $query);
+	mysqli_close($con);
+	return true;
+}
+
 /*
 function retrieve_approved_submission($email) {
 	$con=connect();

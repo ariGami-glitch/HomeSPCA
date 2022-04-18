@@ -57,20 +57,22 @@ include_once("domain/Submission.php");
 		echo "<tr><td><b>Pet Type:</b> ".$pet_type."</td></tr>";
 		echo "<tr><td><b>Description:</b></td></tr>";
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
-
-		echo "<form action='approveSub.php' method='post'>
+		
+		echo "<table style width='400'>";
+		echo "<tr><form action='approveSub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit', value='Approve Submission' onclick='clicked1(event)'></form><br>";
-		echo "<form action='editSubmission.php' method='post'>
-		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit' value='Edit Submission'></form><br>";
+		<input type='submit', value='Accept' onclick='clicked1(event)'></form>&emsp;&emsp;&emsp;&emsp;";
 		echo "<form action='denySub.php' method='post'>
 		<input type='hidden' value='".$email."' name='email'>
-		<input type='submit' value='Deny Submission' onclick='clicked2(event)'></form><br>";
-		echo "<form action='viewNewSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br><br>";
+		<input type='submit' value='Decline' onclick='clicked2(event)'></form>&emsp;&emsp;&emsp;&emsp;";
+		echo "<form action='editSubmission.php' method='post'>
+		<input type='hidden' value='".$email."' name='email'>
+		<input type='submit' value='  Edit  '></form></tr></table><br><br>";
+		//echo "<form action='viewNewSubs.php' method='get'>
+		//<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </div></div>
+    <?php include('footer2.inc'); ?>
     </body>
 </html>
 

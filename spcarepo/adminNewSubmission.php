@@ -18,9 +18,10 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    <?PHP
 	    include('header.php');
 	    echo "<div id='content'>";
+	    echo "<center><h1>Make New Submission</h1></center><br>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    echo "<center><h1>Make New Submission</h1></center><br>";
+		    //echo "<center><h1>Make New Submission</h1></center><br>";
 		    include('submissionForm.inc');
 		    //include('footer2.php');
 	    }
@@ -82,15 +83,14 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    
 		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
 		    $result = add_submission($newsubmission);
-		    
+		    echo "<center>"; 
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("<p>Your form has been successfully submitted.</p>");
-			echo("<form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'>
-			</form>");			
+			echo("Your form has been successfully submitted!<br><br><br>");			
 		    } 
+		    echo "</div>";
+		    include('footer2.inc');
 		}
 	    }
 	    ?>

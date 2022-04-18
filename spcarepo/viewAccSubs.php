@@ -23,9 +23,8 @@ include_once("domain/Submission.php");
 		<?php
 			include('header.php');
 			echo "<div id='content'>";
-			echo "<center><h1>Adoption Stories</h1></center>";
-			echo "<br><center><form action='index.php' method='get'>
-			<input type='submit' value='Back to Homepage'></form>";
+			echo "<center><h1>Adoption Stories</h1><br>";
+			
 			$approvedSubs = retrieve_approved_submissions();
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){
@@ -47,7 +46,8 @@ include_once("domain/Submission.php");
 				<input type='submit' value='View Adoption Story'>
 				</form><br>";
 			}
-			echo "<br>";
+			echo "</div></div>";
+			include('footer2.inc');
 		?>
     </body>
 </html>

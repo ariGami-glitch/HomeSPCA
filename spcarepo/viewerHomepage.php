@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 session_start();
 session_cache_expire(30);
@@ -103,8 +103,9 @@ echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a>');
             </h1>
 	</div>
     </div>
-    </div>
-	<?php include('footer2.inc'); ?>
+    </div> 
+	<?php //include('footer2.inc'); ?>
 </div></div></div>
+	<?php include('footer2.inc'); ?>
 </body>
 </html>

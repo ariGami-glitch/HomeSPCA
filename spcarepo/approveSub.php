@@ -24,9 +24,10 @@ include_once("domain/Submission.php");
 			approve_submission($email);
 			echo "<center><br><h2>The submission has been approved!</h2><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
-			<input type='submit' value='View Other Submissions'></form>";	
+			<input type='submit' value='View Other Submissions'></form><br><br><br>";	
 		?>
     </div></div>
+    <?php include('footer2.inc'); ?>
     </body>
 </html>
 

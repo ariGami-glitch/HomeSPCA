@@ -21,13 +21,15 @@ include_once("domain/Submission.php");
 			echo "<div id='content'>";
 			$email = $_POST['email'];
 			$sub = retrieve_submission($email);
+			
 			remove_submission($email);
 			unlink("pictures/".$sub->get_image());
 			echo "<center><br><h2>This submission has been denied.</h2><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
-			<input type='submit' value='View Other Submissions'></form>";	
+			<input type='submit' value='View Other Submissions'></form><br><br><br>";	
 		?>
 	</div></div>
+        <?php include('footer2.inc'); ?>
     </body>
 </html>
 

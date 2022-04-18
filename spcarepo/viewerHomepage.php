@@ -55,6 +55,7 @@ echo( '<a href="makeNewSubmission.php"><h2>Make A Submission</h2></a><br>');
                 
                 $image = $approved[$i]->get_image();
                 $image_src = "pictures/".$image;
+<<<<<<< HEAD
                 $name = $approved[$i]->get_first_name();
                 $petname = $approved[$i]->get_pet_name();
 		$petType = $approved[$i]->get_pet_type();

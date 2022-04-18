@@ -51,7 +51,11 @@ session_cache_expire(30);
 	    echo "<center><h1>Submit Your Adoption Story</h1></center><br>";
 	  
 	    if ($_POST['_email_enter'] != 1) {
-		    // enter your email
+		    echo "<center><h2>Verify your email address</h2><br><br>
+		    <table><tr><td>Enter your email here:</td></tr>
+		    <tr><td><form method='POST'><input type='text' size='46' name='email'></td></tr>
+		    </table><br><br><input type='hidden' name='_email_enter' value=1>
+		    <input type='submit' value='Send Code'></form><br><br>";
 	    }
 	    else {
 		

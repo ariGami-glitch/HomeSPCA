@@ -23,7 +23,9 @@ $adopter = new Adopter(null, null, null, null);
 	    echo "<div id='content'>";
 	    include('submissionValidate.inc');
 	    echo "<center><h1>Submit Your Adoption Story</h1></center><br>";
-
+	    if ($_POST['email'] == null) {
+		header('Location: verifyEmail.php');
+	    }
 	    if ($_POST['_form_submit'] != 1) {
 		    include('submissionForm.inc');
 		    //include('footer2.php');
@@ -94,10 +96,7 @@ $adopter = new Adopter(null, null, null, null);
 		    if (!$result)
 			    echo('<center>Unable to add');
 		    else {
-			    echo("<center>Your form has been successfully submitted!
-			    <br><br><br><br><form action='viewerHomepage.php'>
-			    <input type='submit' value='Back to Homepage'></form></div>");
-			    include('footer2.inc');	    
+			    header('Location: formSubmit.php');  
 		    } 
 		//}
 	    }

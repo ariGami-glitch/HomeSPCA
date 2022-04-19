@@ -28,7 +28,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		if ($errors) {
 		    show_errors($errors);
 		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in'], null);
-		    include('submissionForm.inc');
+		    include('submissionForm2.inc');
 		}
     		else {
     		    process_submission($submission);
@@ -75,9 +75,9 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		
 		$dup = retrieve_submission($email);
 		
-		if ($dup)
-			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
-		else {
+		//if ($dup)
+		//	echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
+		//else {
 		    
 		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
 		    $result = add_submission($newsubmission);
@@ -85,11 +85,12 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		    if (!$result)
 			echo('Unable to add');
 		    else {
-			echo("Your form has been successfully submitted!<br><br><br>");			
+			header('Location: formSubmit.php');
+			//echo("Your form has been successfully submitted!<br><br><br>");			
 		    } 
 		    echo "</div>";
 		    include('footer2.inc');
-		}
+		//}
 	    }
 	    ?>
 	</div>   

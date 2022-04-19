@@ -20,11 +20,12 @@ function validate_admin($admin) {
 }
 
 function show_errors($e) {
-	echo('<div class="warning">');
+	echo('<br><div class="warning"><center><table style="width:370">');
 	echo('<ul>');
 	foreach ($e as $error) {
-	    echo("<li><strong><font color=\"red\">" . $error . "</font></strong></li>\n");
+	    echo("<tr><td style='padding:0px'><li><strong><font color=\"red\">" . $error . "</font></strong></li></td></tr>");
 	}
-	echo("</ul></div></p>");
+	echo("</ul></table><br></div></p>");
+
 }
 ?>

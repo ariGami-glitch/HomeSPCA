@@ -17,6 +17,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer;
 }
 </style>
 

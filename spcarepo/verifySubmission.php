@@ -40,7 +40,7 @@ include_once("domain/Submission.php");
 	 	echo "<center><h1>New Submission</h1>";	
 		if ($_POST['updated'] == 'updated') {
 			update_submission($id, $_POST['description'], $_POST['pet_type']);
-			echo "<br>Successfully updated!<br><br><br>";		
+			echo "<br><strong><font color='#3ABBAD' size='+1'>Successfully updated!</font></strong><br><br><br>";		
 		}
 		
 		//display_submission($sub);

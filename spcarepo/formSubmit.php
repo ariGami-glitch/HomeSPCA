@@ -1,3 +1,17 @@
+<style>
+input[type=submit] {
+    background: #3ABBAD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+
 <?php
 
 session_start();
@@ -20,10 +34,17 @@ include_once("domain/Submission.php");
 		<?php
 			include('header.php');
 			echo "<div id='content'>";
-			echo "<center><h1>Submit Your Adoption Story</h1><br>";
-			echo "<h2>Your form has been successfully submitted!</h2><br><br>";	
-			echo "<form action='viewNewSubs.php' method='get'>
-			<input type='submit' value='Back to Homepage'></form><br><br><br>";	
+			echo "<center><br><br>";
+			echo "<h2>Thank you for your submission!</h2><br><br>";
+			if ($_SESSION['access_level'] != 2) {	
+				echo "<form action='viewerHomepage.php' method='get'>
+				<input type='submit' value='Back to Homepage'></form>";
+			}
+			else {
+				echo "<form action='adminNewSubmission.php' method='get'>
+				<input type='submit' value='Return'></form>";
+			}
+			echo "<br><br><br>";	
 		?>
     </div></div>
     <?php include('footer2.inc'); ?>

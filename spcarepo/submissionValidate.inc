@@ -14,17 +14,17 @@ function validate_submission($submission) {
 		$errors[] = 'Please enter your type of pet';
 	if ($_POST['description'] == null)
 		$errors[] = 'Please enter your adoption story';
-	//if ($_POST['image'] == null)
-	//	$errors[] = 'Please upload a photo of your pet';
+	if ($_FILES['image']['name'] == null)
+		$errors[] = 'Please upload a photo of your pet';
 	return $errors;
 }
 
 function show_errors($e) {
-	echo('<div class="warning">');
+	echo('<div class="warning"><center><table style="width:460">');
 	echo('<ul>');
 	foreach ($e as $error) {
-	    echo("<li><strong><font color=\"red\">" . $error . "</font></strong></li>\n");
+	    echo("<tr><td style='padding:0px'><li><strong><font color='red'>" . $error . "</font></strong></li></td></tr>");
 	}
-	echo("</ul></div></p>");
+	echo("</ul></table><br></div></p>");
 }
 ?>

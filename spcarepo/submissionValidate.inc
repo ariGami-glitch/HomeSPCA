@@ -2,17 +2,24 @@
 
 
 function validate_submission($submission) {
-	if ($_POST['first_name'] == null)
+	$first_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['first_name'])));
+	$last_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['last_name'])));
+	$email = trim(str_replace('\\\'', '\'', htmlentities($_POST['email'])));
+	$pet_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_name'])));
+	$pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
+	$pet_type_other = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type_other'])));
+	$description = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
+	if ($first_name == null)
 		$errors[] = 'Please enter a first name';
-	if ($_POST['last_name'] == null)
+	if ($last_name == null)
 		$errors[] = 'Please enter a last name';
-	if ($_POST['email'] == null)
+	if ($email == null)
 		$errors[] = 'Please enter a valid email';
-	if ($_POST['pet_name'] == null)
+	if ($pet_name == null)
 		$errors[] = 'Please enter the name of your pet';
-	if ($_POST['pet_type'] == 'Other' & $_POST['pet_type_other'] == null)
+	if (strcmp($pet_type,'Other') == 0 & $pet_type_other == null)
 		$errors[] = 'Please enter your type of pet';
-	if ($_POST['description'] == null)
+	if ($description == null)
 		$errors[] = 'Please enter your adoption story';
 	if ($_FILES['image']['name'] == null)
 		$errors[] = 'Please upload a photo of your pet';

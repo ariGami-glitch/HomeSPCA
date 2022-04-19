@@ -82,23 +82,23 @@ $adopter = new Adopter(null, null, null, null);
 		else {
 			$opt_in = 0;
 		}
-		
-		$dup = retrieve_submission($email);
-		
-		//if ($dup)
-		//	echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
-		//else {   
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
-		    $result = add_submission($newsubmission);
+		 
+		$newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
+		$result = add_submission($newsubmission);
+ 		$adopter = retrieve_adopter($email);
+		if (!$adopter) {
 		    $new_adopter = new Adopter($first_name, $last_name, $email, $opt_in);
 		    add_adopter($new_adopter);
+		}
+		else if ($opt_in == 1) {
+		    opt_in($email);
+		}
 		    
-		    if (!$result)
-			    echo('<center>Unable to add');
-		    else {
-			    header('Location: formSubmit.php');  
-		    } 
-		//}
+		if (!$result)
+		    echo('<center>Unable to add');
+		else {
+	 	    header('Location: formSubmit.php');  
+		} 
 	    }
 	    ?>
 	</div>  

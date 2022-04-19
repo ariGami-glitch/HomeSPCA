@@ -131,5 +131,15 @@ function make_an_adopter($result_row) {
     return $theAdopter;
 }
 
+function opt_in($email) {
+	$con=connect();
+	$query="UPDATE dbAdopters SET opt_in = 1 WHERE email = '".$email."'";
+	$result = mysqli_query($con,$query);
 
+	//if ($result == null || mysqli_num_rows($result) == 0) {
+	//	mysqli_close($con);
+	//	return false;
+	//}
+	return true;
+}
 ?>

@@ -5,10 +5,12 @@ session_start();
 session_cache_expire(30);
 include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
+include_once('database/dbAdopters.php');
+include_once('doman/Adopter.php');
 include_once('database/dbLog.php');
 
 $submission = new Submission(null, null, null, null, null, null, null, null, null, null);
-
+$adopter = new Adopter(null, null, null, null);
 ?>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -72,24 +74,27 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		else {
 			$opt_in = 0;
 		}
-		
-		$dup = retrieve_submission($email);
-		
-		//if ($dup)
-		//	echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
-		//else {
 		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
-		    $result = add_submission($newsubmission);
-		    echo "<center>"; 
-		    if (!$result)
-			echo('Unable to add');
-		    else {
-			header('Location: formSubmit.php');
+		$newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
+		$result = add_submission($newsubmission);
+		$adopter = retrieve_adopter($email);
+		if (!$adopter) {
+		    $newadopter = new Adopter($first_name, $last_name, $email, $opt_in);
+ 		    $result2 = add_adopter($newadopter);
+		}
+		else if ($opt_in == 1) {
+		    opt_in($email);
+		}
+		
+		echo "<center>"; 
+		if (!$result)
+		    echo('Unable to add');
+		else {
+		    header('Location: formSubmit.php');
 			//echo("Your form has been successfully submitted!<br><br><br>");			
-		    } 
-		    echo "</div>";
-		    include('footer2.inc');
+		} 
+		echo "</div>";
+		include('footer2.inc');
 		//}
 	    }
 	    ?>

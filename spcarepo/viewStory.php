@@ -40,7 +40,7 @@ include_once("domain/Submission.php");
 		echo "<tr><td>".$story."</td></tr></table><br><br>";
 
 		echo "<form action='viewAccSubs.php' method='get'>
-		<input type='submit' value='View Other Submissions'></form><br>";
+		<input type='submit' value='View Other Submissions'></form><br><br>";
 	?>
     </div></div>
     <?php include('footer2.inc'); ?>

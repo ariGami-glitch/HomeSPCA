@@ -44,7 +44,7 @@ include_once("domain/Submission.php");
 		    echo "<tr><td><b>Adopter:</b> ".$adopter."</td></tr>";
 		    echo "<tr><td><b>Pet Type:</b> ".$pet_type."</td></tr>";
 		    echo "<tr><td><b>Description:</b></td></tr>";
-		    echo "<tr><td>".$story."</td></tr></table><br><br>";
+		    echo "<tr><td>".nl2br($story)."</td></tr></table><br><br>";
 		
 		    echo "<form action='' method='post'>
 		    <input type='hidden' name='_form_submit' value='1'>

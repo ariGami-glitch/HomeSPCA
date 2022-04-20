@@ -256,7 +256,17 @@ function retrieve_optin() {
 }
 //this is where the priority queue will go to
 function post_to_website() {
-
+    $highlights;
+//determine the last highlighted date
+//get the current date
+//compare the current date to a two weeks from the last higlighted date
+//if two weeks has not passed, then return an array to the four posts that match the last highlighted date.
+//if two weeks has passed, then iterate through all the submissions and order by the number of times it was higlighted.
+    //skip those that are currently highlighted
+    //keep track of the count
+//After those if else cases, to take into account for when a deletion happens or there is not enough
+    //If the date match set it up
+    return $highlights;
 }
 ?>
 

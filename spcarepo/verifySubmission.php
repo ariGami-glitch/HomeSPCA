@@ -39,8 +39,16 @@ include_once("domain/Submission.php");
 
 	 	echo "<center><h1>New Submission</h1>";	
 		if ($_POST['updated'] == 'updated') {
-			update_submission($id, $_POST['description'], $_POST['pet_type']);
-			echo "<br><strong><font color='#3ABBAD' size='+1'>Successfully updated!</font></strong><br><br><br>";		
+			$update_desc = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
+			$update_pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
+			if ($update_desc == null || $update_pet_type == null) {
+			    echo "<br><strong><font color='red'>Error: Submission could not be updated with invalid values</font></strong>";
+			}
+			else {
+			    update_submission($id, $update_desc, $update_pet_type);
+			    echo "<br><strong><font color='#3ABBAD' size='+1'>Successfully updated!</font></strong>";
+	     		}
+    			echo "<br><br><br>";			
 		}
 		
 		//display_submission($sub);

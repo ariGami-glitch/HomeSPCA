@@ -73,4 +73,15 @@
     border-radius: 12px 12px 12px 12px;
     font-weight: bold;
 }
+.topnav-right {
+    float: right;
+}
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 19px;
+    margin-right: 16px;
+    font-size: 20px;
+}
 </style>

@@ -39,6 +39,10 @@ include('header.php');
 <a class="active" href="index.php">Home</a>
 <a href="makeNewSubmission.php">Make A Submission</a>
 <a href="login_form.php">Admin Login</a>
+<a>About</a>
+<div class="topnav-right">
+<input type="text" placeholder="Search..">
+</div>
 </div>
 <?php
 //echo '<img src="spca.jpg" alt="SPCA Logo">';

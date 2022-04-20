@@ -17,7 +17,7 @@ include_once("domain/Submission.php");
 	    }
 	}
         </script>
-        <title>Submission</title>
+        <title>Edit Submission</title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>
         <link rel="stylesheet" href="calendar.css" type="text/css"/>

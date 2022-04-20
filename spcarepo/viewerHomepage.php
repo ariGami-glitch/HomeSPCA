@@ -24,9 +24,7 @@ include_once('domain/Submission.php');
 <html>
 <head>
         <title>
-        <?php
-        echo('HOME');
-        ?>
+        SPCA Adoption Stories
         </title>
         <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>

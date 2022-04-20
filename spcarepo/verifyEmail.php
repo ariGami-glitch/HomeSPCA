@@ -46,7 +46,7 @@ input[type=submit] {
 </style>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-    <head></head>
+    <head><title>Verify Your Email</title></head>
     <body>
 	<div id="container">
 	    <?PHP

@@ -15,7 +15,7 @@ $adopter = new Adopter(null, null, null, null);
 ?>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-    <head></head>
+    <head><title>Submit Your Adoption Story</title></head>
     <body>
 	<div id="container">
 	    <?PHP

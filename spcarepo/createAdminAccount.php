@@ -26,7 +26,7 @@ $admin = new Admin(null, null, null, null, null);
     <link rel="stylesheet" href="lib/jquery-ui.css" />
     <link rel="stylesheet" href="styles.css" type="text/css" />
     <!--<link rel="stylesheet" href="lib/jquery.timepicker.css" />-->
-    <head></head>
+    <head><title>Create New Admin Account</title></head>
     <body>
 	<div id="container">
 	<?PHP include('header.php'); ?>

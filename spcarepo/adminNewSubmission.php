@@ -14,7 +14,7 @@ $adopter = new Adopter(null, null, null, null);
 ?>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-    <head></head>
+    <head><title>Make New Submission</title></head>
     <body>
 	<div id="container">
 	    <?PHP

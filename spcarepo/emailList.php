@@ -10,9 +10,7 @@ include_once("domain/Submission.php");
 <html>
     <head>
         <title>
-            <?PHP 
-            echo('Generate Emailing List');
-            ?>
+        Generate Email List
         </title>
         <link rel="stylesheet" href="lib/jquery-ui.css" />
         <link rel="stylesheet" href="styles.css" type="text/css" />

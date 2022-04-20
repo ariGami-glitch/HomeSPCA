@@ -29,6 +29,7 @@ session_start();
  * @version 3/28/2008, revised 7/1/2015
  */
 ?>
+<head><title>Admin Login</title></head>
 <link rel="stylesheet" href="styles.css" type="text/css" />
 <div id="container">
 <?PHP include('header.php') ?>

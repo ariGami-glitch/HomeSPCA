@@ -9,7 +9,7 @@ include_once("domain/Submission.php");
 <html>
     <head>
         <title>
-        Accepted Submissions
+        Approved Submissions
         </title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>

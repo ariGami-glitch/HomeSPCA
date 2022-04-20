@@ -7,7 +7,8 @@ input[type=submit] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;   
+    font-size: 16px;
+    border-radius: 25px 25px 25px 25px;
 }
 </style>
 
@@ -36,7 +37,7 @@ session_start();
 <a href="makeNewSubmission.php">Make A Submission</a>
 <a class="active" href="login_form.php">Admin Login</a>
 </div>
-<div id="content">
+<div id="content" style="color:blue; padding-bottom:10px; font-weight:bold;">
     <?PHP
     include_once('database/dbAdmins.php');
     include_once('domain/Admin.php');
@@ -58,7 +59,7 @@ session_start();
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
         		or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.) ');
         echo '</ul>';*/
-echo('<br><br><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login">');
+echo('<br><br><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td style="font-size: 18px;">Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td style="font-size:18px;">Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login">');
     } else {
         //check if they logged in as a guest:
 	/*if ($_POST['user'] == "guest" && $_POST['pass'] == "") {
@@ -108,7 +109,7 @@ echo('<br><br><table style width="300"><form method="post"><input type="hidden" 
                     echo('If you do not remember your password, please contact either the 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
 			or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.');*/
-                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
+                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td style="font-size:18px;">Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td style="font-size:18px;">Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
                 }
             } else {
                 //At this point, they failed to authenticate
@@ -121,7 +122,7 @@ echo('<br><br><table style width="300"><form method="post"><input type="hidden" 
         		<a href="mailto:allen@npfi.org"><i>Portland House Manager</i></a>
 			or the <a href="mailto:allen@npfi.org"><i>Bangor House Manager</i></a>.'); */
 		//change another
-                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
+                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td style="font-size:18px;">Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td style="font-size:18px;">Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
             }
         //}
     }

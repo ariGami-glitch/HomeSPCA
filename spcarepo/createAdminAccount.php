@@ -63,13 +63,15 @@ $admin = new Admin(null, null, null, null, null);
 		$password = trim(str_replace('\\\'', '\'', htmlentities($_POST['password'])));
 		$password = md5($password);	
 		
-		$new_admin = new Admin($first_name, $last_name, $email, $username, $password);
-		$result = add_admin($new_admin);
-		echo "<center><br><br>";
-		if (!$result)
-		    echo('Unable to add');
+		$admin = new Admin($first_name, $last_name, $email, $username, $password);
+		$result = add_admin($admin);
+		echo "<center><br>";
+		if (!$result) {
+		    echo('<font color="red"><strong>Error: Unable to add</strong></font>');
+		    include('adminForm.inc');
+		}
 		else {
-		    echo("<font size='+1'>Account has been successfully created!</font><br><br><br><br>");
+		    echo("<br><font size='+1'>Account has been successfully created!</font><br><br><br><br>");
 		    echo "<form action='createAdminAccount.php'>
 		    <input type='submit' value='Return'></form>";
  		    echo "</div>";

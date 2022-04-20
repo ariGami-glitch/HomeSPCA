@@ -67,15 +67,7 @@ $adopter = new Adopter(null, null, null, null);
 		
 		$name = $_FILES['image']['name'];
 		$image = "picture".uniqid();
-		$target_dir = "pictures/";
-		$target_file = $target_dir.basename($_FILES["image"]["name"]);
-
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		$extensions_arr = array("jpg","jpeg","png","gif");
 		
-		if (in_array($imageFileType, $extensions_arr)) {
-			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
-		}
 		if ($_POST['opt_in']) {
 			$opt_in = 1;
 		}	
@@ -83,20 +75,35 @@ $adopter = new Adopter(null, null, null, null);
 			$opt_in = 0;
 		}
 		 
-		$newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
-		$result = add_submission($newsubmission);
- 		$adopter = retrieve_adopter($email);
-		if (!$adopter) {
-		    $new_adopter = new Adopter($first_name, $last_name, $email, $opt_in);
-		    add_adopter($new_adopter);
-		}
-		else if ($opt_in == 1) {
-		    opt_in($email);
+		$submission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
+		$result = add_submission($submission);
+
+		if ($result) {
+		    $target_dir = "pictures/";
+		    $target_file = $target_dir.basename($_FILES["image"]["name"]);
+
+		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		    $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+		    if (in_array($imageFileType, $extensions_arr)) {
+			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
+		    }
+ 		    $adopter = retrieve_adopter($email);
+		    if (!$adopter) {
+		        $new_adopter = new Adopter($first_name, $last_name, $email, $opt_in);
+		        add_adopter($new_adopter);
+		    }
+		    else if ($opt_in == 1) {
+		        opt_in($email);
+		    }
 		}
 		    
-		if (!$result)
-		    echo('<center>Unable to add');
+		if (!$result) {
+		    echo('<center><strong><font color="red">Error: Unable to add</font></strong>');
+		    include('submissionForm.inc');
+		}
 		else {
+		    
 	 	    header('Location: formSubmit.php');  
 		} 
 	    }

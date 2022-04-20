@@ -12,7 +12,7 @@ function add_submission($submission) {
 	//$result = mysqli_query($con,$query);
 		
 	if ($result == null || mysqli_num_rows($result) == 0) {
-		mysqli_query($con,'INSERT INTO dbSubmissions VALUES("' .
+		$result = mysqli_query($con,'INSERT INTO dbSubmissions VALUES("' .
 			$submission->get_email() . '","' .
 			$submission->get_first_name() . '","' .
 			$submission->get_last_name() . '","' .
@@ -25,7 +25,7 @@ function add_submission($submission) {
 			0 . '","' . 0 . '","' . 0 . 	
 			'");');
 		mysqli_close($con);
-		return true;
+		return $result;
 	}
 	mysqli_close($con);
 	return false;
@@ -39,12 +39,12 @@ function update_submission($id, $desc, $pt) {
 	$result = mysqli_query($con,$query);
 
 	if ($result !== null && mysqli_num_rows($result) !== 0) {
-		mysqli_query($con,"UPDATE dbSubmissions SET
+		$result2 = mysqli_query($con,"UPDATE dbSubmissions SET
 		pet_type = '" . $pt . "', 
 		description = '" . $desc . "'
 		WHERE id = '" . $id . "';");
 		mysqli_close($con);
-		return true;
+		return $result2;
 	}
 	mysqli_close($con);
 	return false;

@@ -45,23 +45,27 @@ include_once("domain/Submission.php");
 			    echo "<br><strong><font color='red'>Error: Submission could not be updated with invalid values</font></strong>";
 			}
 			else {
-			    update_submission($id, $update_desc, $update_pet_type);
-			    echo "<br><strong><font color='#3ABBAD' size='+1'>Successfully updated!</font></strong>";
+			    $result = update_submission($id, $update_desc, $update_pet_type);
+			    if ($result)
+				    echo "<br><strong><font color='#3ABBAD' size='+1'>Successfully updated!</font></strong>";
+			    else
+				    echo "<br><strong><font color='red'>Error: Submission could not be updated with invalid values</font></strong>";
 	     		}
     			echo "<br><br><br>";			
 		}
 		
-		//display_submission($sub);
 		$sub = retrieve_submission($id);
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
 		$pet_type = $sub->get_pet_type();
 		$story = $sub->get_description();
 		$image = $sub->get_image();
+		$email = $sub->get_email();
 		$image_src = "pictures/".$image;
 		echo "<table style width='500'><tr><td><img src=".$image_src." width='500' height='350'></td></tr>";
 		echo "<tr><td><br><b>Pet Name:</b> ".$pet_name."</td></tr>";
 		echo "<tr><td><b>Adopter:</b> ".$adopter."</td></tr>";
+		echo "<tr><td><b>Email:</b> ".$email."</td></tr>";
 		echo "<tr><td><b>Pet Type:</b> ".$pet_type."</td></tr>";
 		echo "<tr><td><b>Description:</b></td></tr>";
 		echo "<tr><td>".nl2br($story)."</td></tr></table><br><br>";

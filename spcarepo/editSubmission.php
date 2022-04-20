@@ -20,7 +20,7 @@ include_once("domain/Submission.php");
         <title>Edit Submission</title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>
-        <link rel="stylesheet" href="calendar.css" type="text/css"/>
+        
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->

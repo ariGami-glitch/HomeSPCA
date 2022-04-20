@@ -43,7 +43,7 @@ include('header.php');
 <?php
 //echo '<img src="spca.jpg" alt="SPCA Logo">';
 echo '<div id="content"><center>';
-echo '<h1>SPCA Story Highlights</h1>';
+//echo '<h1>SPCA Story Highlights</h1>';
 //echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
 //echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
 //echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
@@ -54,6 +54,10 @@ echo '<h1>SPCA Story Highlights</h1>';
 //echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
 //echo $_SESSION['logged_in'];
 ?>
+    
+    <div class="div2">
+    <h1>SPCA Story Highlights</h1>
+    </div>
     <div id="slideshow">
 	<div class="slide-wrapper">
 	<?php
@@ -82,7 +86,16 @@ echo '<h1>SPCA Story Highlights</h1>';
 	?>
     </div>
     </div> 
-</div></div></div>
+</div></div></div></div>
 	<?php include('footer2.inc'); ?>
 </body>
 </html>
+<style>
+.div2 {
+    font-size: 17px;
+    padding-bottom: 20px;
+    color: #0C009D;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style>

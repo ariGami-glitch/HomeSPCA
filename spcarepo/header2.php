@@ -61,11 +61,16 @@
     font-size: 20px;
 }
 .topnav a:hover {
-    background-color: blue;
+    background-color: #CAA900;
     color: white;
+    border-radius: 12px 12px 12px 12px;
+    text-decoration: underline;
+    font-weight: bold
 }  
 .topnav a.active {
     background-color: #C60070;
     color: white;
+    border-radius: 12px 12px 12px 12px;
+    font-weight: bold;
 }
 </style>

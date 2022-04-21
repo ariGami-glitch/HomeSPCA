@@ -34,6 +34,9 @@ include_once('domain/Submission.php');
 <div id="container">
 <?php
 include('header.php');
+	$test = post_to_website();
+    echo "hi".$test;
+    echo "something here";
 ?>
 <div class="topnav">
 <a class="active" href="index.php">Home</a>
@@ -65,7 +68,7 @@ echo '<div id="content"><center>';
     <div id="slideshow">
 	<div class="slide-wrapper">
 	<?php
-	$approved = retrieve_approved_submissions();
+    $approved = retrieve_approved_submissions();
 	for ($i = 0; $i < 4; $i++) {
 	    	echo "<div class='slide'>";
  		echo "<div class='slide-number'>";

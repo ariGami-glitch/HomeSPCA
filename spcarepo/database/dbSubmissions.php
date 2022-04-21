@@ -258,7 +258,30 @@ function retrieve_optin() {
 function post_to_website() {
     $highlights;
 //determine the last highlighted date
+	$con=connect();
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 1 ORDER BY dateHighlighted DESC LIMIT 1";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+    $row = mysqli_fetch_assoc($result);
+    
+    //case for when there are no submissions
+    if($row == null) {
+        return false;
+    }
+    $lastdate = $row['dateHighlighted'];
 //get the current date
+    $today = date("Y-m-d");
+    if($today > $lastdate) {
+        $v = "hi";
+        return $v;
+    }
+    else {
+        $v = "bye";
+        return $v;
+    }
 //compare the current date to a two weeks from the last higlighted date
 //if two weeks has not passed, then return an array to the four posts that match the last highlighted date.
 //if two weeks has passed, then iterate through all the submissions and order by the number of times it was higlighted.
@@ -266,7 +289,7 @@ function post_to_website() {
     //keep track of the count
 //After those if else cases, to take into account for when a deletion happens or there is not enough
     //If the date match set it up
-    return $highlights;
+    //return $highlights;
 }
 ?>
 

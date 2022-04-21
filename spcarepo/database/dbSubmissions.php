@@ -41,7 +41,7 @@ function update_submission($id, $desc, $pt) {
 	if ($result !== null && mysqli_num_rows($result) !== 0) {
 		$result2 = mysqli_query($con,"UPDATE dbSubmissions SET
 		pet_type = '" . $pt . "', 
-		description = '" . $desc . "'
+		description = '" . mysqli_real_escape_string($con, $desc) . "'
 		WHERE id = '" . $id . "';");
 		mysqli_close($con);
 		return $result2;

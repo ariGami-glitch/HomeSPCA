@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 18, 2022 at 06:15 PM
+-- Generation Time: Apr 22, 2022 at 07:36 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -56,6 +56,24 @@ CREATE TABLE `dbadopters` (
   `email` varchar(100) CHARACTER SET latin1 NOT NULL,
   `opt_in` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `dbadopters`
+--
+
+INSERT INTO `dbadopters` (`first_name`, `last_name`, `email`, `opt_in`) VALUES
+('Jane', 'Doe', 'email3', 1),
+('John', 'Doe', 'fakeemail', 1),
+('hi', '17a232cc', 'gamer@gmail.c', 0),
+('hi', 'hi', 'hi', 0),
+('s', 's', 'jgamer@g.c', 0),
+('s', 's', 'jgamer@gmail.c', 0),
+('J', 'W', 'jgamergurl2000@gmail.com', 1),
+('Jen', 'Werme', 'jgamergurl@gmail.c', 0),
+('s', 's', 'jwerme@gmail.c', 0),
+('hi', 'hi', 'jwerme@gmail.co', 1),
+('Jennifer', 'Werme', 'none', 0),
+('s', 's', 's', 0);
 
 -- --------------------------------------------------------
 
@@ -761,13 +779,13 @@ INSERT INTO `dbshifts` (`id`, `start_time`, `end_time`, `venue`, `vacancies`, `p
 
 CREATE TABLE `dbsubmissions` (
   `email` varchar(100) NOT NULL,
-  `first_name` text,
-  `last_name` text,
-  `pet_type` text,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `pet_type` varchar(100) DEFAULT NULL,
   `description` text,
-  `pet_name` text,
+  `pet_name` varchar(100) DEFAULT NULL,
   `approved` tinyint(1) DEFAULT NULL,
-  `image` longtext,
+  `image` varchar(500) DEFAULT NULL,
   `opt_in` tinyint(1) NOT NULL,
   `id` int(11) NOT NULL,
   `is_highlight` tinyint(1) NOT NULL,
@@ -779,12 +797,13 @@ CREATE TABLE `dbsubmissions` (
 --
 
 INSERT INTO `dbsubmissions` (`email`, `first_name`, `last_name`, `pet_type`, `description`, `pet_name`, `approved`, `image`, `opt_in`, `id`, `is_highlight`, `num_highlights`) VALUES
-('fakeemail10', 'J', 'W', 'Dog', 'example text edit', 'Milo', 1, 'picture62542f66c3b60', 1, 1, 0, 0),
 ('fakeemail5', 'Jane', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Butterscotch', 1, 'cat-ge27c14279_1280.jpg62393e09c4cba', 1, 3, 0, 0),
 ('fakegmail', 'Mary', 'Sue', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Lucy', 1, 'picture624a4e0da93b4', 1, 4, 0, 0),
-('gmail4', 'John', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nelson', 1, 'black-cat-breeds.jpg6237be8b5be83', 1, 5, 0, 0),
-('new', 'Hi', 'There', 'Cat', 'example text', 'Kitty', 0, 'picture62571a88c0bc8', 1, 7, 0, 0),
-('email9', 'J', 'W', 'Dog', 'example text edit', 'Little Bear', 0, 'picture6259c27d29de6', 1, 23, 0, 0);
+('gmail4', 'John', 'Doe', 'Cat', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Nelson', 0, 'black-cat-breeds.jpg6237be8b5be83', 1, 5, 0, 0),
+('none', 'Jennifer', 'Werme', 'Dog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Little Bear', 1, 'picture625e338569d2c', 0, 74, 0, 0),
+('fakeemail', 'John', 'Doe', 'Cat', 'lorem ipsum', 'Kitty', 0, 'picture625e33968a600', 0, 75, 0, 0),
+('none', 'J', 'W', 'Dog', 'lorem ipsum', 'Milo', 0, 'picture625e36af64d45', 0, 76, 0, 0),
+('none', 'Lindsey', 'S', 'Bird', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Coco', 1, 'picture625e44cfd0370', 0, 80, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -876,7 +895,7 @@ ALTER TABLE `dblog`
 -- AUTO_INCREMENT for table `dbsubmissions`
 --
 ALTER TABLE `dbsubmissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

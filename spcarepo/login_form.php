@@ -8,7 +8,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 15px 15px 15px 15px;
 }
 </style>
 

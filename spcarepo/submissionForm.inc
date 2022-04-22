@@ -9,6 +9,7 @@ input[type=submit] {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 14px 14px 14px 14px;
 }
 </style>
 <?php

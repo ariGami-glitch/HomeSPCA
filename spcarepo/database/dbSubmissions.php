@@ -274,19 +274,39 @@ function post_to_website() {
     $lastdate = $row['dateHighlighted'];
 //get the current date
     $today = date("Y-m-d");
-    if($today > $lastdate) {
-        $v = "hi";
-        return $v;
+    //add 14 days to the last date
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 2 days'));
+//compare the current date to a two weeks from the last higlighted date
+    if($today >= $compare) {
+        //get a random number between 3 and 5. This is the number of higlights for the two weeks
+        $num = rand(3, 5);
+        //if two weeks has passed, then iterate through all the submissions and order by the number of times it was higlighted.
+        $query = "SELECT * FROM dbSubmissions WHERE dateHighlighted <> ".$lastdate." AND approved = 1";
+        $result;
+            //keep track of the count
+        return $num;
     }
     else {
-        $v = "bye";
-        return $v;
+        //if two weeks has not passed, then return an array to the four posts that match the last highlighted date.
+        $query = "SELECT * FROM dbSubmissions WHERE dateHighlighted = ".$lastdate;
+        $result = mysqli_query($con,$query);
+        if (mysqli_num_rows($result) == 0) {
+            mysqli_close($con);
+            return false;
+        }
+        $acceptedSubs = array();
+        while($row = mysqli_fetch_assoc($result)) {
+            $theSubmission = make_a_submission($row);
+            $acceptedSubs[] = $theSubmission;
+        }
+        /**for ($i = 0; $i < count($result_row); $i++) {
+            $result = mysqli_fetch_assoc($result_row[$i]);
+            $theSubmission = make_a_submission($result);
+            $acceptedSubs += $theSubmission;
+        }*/
+        return $acceptedSubs;
+        
     }
-//compare the current date to a two weeks from the last higlighted date
-//if two weeks has not passed, then return an array to the four posts that match the last highlighted date.
-//if two weeks has passed, then iterate through all the submissions and order by the number of times it was higlighted.
-    //skip those that are currently highlighted
-    //keep track of the count
 //After those if else cases, to take into account for when a deletion happens or there is not enough
     //If the date match set it up
     //return $highlights;

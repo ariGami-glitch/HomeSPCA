@@ -34,9 +34,6 @@ include_once('domain/Submission.php');
 <div id="container">
 <?php
 include('header.php');
-	$test = post_to_website();
-    echo "hi".$test;
-    echo "something here";
 ?>
 <div class="topnav">
 <a class="active" href="index.php">Home</a>

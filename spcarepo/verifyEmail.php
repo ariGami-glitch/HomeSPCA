@@ -42,6 +42,7 @@ input[type=submit] {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 15px 15px 15px 15px;
 }
 </style>
 <html>
@@ -51,7 +52,18 @@ input[type=submit] {
 	<div id="container">
 	    <?PHP
 	    include('header.php');
-	    echo "<div id='content'>";
+	    ?>
+<div class="topnav">
+<a href="index.php">Home</a>
+<a href="makeNewSubmission.php">Make A Submission</a>
+<a href="login_form.php">Admin Login</a>
+<a>About</a>
+<div class="topnav-right">
+<input type="text" placeholder="Search..">
+</div>
+</div>
+        <?php
+        echo "<div id='content'>";
 	    include('emailValidate.inc');
 	    echo "<center><h1>Submit Your Adoption Story</h1></center><br>";
 	  

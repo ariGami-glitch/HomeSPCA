@@ -29,7 +29,7 @@ function add_admin($admin) {
     $result = mysqli_query($con,$query);
     //if there's no entry for this email, add it
     if ($result == null || mysqli_num_rows($result) == 0) {
-        mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
+        $result2 = mysqli_query($con,'INSERT INTO dbAdmins VALUES("' .
                 $admin->get_email() . '","' .
                 $admin->get_first_name() . '","' .
                 $admin->get_last_name() . '","' .
@@ -37,7 +37,7 @@ function add_admin($admin) {
                 $admin->get_password() .
 		'");');						
         mysqli_close($con);
-        return true;
+        return $result2;
     }
     mysqli_close($con);
     return false;

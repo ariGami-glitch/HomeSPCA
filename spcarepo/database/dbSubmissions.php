@@ -8,11 +8,11 @@ function add_submission($submission) {
 	if (!$submission instanceof Submission)
 		die("Error: add_submission type mismatch");
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $submission->get_email() . "'";
-	$result = mysqli_query($con,$query);
+	//$query = "SELECT * FROM dbSubmissions WHERE email = '" . $submission->get_email() . "'";
+	//$result = mysqli_query($con,$query);
 		
 	if ($result == null || mysqli_num_rows($result) == 0) {
-		mysqli_query($con,'INSERT INTO dbSubmissions VALUES("' .
+		$result = mysqli_query($con,'INSERT INTO dbSubmissions VALUES("' .
 			$submission->get_email() . '","' .
 			$submission->get_first_name() . '","' .
 			$submission->get_last_name() . '","' .
@@ -25,59 +25,35 @@ function add_submission($submission) {
 			0 . '","' . 0 . '","' . 0 . 	
 			'");');
 		mysqli_close($con);
-		return true;
+		return $result;
 	}
 	mysqli_close($con);
 	return false;
 }
 
-function update_submission($email, $desc, $pt) {
+function update_submission($id, $desc, $pt) {
 	//if (!$submission instanceof Submission)
 	//	die("Error: add_submission type mismatch");
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
+	$query = "SELECT * FROM dbSubmissions WHERE id = '" . $id . "'";
 	$result = mysqli_query($con,$query);
 
 	if ($result !== null && mysqli_num_rows($result) !== 0) {
-		mysqli_query($con,"UPDATE dbSubmissions SET
+		$result2 = mysqli_query($con,"UPDATE dbSubmissions SET
 		pet_type = '" . $pt . "', 
-		description = '" . $desc . "'
-		WHERE email = '" . $email . "';");
+		description = '" . mysqli_real_escape_string($con, $desc) . "'
+		WHERE id = '" . $id . "';");
 		mysqli_close($con);
-		return true;
+		return $result2;
 	}
 	mysqli_close($con);
 	return false;
 }
 
-/*function print_approved_submissions($acceptedSubs){
-	for($i = 0; $i < count($acceptedSubs); $i++){		
-		echo $acceptedSubs[$i]->get_email();
-		echo $acceptedSubs[$i]->get_first_name();
-		echo $acceptedSubs[$i]->get_last_name();
-		echo $acceptedSubs[$i]->get_pet_type();
-		echo $acceptedSubs[$i]->get_description();
-		echo $acceptedSubs[$i]->get_pet_name();
-		echo $acceptedSubs[$i]->get_approved();
-		echo $acceptedSubs[$i]->get_image();
-	}
-}
 
-	$query = 'SELECT * from dbSubmissions WHERE email = "' . $email . '"';
-	$result = mysqli_query($con,$query);
-	if ($result == null || mysqli_num_rows($result) == 0) {
-		mysqli_close($con);
-		return false;
-	}
-	$query = 'DELETE FROM dbSubmissions WHERE email = "' . $email . '"';
-	$result = mysqli_query($con,$query);
-	mysqli_close($con);
-	return true;
-}*/
-
-function retrieve_submission($email) {
+function retrieve_submission($id) {
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE email = '" . $email . "'";
+	$query = "SELECT * FROM dbSubmissions WHERE id = '" . $id . "'";
 	$result = mysqli_query($con,$query);
 	if (mysqli_num_rows($result) !== 1) {
 		mysqli_close($con);
@@ -89,15 +65,15 @@ function retrieve_submission($email) {
 	return $theSubmission;
 }
 
-function remove_submission($email) {
+function remove_submission($id) {
 	$con=connect();
-	$query = 'SELECT * FROM dbSubmissions WHERE email= "'.$email.'"';
+	$query = 'SELECT * FROM dbSubmissions WHERE id = "'.$id.'"';
 	$result = mysqli_query($con,$query);
 	if ($result == null || mysqli_num_rows($result) == 0) {
 		mysqli_close($con);
 		return false;
 	}
-	$query = 'DELETE FROM dbSubmissions WHERE email= "'.$email.'"';
+	$query = 'DELETE FROM dbSubmissions WHERE id = "'.$id.'"';
 	$result = mysqli_query($con, $query);
 	mysqli_close($con);
 	return true;
@@ -137,16 +113,16 @@ function retrieve_unapproved_submission($email) {
 	}
 	return $unacceptedSubs;
 */
-function approve_submission($email){
+function approve_submission($id){
 	$con=connect();
-	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE email = "'.$email.'"';
+	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE id = "'.$id.'"';
 	$result = mysqli_query($con,$query);
 	return true;
 }
 
-function unapprove_submission($email){
+function unapprove_submission($id){
 	$con=connect();
-	$query = 'UPDATE dbSubmissions SET approved = 0 WHERE email = "'.$email.'"';
+	$query = 'UPDATE dbSubmissions SET approved = 0 WHERE id = "'.$id.'"';
 	$result = mysqli_query($con,$query);
 	return true;
 }
@@ -161,7 +137,8 @@ function make_a_submission($result_row) {
 			$result_row['pet_name'], 
 			$result_row['approved'], 
 			$result_row['image'],
-			$result_row['opt_in']);
+			$result_row['opt_in'],
+			$result_row['id']);
 	return $theSubmission;
 }
 
@@ -236,7 +213,7 @@ function display_email($sub) {
 }
 function retrieve_optin() {
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions";
+	$query = "SELECT * FROM dbSubmissions WHERE opt_in = 1";
 	$result = mysqli_query($con,$query);
 	if (mysqli_num_rows($result) == 0) {
 		mysqli_close($con);

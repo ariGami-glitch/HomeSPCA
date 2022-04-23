@@ -28,8 +28,8 @@ include_once("domain/Submission.php");
 	<?php
 		include('header.php');
 		echo "<div id='content'><center>";
-		$email = $_POST['email'];
-		$sub = retrieve_submission($email);
+		$id = $_POST['id'];
+		$sub = retrieve_submission($id);
 		if ($_POST['_form_submit'] != 1) {
 		    echo "<h1>Adoption Story</h1>";	
 		
@@ -44,17 +44,17 @@ include_once("domain/Submission.php");
 		    echo "<tr><td><b>Adopter:</b> ".$adopter."</td></tr>";
 		    echo "<tr><td><b>Pet Type:</b> ".$pet_type."</td></tr>";
 		    echo "<tr><td><b>Description:</b></td></tr>";
-		    echo "<tr><td>".$story."</td></tr></table><br><br>";
+		    echo "<tr><td>".nl2br($story)."</td></tr></table><br><br>";
 		
 		    echo "<form action='' method='post'>
 		    <input type='hidden' name='_form_submit' value='1'>
-		    <input type='hidden' name='email' value='".$email."'>
+		    <input type='hidden' name='id' value='".$id."'>
 		    <input type='submit' value='Remove Post' onclick='clicked(event)'></form><br>";
 		    echo "<form action='adminViewSubs.php' method='get'>
 		    <input type='submit' value='     Return      '></form><br><br>";
 		}
 		else {
-		    unapprove_submission($email);
+		    unapprove_submission($id);
 		    echo "<br><h2>This submission has been unapproved.</h2><br>";
 		    echo "<form action='adminViewSubs.php' method='get'>
 		    <input type='submit' value='View Other Submissions'></form><br><br>";

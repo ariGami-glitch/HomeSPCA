@@ -17,10 +17,10 @@ include_once("domain/Submission.php");
 	    }
 	}
         </script>
-        <title>Submission</title>
+        <title>Edit Submission</title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>
-        <link rel="stylesheet" href="calendar.css" type="text/css"/>
+        
         <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
@@ -29,8 +29,8 @@ include_once("domain/Submission.php");
 	<?php
 		include('header.php');
 		echo "<div id='content'>";
-		$email = $_POST['email'];
-		$sub = retrieve_submission($email);
+		$id = $_POST['id'];
+		$sub = retrieve_submission($id);
 
 		echo "<center><h1>Edit Submission</h1>";	
 		//display_submission($sub);
@@ -47,11 +47,11 @@ include_once("domain/Submission.php");
 		echo "<tr><td><b>Pet Type:</b> <input type='text' name='pet_type' value='".$pet_type."'></td></tr>";
 		echo "<tr><td><b>Description:</b></td></tr>";
 		echo "<tr><td><textarea name='description' rows='9' cols='65'>".$story."</textarea></td></tr></table><br><br>";
-		echo "<input type='hidden' value='".$email."' name='email'>
+		echo "<input type='hidden' value='".$id."' name='id'>
 		<input type='hidden' value='updated' name='updated'>
 		<input type='submit' value='Save Changes' onclick='clicked(event)'></form><br><br><br>";
 		echo "<form action='verifySubmission.php' method='POST'>
-		<input type='hidden' value='".$email."' name='email'>
+		<input type='hidden' value='".$id."' name='id'>
 		<input type='submit' value='      Return       '></form><br><br>";
 	?>
     </div></div>

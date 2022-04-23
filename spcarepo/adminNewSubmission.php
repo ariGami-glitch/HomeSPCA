@@ -5,14 +5,16 @@ session_start();
 session_cache_expire(30);
 include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
+include_once('database/dbAdopters.php');
+include_once('doman/Adopter.php');
 include_once('database/dbLog.php');
 
-$submission = new Submission(null, null, null, null, null, null, null, null, null);
-
+$submission = new Submission(null, null, null, null, null, null, null, null, null, null);
+$adopter = new Adopter(null, null, null, null);
 ?>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-    <head></head>
+    <head><title>Make New Submission</title></head>
     <body>
 	<div id="container">
 	    <?PHP
@@ -21,16 +23,14 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    echo "<center><h1>Make New Submission</h1></center><br>";
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    //echo "<center><h1>Make New Submission</h1></center><br>";
 		    include('submissionForm2.inc');
-		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_submission($submission);
 		if ($errors) {
 		    show_errors($errors);
-		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in']);
-		    include('submissionForm.inc');
+		    $submission = new Submission($_POST['email'], $_POST['first_name'], $_POST['last_name'], $_POST['pet_type'], $_POST['description'], $_POST['pet_name'], 0, $_POST['image'], $_POST['opt_in'], null);
+		    include('submissionForm2.inc');
 		}
     		else {
     		    process_submission($submission);
@@ -59,39 +59,51 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 		
 		$name = $_FILES['image']['name'];
 		$image = "picture".uniqid();
-		$target_dir = "pictures/";
-		$target_file = $target_dir.basename($_FILES["image"]["name"]);
-
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-		$extensions_arr = array("jpg","jpeg","png","gif");
-
-		if (in_array($imageFileType, $extensions_arr)) {
-			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
-		}
+		
 		if ($_POST['opt_in']) {
 			$opt_in = 1;
 		}	
 		else {
 			$opt_in = 0;
 		}
+		 
+		$submission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
 		
-		$dup = retrieve_submission($email);
+		$result = add_submission($submission);
+		if ($result) {
+		    $target_dir = "pictures/";
+		    $target_file = $target_dir.basename($_FILES["image"]["name"]);
+
+		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		    $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+		    if (in_array($imageFileType, $extensions_arr)) {
+			if (move_uploaded_file($_FILES['image']['tmp_name'],$target_dir.$image)) {}
+		    }
+
+		    $adopter = retrieve_adopter($email);
 		
-		if ($dup)
-			echo('<p class="error"Unable to add your submission to the database. <br> Email is already in the database.');
-		else {
-		    
-		    $newsubmission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in);
-		    $result = add_submission($newsubmission);
-		    echo "<center>"; 
-		    if (!$result)
-			echo('Unable to add');
-		    else {
-			echo("Your form has been successfully submitted!<br><br><br>");			
-		    } 
-		    echo "</div>";
-		    include('footer2.inc');
+		    if (!$adopter) {
+		        $newadopter = new Adopter($first_name, $last_name, $email, $opt_in);
+ 		        $result2 = add_adopter($newadopter);
+		    }
+		    else if ($opt_in == 1) {
+		        opt_in($email);
+		    }
 		}
+		
+		echo "<center>"; 
+		if (!$result) {
+		    echo('<strong><font color="red">Error: Unable to add</font></strong>');
+		    include('submissionForm2.inc');
+		}
+		else {
+		    header('Location: formSubmit.php');
+			//echo("Your form has been successfully submitted!<br><br><br>");			
+		} 
+		echo "</div>";
+		include('footer2.inc');
+		//}
 	    }
 	    ?>
 	</div>   

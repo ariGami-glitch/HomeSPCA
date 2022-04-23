@@ -1,30 +1,39 @@
 <?php
-
+include('emailValidate.inc');
 
 function validate_admin($admin) {
-	if ($_POST['first_name'] == null)
+	$first_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['first_name']))); 
+	$last_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['last_name'])));
+	$email = trim(str_replace('\\\'', '\'', htmlentities($_POST['email'])));
+	$username = trim(str_replace('\\\'', '\'', htmlentities($_POST['username'])));
+	$password = trim(str_replace('\\\'', '\'', htmlentities($_POST['password'])));
+	$password2 = trim(str_replace('\\\'', '\'', htmlentities($_POST['password2'])));
+	if (retrieve_admin($username))
+		$errors[] = 'Username is already taken';
+	if ($first_name == null)
 		$errors[] = 'Please enter a first name';
-	if ($_POST['last_name'] == null)
+	if ($last_name == null)
 		$errors[] = 'Please enter a last name';
-	if ($_POST['email'] == null)
+	if ($email == null || !valid_email($email)) 
 		$errors[] = 'Please enter a valid email';
-	if ($_POST['username'] == null)
+	if ($username == null)
 		$errors[] = 'Please enter your username';
-	if ($_POST['password'] == null)
+	if ($password == null)
 		$errors[] = 'Please enter your password';
-	if ($_POST['password2'] == null)
+	if ($password2 == null)
 		$errors[] = 'Please enter your password confirmation';
-	if (strcmp($_POST['password'], $_POST['password2']) != 0)
+	if (strcmp($password, $password2) != 0)
 		$errors[] = 'Your passwords do not match';
 	return $errors;
 }
 
 function show_errors($e) {
-	echo('<div class="warning">');
+	echo('<br><div class="warning"><center><table style="width:370">');
 	echo('<ul>');
 	foreach ($e as $error) {
-	    echo("<li><strong><font color=\"red\">" . $error . "</font></strong></li>\n");
+	    echo("<tr><td style='padding:0px'><li><strong><font color=\"red\">" . $error . "</font></strong></li></td></tr>");
 	}
-	echo("</ul></div></p>");
+	echo("</ul></table><br></div></p>");
+
 }
 ?>

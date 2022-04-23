@@ -31,9 +31,22 @@ session_start();
 session_cache_expire(30);
 
 ?>
+<style>
+input[type=submit] {
+    background: #3ABBAD;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
-    <head></head>
+    <head><title>Verify Your Email</title></head>
     <body>
 	<div id="container">
 	    <?PHP
@@ -56,12 +69,16 @@ session_cache_expire(30);
 		    $valid = valid_email($email);
 	
 		    if (!$valid) {
-		        // enter email again
-			
+			echo "<center><h2>Verify your email address</h2><br><br>
+			<table><tr><td><strong><font color='red'>Error: Invalid email address</font></strong></td></tr>
+			<tr><td><br>Enter your email here:</td></tr>
+			<tr><td><form method='POST'><input type='text' size='46' name='email'><?td></tr>
+			</table><br><br><input type='hidden' name='_email_enter' value=1>
+			<input type='submit' value='Send Code'></form><br><br>";
 		    }
 		    else {
 			// send and enter access code
-			$access = substr(md5(uniqid(rand(), true)), 10, 10);
+			$access = substr(md5(uniqid(rand(), true)), 16, 8);
 			echo $access;
 			$mail->addAddress($email);
 			$mail->Body = 'Please enter the access code to verify your email address with
@@ -85,6 +102,17 @@ session_cache_expire(30);
 			<form method='POST' action='makeNewSubmission.php'>
 			<input type='hidden' name='email' value='".$email."'>
 			<input type='submit' name='Submit' value='Enter your adoption story'></form>";
+		    }
+		    else {
+			echo "<center><h2>Verify your email address</h2><br><br>
+			<table><tr><td><strong><font color='red'>Error: inccorrect code entered</font></strong></td></tr>
+			<tr><td><br>Enter the code that was sent to your email:</td></tr>
+			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>
+			<input type='hidden' name='email' value='".$email."'>
+			<input type='hidden' name='access' value='".$_POST['access']."'>
+			<input type='hidden' name='_email_enter' value=1>
+			<input type='hidden' name='_enter_code' value=1></table><br><br>
+			<input type='submit' value='Enter Code'></form><br><br>";
 		    }
 		}
 	    }

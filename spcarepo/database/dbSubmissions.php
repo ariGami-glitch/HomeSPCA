@@ -256,7 +256,7 @@ function retrieve_optin() {
 }
 function get_current_highlights($lastdate) {
     $con = connect();
-    $query = 'SELECT * FROM dbSubmissions WHERE dateHighlighted = "'.$lastdate.'"';
+    $query = 'SELECT * FROM dbsubmissions WHERE dateHighlighted = "'.$lastdate.'"';
     $result = mysqli_query($con, $query);
     $highlights = array();
     $n = mysqli_num_rows($result);
@@ -269,14 +269,14 @@ function get_current_highlights($lastdate) {
         $highlights[] = $theSub;
     }
     //$n = "hi";
+    mysqli_close($con);
     return $highlights;
 
 }
-function get_new_highlights($today){
+function get_new_highlights($lastdate){
     //before the query
-    $num = rand(3, 5);
     $con = connect();
-    $query = 'SELECT * FROM dbSubmissions WHERE dateHighlighted <> "'.$lastdate.'" limit 4';
+    $query = 'SELECT * FROM dbsubmissions WHERE approved = 1 and dateHighlighted is NULL or dateHighlighted <>"'.$lastdate.'" limit 4';
     $result = mysqli_query($con, $query);
     $highlights = array();
     $n = mysqli_num_rows($result);
@@ -284,12 +284,20 @@ function get_new_highlights($today){
 		mysqli_close($con);
 		return false;
 	}
+    $i = 0;
     if(mysqli_num_rows($result) == 4) {
-        $count = 1;
         while($row = mysqli_fetch_assoc($result)) {
             $theSub = make_a_submission($row);
-            $highlights[] = $theSub;
+            $highlights[$i] = $theSub;
+            $i = $i + 1;
         }
+        mysqli_close($con);
+    }
+    else {
+        //make it up by just inserting at the $i 
+        mysqli_close($con);
+        
+        
     }
     return $highlights;
 
@@ -297,7 +305,7 @@ function get_new_highlights($today){
 function post_to_website() {
 //determine the last highlighted date
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = 1 ORDER BY dateHighlighted DESC LIMIT 1";
+	$query = "SELECT * FROM dbsubmissions WHERE approved = 1 ORDER BY dateHighlighted DESC LIMIT 1";
 	$result = mysqli_query($con,$query);
 	if (mysqli_num_rows($result) == 0) {
 		mysqli_close($con);
@@ -314,7 +322,7 @@ function post_to_website() {
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 1 days'));
     if($today < $compare) {
         $highlights = get_current_highlights($lastdate);
         return $highlights;
@@ -322,9 +330,10 @@ function post_to_website() {
     }
     else {
         //this means it has passed two weeks
-        $highlights = get_new_highlights($today);
-        return $highlights;
+        $highlights = get_new_highlights($lastdate);
+        //update the dateHighlighted here
 
+        return $highlights;
     }
     return false;
 }

@@ -19,6 +19,18 @@ include_once("domain/Submission.php");
     <div id="container">
 		<?php
 			include('header.php');
+			echo '
+            <div class="topnav">
+            <a href="' . $path . 'index.php">Home</a>
+            <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
+            <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>
+            <a class = "active" href="' . $path . 'viewNewSubs.php">View New Submissions</a>
+            <a href="' . $path . 'emailList.php">Generate Emailing List</a>
+            <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>
+            <div class="topnav-right">
+            <a href="' . $path . 'logout.php">Logout</a><br>
+            </div>
+            </div>';
 			echo "<div id='content'>";
 			$id = $_POST['id'];
 			approve_submission($id);

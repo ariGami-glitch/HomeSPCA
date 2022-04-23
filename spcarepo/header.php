@@ -139,7 +139,7 @@
     text-align: center;
     padding: 25px 20px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
 }
 .topnav a:hover {
     background-color: #CAA900;

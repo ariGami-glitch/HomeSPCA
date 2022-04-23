@@ -33,7 +33,7 @@ $adopter = new Adopter(null, null, null, null);
         <?php
         echo "<div id='content'>";
 	    include('submissionValidate.inc');
-	    echo "<center><h1>Submit Your Adoption Story</h1></center><br>";
+	    echo "<center><h1><font style='color: blue'>Submit Your Adoption Story</font></h1></center><br>";
 	    if ($_POST['email'] == null) {
 		header('Location: verifyEmail.php');
 	    }

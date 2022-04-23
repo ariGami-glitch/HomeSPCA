@@ -77,13 +77,13 @@ echo('<br><br><table style width="300"><form method="post"><input type="hidden" 
                 else {
                     echo('<center><h1>Administrative Login</h1>');
                     echo('<font color="red"><strong>Error: invalid username/password<br /></strong></font><br>');
-                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
+                    echo('<table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td style="font-size: 18px;">Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td style="font-size: 18px;">Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
                 }
             } else {
                 //At this point, they failed to authenticate
                 echo('<center><h1>Administrative Login</h1>');
                 echo('<font color="red"><strong>Error: invalid username/password</strong></font><br>');
-                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td>Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td>Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
+                echo('<br><center><table style width="300"><form method="post"><input type="hidden" name="_submit_check" value="true"><tr><td style="font-size: 18px;">Username:</td></tr><tr><td><input type="text" size="48" name="user" tabindex="1"></td></tr><tr><td style="font-size: 18px;">Password:</td></tr><tr><td><input type="password" size="48" name="pass" tabindex="2"></td></tr><tr><td colspan="2" align="center"></td></tr></table><br><input type="submit" name="Login" value="Login"><br><br><br>');
             }
     }
     echo "<br><br><br>";

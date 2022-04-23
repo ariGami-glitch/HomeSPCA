@@ -254,9 +254,47 @@ function retrieve_optin() {
 	}*/
 	return $Subs;
 }
-//this is where the priority queue will go to
+function get_current_highlights($lastdate) {
+    $con = connect();
+    $query = 'SELECT * FROM dbSubmissions WHERE dateHighlighted = "'.$lastdate.'"';
+    $result = mysqli_query($con, $query);
+    $highlights = array();
+    $n = mysqli_num_rows($result);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+    while($row = mysqli_fetch_assoc($result)) {
+        $theSub = make_a_submission($row);
+        $highlights[] = $theSub;
+    }
+    //$n = "hi";
+    return $highlights;
+
+}
+function get_new_highlights($today){
+    //before the query
+    $num = rand(3, 5);
+    $con = connect();
+    $query = 'SELECT * FROM dbSubmissions WHERE dateHighlighted <> "'.$lastdate.'" limit 4';
+    $result = mysqli_query($con, $query);
+    $highlights = array();
+    $n = mysqli_num_rows($result);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+    if(mysqli_num_rows($result) == 4) {
+        $count = 1;
+        while($row = mysqli_fetch_assoc($result)) {
+            $theSub = make_a_submission($row);
+            $highlights[] = $theSub;
+        }
+    }
+    return $highlights;
+
+}
 function post_to_website() {
-    $highlights;
 //determine the last highlighted date
 	$con=connect();
 	$query = "SELECT * FROM dbSubmissions WHERE approved = 1 ORDER BY dateHighlighted DESC LIMIT 1";
@@ -271,45 +309,25 @@ function post_to_website() {
     if($row == null) {
         return false;
     }
+    mysqli_close($con);
     $lastdate = $row['dateHighlighted'];
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 2 days'));
-//compare the current date to a two weeks from the last higlighted date
-    if($today >= $compare) {
-        //get a random number between 3 and 5. This is the number of higlights for the two weeks
-        $num = rand(3, 5);
-        //if two weeks has passed, then iterate through all the submissions and order by the number of times it was higlighted.
-        $query = "SELECT * FROM dbSubmissions WHERE dateHighlighted <> ".$lastdate." AND approved = 1";
-        $result;
-            //keep track of the count
-        return $num;
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
+    if($today < $compare) {
+        $highlights = get_current_highlights($lastdate);
+        return $highlights;
+        //return "bye";
     }
     else {
-        //if two weeks has not passed, then return an array to the four posts that match the last highlighted date.
-        $query = "SELECT * FROM dbSubmissions WHERE dateHighlighted = ".$lastdate;
-        $result = mysqli_query($con,$query);
-        if (mysqli_num_rows($result) == 0) {
-            mysqli_close($con);
-            return false;
-        }
-        $acceptedSubs = array();
-        while($row = mysqli_fetch_assoc($result)) {
-            $theSubmission = make_a_submission($row);
-            $acceptedSubs[] = $theSubmission;
-        }
-        /**for ($i = 0; $i < count($result_row); $i++) {
-            $result = mysqli_fetch_assoc($result_row[$i]);
-            $theSubmission = make_a_submission($result);
-            $acceptedSubs += $theSubmission;
-        }*/
-        return $acceptedSubs;
-        
+        //this means it has passed two weeks
+        $highlights = get_new_highlights($today);
+        return $highlights;
+
     }
-//After those if else cases, to take into account for when a deletion happens or there is not enough
-    //If the date match set it up
-    //return $highlights;
+    return false;
 }
+
 ?>
 

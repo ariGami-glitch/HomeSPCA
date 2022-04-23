@@ -65,8 +65,9 @@ echo '<div id="content"><center>';
     <div id="slideshow">
 	<div class="slide-wrapper">
 	<?php
-    $approved = retrieve_approved_submissions();
-	for ($i = 0; $i < 4; $i++) {
+    //$approved = retrieve_approved_submissions();
+	$approved = post_to_website();
+    for ($i = 0; $i < count($approved); $i++) {
 	    	echo "<div class='slide'>";
  		echo "<div class='slide-number'>";
                 
@@ -77,7 +78,6 @@ echo '<div id="content"><center>';
                 $petname = $approved[$i]->get_pet_name();
 		$petType = $approved[$i]->get_pet_type();
 		$email = $approved[$i]->get_email();
-    echo post_to_website();
                 echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></td></tr>";
                 echo "<tr><td style='text-align:center'><strong><font size='5'>" .$petname. "</font></strong>";
 		echo "<tr><td style='text-align:center'><font size='3'>Adopted by ". $name . "</font></td></tr>";

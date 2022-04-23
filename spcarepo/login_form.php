@@ -38,6 +38,10 @@ session_start();
 <a href="index.php">Home</a>
 <a href="makeNewSubmission.php">Make A Submission</a>
 <a class="active" href="login_form.php">Admin Login</a>
+<a>About</a>
+<div class="topnav-right">
+<input type="text" placeholder="Search..">
+</div>
 </div>
 <div id="content" style="color:blue; padding-bottom:10px; font-weight:bold;">
     <?PHP

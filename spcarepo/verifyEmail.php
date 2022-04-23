@@ -65,7 +65,7 @@ input[type=submit] {
         <?php
         echo "<div id='content'>";
 	    include('emailValidate.inc');
-	    echo "<center><h1>Submit Your Adoption Story</h1></center><br>";
+	    echo "<center><h1><text style='color: blue'>Submit Your Adoption Story</color></h1></center><br>";
 	  
 	    if ($_POST['_email_enter'] != 1) {
 		    echo "<center><h2>Verify your email address</h2><br><br>

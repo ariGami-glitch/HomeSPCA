@@ -12,7 +12,9 @@ function add_submission($submission) {
 	//$result = mysqli_query($con,$query);
 		
 	if ($result == null || mysqli_num_rows($result) == 0) {
-		$result = mysqli_query($con,'INSERT INTO dbSubmissions VALUES("' .
+		$result = mysqli_query($con,'INSERT INTO dbSubmissions(email, first_name, last_name, pet_type,
+			description, pet_name, approved, image, opt_in, id, is_highlight, num_highlights)
+		       	VALUES("' .
 			$submission->get_email() . '","' .
 			$submission->get_first_name() . '","' .
 			$submission->get_last_name() . '","' .

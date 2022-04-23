@@ -322,7 +322,7 @@ function post_to_website() {
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 1 days'));
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
     if($today < $compare) {
         $highlights = get_current_highlights($lastdate);
         return $highlights;

@@ -76,7 +76,7 @@ echo '<div id="content"><center>';
                 $petname = $approved[$i]->get_pet_name();
 		$petType = $approved[$i]->get_pet_type();
 		$id = $approved[$i]->get_id();
-                echo "<table style width='400'><tr><td><img src=".$image_src." width='400' height='300'></td></tr>";
+                echo "<table style width='400'><tr><td><img src=".$image_src." width='600' height='400'></td></tr>";
                 echo "<tr><td style='text-align:center'><strong><font size='5'>" .$petname. "</font></strong>";
 		echo "<tr><td style='text-align:center'><font size='3'>Adopted by ". $name . "</font></td></tr>";
 		echo "<tr><td style='text-align:center'><form method='POST' action='viewStory.php'>

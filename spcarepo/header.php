@@ -101,7 +101,21 @@
 	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
 	        }
 		if ($_SESSION['access_level'] >= 2) {
-			echo " <br><b>"."Administrative"."</b> ";
+			/*echo '
+            <div class="topnav">
+            <a class="active" href="' . $path . 'index.php">Home</a>
+            <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
+            <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>
+            <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>
+            <a href="' . $path . 'emailList.php">Generate Emailing List</a>
+            <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>
+            <div class="topnav-right">
+            <a href="' . $path . 'logout.php">Logout</a><br>
+            </div>
+            </div>';*/
+
+
+            /*echo " <br><b>"."Administrative"."</b> ";
 	        	echo('<a href="' . $path . 'index.php">Home</a>');
 	        	echo(' | <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>');
 	        	echo(' | <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>');
@@ -109,7 +123,7 @@
 	        	//echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
 	        	echo(' | <a href="' . $path . 'emailList.php">Generate Emailing List</a>');
 			echo(' | <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>');
-			echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
+			echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');*/
 	        }
 	        //echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
         //}
@@ -118,3 +132,37 @@
     ?>
 </div>
 <!-- End Header -->
+<style>
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: #CAA900;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    text-decoration: underline;
+    font-weight: bold
+}  
+.topnav a.active {
+    background-color: #C60070;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    font-weight: bold;
+}
+.topnav-right {
+    float: right;
+}
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 19px;
+    margin-right: 16px;
+    font-size: 20px;
+}
+</style>

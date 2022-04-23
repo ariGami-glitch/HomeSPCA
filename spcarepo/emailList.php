@@ -26,7 +26,20 @@ include_once("domain/Submission.php");
     <!--  Body portion starts here -->
     <body>
     <div id="container">
-    <?PHP include('header.php'); ?>
+    <?PHP include('header.php'); 
+			echo '
+            <div class="topnav">
+            <a href="' . $path . 'index.php">Home</a>
+            <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
+            <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>
+            <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>
+            <a class = "active" href="' . $path . 'emailList.php">Generate Emailing List</a>
+            <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>
+            <div class="topnav-right">
+            <a href="' . $path . 'logout.php">Logout</a><br>
+            </div>
+            </div>';
+    ?>
             <div id="content">
 <?php 
             echo "<center><h1>Emailing List</h1></center>";

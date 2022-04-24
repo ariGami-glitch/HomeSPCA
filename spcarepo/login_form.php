@@ -11,6 +11,9 @@ input[type=submit] {
     border-radius: 15px 15px 15px 15px;
     cursor: pointer; 
 }
+input[type="text"] {
+    font-size: 14px; 
+}
 </style>
 
 <?php

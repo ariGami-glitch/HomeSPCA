@@ -9,6 +9,7 @@ input[type=submit] {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 15px 15px 15px 15px;
 }
 </style>
 

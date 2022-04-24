@@ -146,7 +146,7 @@ function make_a_submission($result_row) {
 
 function retrieve_approved_submissions() {
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = 1";
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 1 ORDER BY id DESC";
 	$result = mysqli_query($con,$query);
 	if (mysqli_num_rows($result) == 0) {
 		mysqli_close($con);
@@ -167,7 +167,7 @@ function retrieve_approved_submissions() {
 
 function retrieve_unapproved_submissions() {
 	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = 0";
+	$query = "SELECT * FROM dbSubmissions WHERE approved = 0 ORDER BY id DESC";
 	$result = mysqli_query($con,$query);
 	if (mysqli_num_rows($result) == 0) {
 		mysqli_close($con);

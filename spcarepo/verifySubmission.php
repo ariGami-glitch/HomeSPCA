@@ -54,7 +54,7 @@ include_once("domain/Submission.php");
 			$update_desc = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
 			$update_pet_type = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_type'])));
 			if ($update_desc == null || $update_pet_type == null) {
-			    echo "<br><strong><font color='red'>Error: Submission could not be updated with invalid values</font></strong>";
+			    echo "<br><strong><font color='red' style='font-size:14px'>Error: Submission could not be updated with invalid values</font></strong>";
 			}
 			else {
 			    $result = update_submission($id, $update_desc, $update_pet_type);

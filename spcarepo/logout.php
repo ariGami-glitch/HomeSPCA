@@ -35,13 +35,13 @@ session_cache_expire(30);
 			echo '
             <div class="topnav">
             <a href="' . $path . 'index.php">Home</a>
-            <a class = "active" href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
+            <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
             <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>
             <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>
             <a href="' . $path . 'emailList.php">Generate Emailing List</a>
             <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>
             <div class="topnav-right">
-            <a href="' . $path . 'logout.php">Logout</a><br>
+            <a class = "active" href="' . $path . 'logout.php">Logout</a><br>
             </div>
             </div>';
             ?>

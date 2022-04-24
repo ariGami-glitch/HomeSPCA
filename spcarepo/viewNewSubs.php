@@ -36,8 +36,8 @@ include_once("domain/Submission.php");
 			//echo "<br><form action='index.php' method='get'>
 			//<input type='submit' value='Back to Homepage'></form><center>";
 			$subs = retrieve_unapproved_submissions();
-			
-			for ($i = 0; $i < count($subs); $i++){
+			if($subs != false) {
+            for ($i = 0; $i < count($subs); $i++){
 				//echo "<br><table style width='800'>";
 				$id = $subs[$i]->get_id();
 				$name = $subs[$i]->get_pet_name();
@@ -56,6 +56,7 @@ include_once("domain/Submission.php");
 				<input type='submit' value='View Submission'>
 				</form><br>";
 			}
+            }
 			echo "<br>";
 	?>
     </div>

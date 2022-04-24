@@ -118,7 +118,9 @@ function retrieve_unapproved_submission($email) {
 function approve_submission($id){
 	$con=connect();
 	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE id = "'.$id.'"';
-	$result = mysqli_query($con,$query);
+	if ($query) {
+	    $result = mysqli_query($con,$query);
+	}
 	return true;
 }
 

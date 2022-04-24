@@ -34,7 +34,7 @@ include_once("domain/Submission.php");
 			echo "<div id='content'>";
 			$id = $_POST['id'];
 			approve_submission($id);
-			echo "<center><br><h2>The submission has been approved!</h2><br>";	
+			echo "<center><br><br><h2>The submission has been approved!</h2><br><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
 			<input type='submit' value='View Other Submissions'></form><br><br><br>";	
 		?>

@@ -33,10 +33,11 @@ include_once("domain/Submission.php");
 			echo "<div id='content'>";
 			$id= $_POST['id'];
 			$sub = retrieve_submission($id);
-			
-			remove_submission($id);
-			unlink("pictures/".$sub->get_image());
-			echo "<center><br><h2>This submission has been denied.</h2><br>";	
+			if ($sub) {	
+			    remove_submission($id);
+			    unlink("pictures/".$sub->get_image());
+			}
+			echo "<center><br><br><h2>This submission has been denied.</h2><br><br>";	
 			echo "<form action='viewNewSubs.php' method='get'>
 			<input type='submit' value='View Other Submissions'></form><br><br><br>";	
 		?>

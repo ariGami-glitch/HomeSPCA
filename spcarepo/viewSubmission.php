@@ -67,7 +67,7 @@ include_once("domain/Submission.php");
 		}
 		else {
 		    unapprove_submission($id);
-		    echo "<br><h2>This submission has been unapproved.</h2><br>";
+		    echo "<br><br><h2>This submission has been unapproved.</h2><br><br>";
 		    echo "<form action='adminViewSubs.php' method='get'>
 		    <input type='submit' value='View Other Submissions'></form><br><br>";
 		}

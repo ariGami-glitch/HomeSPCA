@@ -44,6 +44,9 @@ input[type=submit] {
     cursor: pointer;
     border-radius: 15px 15px 15px 15px;
 }
+input[type="text"] {
+    font-size:14px;
+} 
 </style>
 <html>
     <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -69,8 +72,8 @@ input[type=submit] {
 	  
 	    if ($_POST['_email_enter'] != 1) {
 		    echo "<center><h2>Verify your email address</h2><br><br>
-		    <table><tr><td>Enter your email here:</td></tr>
-		    <tr><td><form method='POST'><input type='text' size='46' name='email'></td></tr>
+		    <table><tr><td style='font-size:14px'>Enter your email here:</td></tr>
+		    <tr><td style='font-size:14px'><form method='POST'><input type='text' size='46' name='email'></td></tr>
 		    </table><br><br><input type='hidden' name='_email_enter' value=1>
 		    <input type='submit' value='Send Code'></form><br><br>";
 	    }
@@ -83,7 +86,7 @@ input[type=submit] {
 		    if (!$valid) {
 			echo "<center><h2>Verify your email address</h2><br><br>
 			<table><tr><td><strong><font color='red'>Error: Invalid email address</font></strong></td></tr>
-			<tr><td><br>Enter your email here:</td></tr>
+			<tr><td style='font-size:14px'><br>Enter your email here:</td></tr>
 			<tr><td><form method='POST'><input type='text' size='46' name='email'><?td></tr>
 			</table><br><br><input type='hidden' name='_email_enter' value=1>
 			<input type='submit' value='Send Code'></form><br><br>";
@@ -97,7 +100,7 @@ input[type=submit] {
 				the <b>Fredericksburg SPCA</b>: '.$access;
 			$mail->send();
 			echo "<center><h2>Verify your email address</h2><br><br>
-			<table><tr><td>Enter the code that was sent to your email:</td></tr>
+			<table><tr><td style='font-size:14px'>Enter the code that was sent to your email:</td></tr>
 			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>
 			<input type='hidden' name='email' value='".$email."'>
 			<input type='hidden' name='access' value='".$access."'>

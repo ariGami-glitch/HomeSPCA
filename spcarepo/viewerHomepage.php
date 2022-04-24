@@ -89,7 +89,7 @@ echo '<div id="content"><center>';
 	?>
     </div>
     </div> 
-</div></div></div></div>
+</div></div></div></div><br>
 	<?php include('footer2.inc'); ?>
 </body>
 </html>

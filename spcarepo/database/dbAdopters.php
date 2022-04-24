@@ -142,4 +142,20 @@ function opt_in($email) {
 	//}
 	return true;
 }
+
+function retrieve_optin() {
+	$con=connect();
+	$query = "SELECT * FROM dbAdopters WHERE opt_in = 1";
+	$result = mysqli_query($con,$query);
+	if (mysqli_num_rows($result) == 0) {
+		mysqli_close($con);
+		return false;
+	}
+	$Adopters = array();
+	while($row = mysqli_fetch_assoc($result)) {
+	    	$theAdopter = make_an_adopter($row);
+		$Adopters[] = $theAdopter;
+	}
+	return $Adopters;
+}
 ?>

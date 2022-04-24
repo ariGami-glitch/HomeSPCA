@@ -213,7 +213,7 @@ function display_email($sub) {
     echo "Adopter name: ".$subs[$i]->get_first_name()." ".$subs[$i]->get_last_name(). " email: ".$subs[$i]->get_email()."<br>";
     
 }
-function retrieve_optin() {
+/**function retrieve_optin() {
 	$con=connect();
 	$query = "SELECT * FROM dbSubmissions WHERE opt_in = 1";
 	$result = mysqli_query($con,$query);
@@ -226,13 +226,9 @@ function retrieve_optin() {
 		$theSubmission = make_a_submission($row);
 		$Subs[] = $theSubmission;
 	}
-	/**for ($i = 0; $i < count($result_row); $i++) {
-		$result = mysqli_fetch_assoc($result_row[$i]);
-		$theSubmission = make_a_submission($result);
-		$acceptedSubs += $theSubmission;
-	}*/
+	
 	return $Subs;
-}
+}*/
 function get_current_highlights($lastdate) {
     $con = connect();
     $query = 'SELECT * FROM dbsubmissions WHERE dateHighlighted = "'.$lastdate.'"';

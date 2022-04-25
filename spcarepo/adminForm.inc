@@ -27,12 +27,12 @@ input[type=submit] {
 	
 	<?php
 		echo "<center><table>";
-		echo '<tr><td>First Name: </td></tr><tr><td><input type="text" size="43" name="first_name" tabindex="1" value="'.$admin->get_first_name().'"></td></tr>';
-	?>  &nbsp;&nbsp;&nbsp;&nbsp; <tr><td><br>Last Name: </td></tr><tr><td><input type="text" size="43" name="last_name" tabindex="2" value="<?PHP echo($admin->get_last_name()) ?>"></td></tr>
-	<tr><td><br>Email address: </td></tr><tr><td><input type="text" size="43" name="email" tabindex="3" value="<?PHP echo($admin->get_email()) ?>"></td></tr>
-	<tr><td><br>Username: </td></tr><tr><td><input type="text" size="43" name="username" tabindex="4" value="<?PHP echo($admin->get_username()) ?>"></td></tr>
-	<tr><td><br>Password: </td></tr><tr><td><input type="password" size="43" name="password" tabindex="5" value="<?PHP echo($admin->get_password()) ?>"></td></tr>
-	<tr><td><br>Re-enter Password: </td></tr><tr><td><input type="password" size="43" name="password2" tabindex="6" value=""></td></tr>
+		echo '<tr><td>First Name: </td></tr><tr><td><input type="text" size="44" name="first_name" tabindex="1" value="'.$admin->get_first_name().'"></td></tr>';
+	?>  &nbsp;&nbsp;&nbsp;&nbsp; <tr><td><br>Last Name: </td></tr><tr><td><input type="text" size="44" name="last_name" tabindex="2" value="<?PHP echo($admin->get_last_name()) ?>"></td></tr>
+	<tr><td><br>Email address: </td></tr><tr><td><input type="text" size="44" name="email" tabindex="3" value="<?PHP echo($admin->get_email()) ?>"></td></tr>
+	<tr><td><br>Username: </td></tr><tr><td><input type="text" size="44" name="username" tabindex="4" value="<?PHP echo($admin->get_username()) ?>"></td></tr>
+	<tr><td><br>Password: </td></tr><tr><td><input type="password" size="44" name="password" tabindex="5" value="<?PHP echo($admin->get_password()) ?>"></td></tr>
+	<tr><td><br>Re-enter Password: </td></tr><tr><td><input type="password" size="44" name="password2" tabindex="6" value=""></td></tr>
 	</table><br>
 	<br><input type="submit" value="Create Account" name="Submit Story"><br /><br />
 

@@ -28,7 +28,7 @@ function validate_admin($admin) {
 }
 
 function show_errors($e) {
-	echo('<br><div class="warning"><center><table style="width:370">');
+	echo('<div class="warning"><center><table style="width:370">');
 	echo('<ul>');
 	foreach ($e as $error) {
 	    echo("<tr><td style='padding:0px'><li><strong><font color=\"red\">" . $error . "</font></strong></li></td></tr>");

@@ -46,7 +46,7 @@ $admin = new Admin(null, null, null, null, null);
     ?>
 	    <div id="content">
 	   <?PHP
-	    echo "<center><h1>Create New Admin Account</h1></center>";
+	    echo "<center><h1>Create New Admin Account</h1></center><br>";
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    //echo "<center><h1>Create New Admin Account</h1></center><br>";

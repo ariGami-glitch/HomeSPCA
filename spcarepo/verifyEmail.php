@@ -120,7 +120,7 @@ input[type="text"] {
 		    }
 		    else {
 			echo "<center><h2>Verify your email address</h2><br>
-			<table><tr><td><strong><font color='red'>Error: incorrect code entered</font></strong></td></tr>
+			<table><tr><td><strong><font color='red'>Error: Incorrect code entered</font></strong></td></tr>
 			<tr><td><br>Enter the code that was sent to your email:</td></tr>
 			<tr><td><form method='POST'><input type='text' size='42' name='code'></td></tr>
 			<input type='hidden' name='email' value='".$email."'>

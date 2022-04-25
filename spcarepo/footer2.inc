@@ -1,5 +1,5 @@
 <!-- Begin Footer -->
-<br /><br />
+<br />
 <div class="sfooter">
 <table style="color: white; font-size: 30px;">
 <tr><td>
@@ -10,7 +10,7 @@
 
 <style>
 .sfooter {
-	padding: 20px 20px;
+	padding: 14px 14px;
 	text-align: center;
 	background: #00488A;
 	color: white;

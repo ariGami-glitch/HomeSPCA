@@ -55,7 +55,7 @@ include_once("domain/Adopter.php");
                 //echo "<center/><br><table style width='500' border='2'>";
                 echo"<center/><tr><td style='padding:8px'><p style='font-size':30px;margin-bottom:1;'>".$name."</p></td><td><p style='font-size':30px;margin-bottom:1;'>".$email."</p></td></tr>";
 	    }
-	    echo "</table>";
+	    echo "</table><br><br>";
 ?>
     </div>
     </div>

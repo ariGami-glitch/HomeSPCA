@@ -73,7 +73,7 @@ input[type="text"] {
 	    if ($_POST['_email_enter'] != 1) {
 		    echo "<center><h2>Verify your email address</h2><br><br>
 		    <table><tr><td style='font-size:14px'>Enter your email here:</td></tr>
-		    <tr><td style='font-size:14px'><form method='POST'><input type='text' size='46' name='email'></td></tr>
+		    <tr><td style='font-size:14px'><form method='POST'><input type='text' size='42' name='email'></td></tr>
 		    </table><br><br><input type='hidden' name='_email_enter' value=1>
 		    <input type='submit' value='Send Code'></form><br><br>";
 	    }
@@ -84,10 +84,10 @@ input[type="text"] {
 		    $valid = valid_email($email);
 	
 		    if (!$valid) {
-			echo "<center><h2>Verify your email address</h2><br><br>
+			echo "<center><h2>Verify your email address</h2><br>
 			<table><tr><td><strong><font color='red'>Error: Invalid email address</font></strong></td></tr>
 			<tr><td style='font-size:14px'><br>Enter your email here:</td></tr>
-			<tr><td><form method='POST'><input type='text' size='46' name='email'><?td></tr>
+			<tr><td><form method='POST'><input type='text' size='42' name='email'><?td></tr>
 			</table><br><br><input type='hidden' name='_email_enter' value=1>
 			<input type='submit' value='Send Code'></form><br><br>";
 		    }
@@ -101,7 +101,7 @@ input[type="text"] {
 			$mail->send();
 			echo "<center><h2>Verify your email address</h2><br><br>
 			<table><tr><td style='font-size:14px'>Enter the code that was sent to your email:</td></tr>
-			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>
+			<tr><td><form method='POST'><input type='text' size='42' name='code'></td></tr>
 			<input type='hidden' name='email' value='".$email."'>
 			<input type='hidden' name='access' value='".$access."'>
 			<input type='hidden' name='_email_enter' value=1>
@@ -119,10 +119,10 @@ input[type="text"] {
 			<input type='submit' name='Submit' value='Enter your adoption story'></form>";
 		    }
 		    else {
-			echo "<center><h2>Verify your email address</h2><br><br>
-			<table><tr><td><strong><font color='red'>Error: inccorrect code entered</font></strong></td></tr>
+			echo "<center><h2>Verify your email address</h2><br>
+			<table><tr><td><strong><font color='red'>Error: incorrect code entered</font></strong></td></tr>
 			<tr><td><br>Enter the code that was sent to your email:</td></tr>
-			<tr><td><form method='POST'><input type='text' size='46' name='code'></td></tr>
+			<tr><td><form method='POST'><input type='text' size='42' name='code'></td></tr>
 			<input type='hidden' name='email' value='".$email."'>
 			<input type='hidden' name='access' value='".$_POST['access']."'>
 			<input type='hidden' name='_email_enter' value=1>

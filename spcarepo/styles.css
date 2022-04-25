@@ -200,4 +200,17 @@ p.error {color: #FF0000;}
     }
 }
 
+input[type='text'] {
+    font-size: 13px;
+    font-family: verdana, arial, sans-serif;
+}
 
+input[type='password'] {
+    font-size: 13px;
+    font-family: verdana, arial, sans-serif;
+}
+
+textarea {
+   font-size: 13px;
+   font-family: verdana, arial, sans-serif;
+}

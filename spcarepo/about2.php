@@ -25,7 +25,7 @@ include('header.php');
 <center/>
 <h1 style="color:blue;">ABOUT US</h1>
 <p style="font-size: 18px;">
-Find your new best friend!<br/>
+Find your new best friend!<br/><br/>
 This site was created for the Fredericksburg SPCA to highlight adoption stories that will warm your heart and spread awareness.<br/> 
 Created by Jennifer Werme, Ariana Tran, Brian Wolf, and Saraid Satterfield.<br/>
 To learn more about the SPCA: 

@@ -59,6 +59,7 @@ input[type="text"] {
 <div class="topnav">
 <a href="index.php">Home</a>
 <a class= "active" href="makeNewSubmission.php">Make A Submission</a>
+<a href="viewAccSubs.php">View Submissions</a>
 <a href="login_form.php">Admin Login</a>
 <a>About</a>
 <div class="topnav-right">

@@ -36,6 +36,7 @@ include('header.php');
 <div class="topnav">
 <a class="active" href="index.php">Home</a>
 <a href="makeNewSubmission.php">Make A Submission</a>
+<a href="viewAccSubs.php">View Submissions</a>
 <a href="login_form.php">Admin Login</a>
 <a>About</a>
 <div class="topnav-right">

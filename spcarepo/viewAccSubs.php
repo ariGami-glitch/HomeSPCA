@@ -28,7 +28,7 @@ include_once("domain/Submission.php");
     <a href="makeNewSubmission.php">Make A Submission</a>
     <a class="active" href="viewAccSubs.php">View Submissions</a>
     <a href="login_form.php">Admin Login</a>
-    <a>About</a>
+    <a href="about2.php">About</a>
     <div class="topnav-right">
     <input type="text" placeholder="Search..">
     </div>

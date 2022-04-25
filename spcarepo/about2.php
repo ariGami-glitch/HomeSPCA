@@ -31,6 +31,7 @@ Created by Jennifer Werme, Ariana Tran, Brian Wolf, and Saraid Satterfield.<br/>
 To learn more about the SPCA: 
 <a href="https://fredspca.org/?msclkid=454e614cc4e511ec99c5ed56c67ec71d">Fredericksburg SPCA</a>
 </p>
+<img src="spcalogo.jpg" alt="SPCA Logo">
 </div>
 </div>
 <?php  

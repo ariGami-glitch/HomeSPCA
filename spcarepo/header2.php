@@ -1,5 +1,5 @@
 <div class="header2">
-	<center><img src="fredspca.png" alt="SPCA Logo"></center>
+	<center><a href="index.php"><img src="fredspca.png" alt="SPCA Logo"></center></a>
 	<!--<form action="index.php"><input type="submit" class="button button3" value=" Home Page "></form>-->
     <?php 
 	/*if ($_SESSION['access_level'] != 2) {

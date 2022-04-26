@@ -13,13 +13,10 @@ include_once("domain/Submission.php");
         </title>
         <!--  Choose a style sheet -->
         <link rel="stylesheet" href="styles.css" type="text/css"/>
-        <!--<link rel="stylesheet" href="calendar.css" type="text/css"/> -->
-        <!--    <link rel="stylesheet" href="calendar_newGUI.css" type="text/css"/> -->
     </head>
     <!--  Body portion starts here -->
     <body>
     <div id="container">
-    <?PHP //include('header.php'); ?>
 		<?php
 			include('header.php');
 			echo '
@@ -36,12 +33,10 @@ include_once("domain/Submission.php");
             </div>';
 			echo "<div id='content'>";
 			echo "<center><h1>Approved Submissions</h1>";
-			//echo "<br><center><form action='index.php' method='get'>
-			//<input type='submit' value='Back to Homepage'></form>";
+			
 			$approvedSubs = retrieve_approved_submissions();
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){
-				//echo "<br><table style width='800'>";
 				$id = $approvedSubs[$i]->get_id();
 				$name = $approvedSubs[$i]->get_pet_name();
 				$adopter = $approvedSubs[$i]->get_first_name()." ".$approvedSubs[$i]->get_last_name();

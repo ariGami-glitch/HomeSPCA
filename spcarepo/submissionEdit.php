@@ -5,7 +5,6 @@ session_start();
 session_cache_expire(30);
 include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
-include_once('database/dbLog.php');
 
 $submission = new Submission(null, null, null, null, null, null, null, null, null);
 
@@ -19,7 +18,6 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
 	    include('submissionValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
 		    include('submissionForm.inc');
-		    //include('footer2.php');
 	    }
 	    else {
     		$errors = validate_submission($submission);
@@ -31,7 +29,7 @@ $submission = new Submission(null, null, null, null, null, null, null, null, nul
     		else {
     		    process_submission($submission);
 		    echo "</div>";
-		//include('footer2.php');
+		
 		echo('</div></body></html>');
 		die();
 		}

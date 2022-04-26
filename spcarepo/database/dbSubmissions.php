@@ -81,40 +81,6 @@ function remove_submission($id) {
 	return true;
 }
 
-/*
-function retrieve_approved_submission($email) {
-	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = true";
-	$result_row = mysqli_query($con,$query);
-	if (mysqli_num_rows($result) == 0) {
-		mysqli_close($con);
-		return false;
-	}
-	$acceptedSubs = array();
-	for($i = 0; $i < count($result_row); $i++){
-		$result = mysqli_fetch_assoc($result_row[$i]);
-		$theSubmission = make_a_submission($result);
-		$acceptedSubs[$i] = $theSubmission;
-	}
-	return $acceptedSubs;
-}
-
-function retrieve_unapproved_submission($email) {
-	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE approved = false";
-	$result_row = mysqli_query($con,$query);
-	if (mysqli_num_rows($result) == 0) {
-		mysqli_close($con);
-		return false;
-	}
-	$unacceptedSubs = array();
-	for($i = 0; $i < count($result_row); $i++){
-		$result = mysqli_fetch_assoc($result_row[$i]);
-		$theSubmission = make_a_submission($result);
-		$unacceptedSubs[$i] = $theSubmission;
-	}
-	return $unacceptedSubs;
-*/
 function approve_submission($id){
 	$con=connect();
 	$query = 'UPDATE dbSubmissions SET approved = 1 WHERE id = "'.$id.'"';
@@ -215,22 +181,7 @@ function display_email($sub) {
     echo "Adopter name: ".$subs[$i]->get_first_name()." ".$subs[$i]->get_last_name(). " email: ".$subs[$i]->get_email()."<br>";
     
 }
-/**function retrieve_optin() {
-	$con=connect();
-	$query = "SELECT * FROM dbSubmissions WHERE opt_in = 1";
-	$result = mysqli_query($con,$query);
-	if (mysqli_num_rows($result) == 0) {
-		mysqli_close($con);
-		return false;
-	}
-	$Subs = array();
-	while($row = mysqli_fetch_assoc($result)) {
-		$theSubmission = make_a_submission($row);
-		$Subs[] = $theSubmission;
-	}
-	
-	return $Subs;
-}*/
+
 function get_current_highlights($lastdate) {
     $con = connect();
     $query = 'SELECT * FROM dbsubmissions WHERE dateHighlighted = "'.$lastdate.'"';
@@ -250,6 +201,7 @@ function get_current_highlights($lastdate) {
     return $highlights;
 
 }
+
 function get_new_highlights($lastdate){
     //before the query
     $con = connect();
@@ -279,6 +231,7 @@ function get_new_highlights($lastdate){
     return $highlights;
 
 }
+
 function post_to_website() {
 //determine the last highlighted date
 	$con=connect();

@@ -92,8 +92,7 @@ include_once("domain/Submission.php");
 		echo "<form action='editSubmission.php' method='post'>
 		<input type='hidden' value='".$id."' name='id'>
 		<input type='submit' value='  Edit  '></form></tr></table><br><br><br>";
-		//echo "<form action='viewNewSubs.php' method='get'>
-		//<input type='submit' value='View Other Submissions'></form><br><br>";
+		
 	?>
     </div></div>
     <?php include('footer2.inc'); ?>

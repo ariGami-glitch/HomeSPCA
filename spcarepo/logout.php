@@ -10,12 +10,7 @@
  * 
  */
 ?>
-<?php
-/*
- * Created on Mar 28, 2008
- * @author Oliver Radwan <oradwan@bowdoin.edu>
- */
-?>
+
 <?PHP
 session_start();
 session_cache_expire(30);
@@ -51,7 +46,7 @@ session_cache_expire(30);
                 session_write_close();
                 ?>
                 <br><center><h2>You are now logged out.</h2></center><br><br><br>
-                <?PHP //include('footer.inc'); ?>
+               
             </div>
 	</div>
         <?php include('footer2.inc'); ?>

@@ -13,9 +13,6 @@
     h1 {padding-left: 0px; padding-right:0px;}
 </style>
 <div id="header">
-<!--<br><br><img src="images/rmhHeader.gif" align="center"><br>
-<h1><br><br>Homebase <br></h1>-->
-
 </div>
 
 <div align="center" id="navigationLinks">
@@ -23,47 +20,18 @@
     <?PHP
     include("header2.php");
     
-    /*if ($_SESSION['first_visit'] == 0) {
-	    $_SESSION['first_visit'] = 1;
-	    //include("viewerHomepage.php");
-	    $_SESSION['access_level'] = 0;
-    }*/
-    //include("viewerHomepage.php");
-    //Log-in security
-    //If they aren't logged in, display our log-in form.
-    /*if (!isset($_SESSION['logged_in'])) {
-        include("viewerHomepage.php");
-        if($_POST["clicked"] == "true") {
-            include('login_form.php');
-	}
-	//include("footer2.php");
-	
-        die();
-    } */
-   if ($_SESSION['first_visit'] !== 0) {
+    if ($_SESSION['first_visit'] !== 0) {
 
-	//include("header2.php");
-        /*         * Set our permission array.
-         * anything a guest can do, a volunteer and manager can also do
-         * anything a volunteer can do, a manager can do.
-         *
-         * If a page is not specified in the permission array, anyone logged into the system
-         * can view it. If someone logged into the system attempts to access a page above their
-         * permission level, they will be sent back to the home page.
-         */
         //pages guests are allowed to view
         $permission_array['index.php'] = 0;
-        $permission_array['about.php'] = 0;
-        $permission_array['apply.php'] = 0;
+        $permission_array['about2.php'] = 0;
 	$permission_array['viewAccSubs.php'] = 0;
 	$permission_array['viewStory.php'] = 0;
-        //pages volunteers can view
-        //pages only managers can view
-        $permission_array['makeNewSubmission.php'] = 0;
+	$permission_array['makeNewSubmission.php'] = 0;
 
+	//pages only admins can view
 	$permission_array['viewSubmission.php'] = 2;
         $permission_array['viewNewSubs.php'] = 2;
-	$permission_array['log.php'] = 2;
 	$permission_array['verifySubmission.php'] = 2;
 	$permission_array['editSubmission.php'] = 2;
         $permission_array['emailList.php'] = 2;
@@ -72,7 +40,7 @@
         $permission_array['adminNewSubmission.php'] = 2;
         $permission_array['approveSub.php'] = 2;
         $permission_array['denySub.php'] = 2;
-	//echo $_SESSION['access_level'];
+	
         //Check if they're at a valid page for their access level.
         $current_page = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'],"/")+1);
 	$current_page = substr($current_page, strpos($current_page,"/")+1);
@@ -87,47 +55,7 @@
             die();
         }
         //This line gives us the path to the html pages in question, useful if the server isn't installed @ root.
-        $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));
-		$venues = array("portland"=>"RMH Portland","bangor"=>"RMH Bangor");
-        
-        //they're logged in and session variables are set.
-        /*if ($_SESSION['venue'] =="") { 
-        	echo(' <a href="' . $path . 'personEdit.php?id=' . 'new' . '">apply</a>');
-        	echo(' | <a href="' . $path . 'logout.php">logout</a><br>');
-		}
-	else {*/
-        	//echo " <br><b>"."Administrative"."</b> ";
-	        if ($_SESSION['access_level'] >= 1) {
-	            //echo(' | <a href="' . $path . 'help.php?helpPage=' . $current_page . '" target="_BLANK">help</a>');
-	        }
-		if ($_SESSION['access_level'] >= 2) {
-			/*echo '
-            <div class="topnav">
-            <a class="active" href="' . $path . 'index.php">Home</a>
-            <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>
-            <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>
-            <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>
-            <a href="' . $path . 'emailList.php">Generate Emailing List</a>
-            <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>
-            <div class="topnav-right">
-            <a href="' . $path . 'logout.php">Logout</a><br>
-            </div>
-            </div>';*/
-
-
-            /*echo " <br><b>"."Administrative"."</b> ";
-	        	echo('<a href="' . $path . 'index.php">Home</a>');
-	        	echo(' | <a href="' . $path . 'adminNewSubmission.php">Make New Submission</a>');
-	        	echo(' | <a href="' . $path . 'adminViewSubs.php">View Accepted Submissions</a>');
-	        	echo(' | <a href="' . $path . 'viewNewSubs.php">View New Submissions</a>');
-	        	//echo(' | <a href="' . $path . 'viewSubmission.php">View Submission</a>');
-	        	echo(' | <a href="' . $path . 'emailList.php">Generate Emailing List</a>');
-			echo(' | <a href="' . $path . 'createAdminAccount.php">Create Admin Account</a>');
-			echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');*/
-	        }
-	        //echo(' | <a href="' . $path . 'logout.php">Logout</a><br>');
-        //}
-        
+        $path = strrev(substr(strrev($_SERVER['SCRIPT_NAME']), strpos(strrev($_SERVER['SCRIPT_NAME']), '/')));   
     }
     ?>
 </div>

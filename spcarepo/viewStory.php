@@ -33,7 +33,7 @@ include_once("domain/Submission.php");
 		$sub = retrieve_submission($id);
 
 		echo "<center><h1>Adoption Story</h1>";	
-		//display_submission($sub);
+		
 		$adopter = $sub->get_first_name()." ".$sub->get_last_name();
 		$pet_name = $sub->get_pet_name();
 		$pet_type = $sub->get_pet_type();

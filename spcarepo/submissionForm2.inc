@@ -13,15 +13,7 @@ input[type=submit] {
     border-radius: 14px 14px 14px 14px;
 }
 </style>
-<?php
 
-//echo('<br><form action="index.php" method="get"><input type="submit" value="Back to Homepage"></form>');
-
-//echo('<p><strong>Adoption Story Submission Form</strong><br />');
-//echo('When finished, hit <b>Submit</b> at the bottom of this page.<br>');
-//echo('<form action="viewerHomepage.php" method="get"><input type="submit" value="Back to Homepage"></form>');
-
-?>
 <form method="POST" action="" enctype='multipart/form-data'>
 	<input type="hidden" name="_form_submit" value="1">
 	<center><table>	
@@ -54,7 +46,6 @@ input[type=submit] {
 
 	<?php
 		echo('<input type="submit" value="Submit Form" name="Submit Story"><br /><br />');
-		//include('footer2.php');
 	?>
 </form>
 

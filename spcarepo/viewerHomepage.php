@@ -43,18 +43,9 @@ include('header.php');
 </div>
 </div>
 <?php
-//echo '<img src="spca.jpg" alt="SPCA Logo">';
+
 echo '<div id="content"><center>';
-//echo '<h1>SPCA Story Highlights</h1>';
-//echo('<p><form method="post"><input type="hidden" name="clicked" value="true"><input type="submit" name="adminlog" value="Administrative Login">');
-//echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
-//echo('<form action="submissionEdit.php" method="get"><input type="submit" value="Make A Submission"></form>');
 
-//echo( '<a href="login_form.php"><h2>Administrative Login</h2></a>');
-//echo( '<a href="verifyEmail.php"><h2>Make A Submission</h2></a><br>');
-
-//echo( '<a href="viewAccSubs.php"><h2>View Approved Submissions</h2></a><br><br>');
-//echo $_SESSION['logged_in'];
 ?>
     
     <div class="div2">
@@ -64,7 +55,7 @@ echo '<div id="content"><center>';
 	<div class="slide-wrapper">
 	<?php
     //$approved = retrieve_approved_submissions();
-	$approved = post_to_website();
+    $approved = post_to_website();
     for ($i = 0; $i < count($approved); $i++) {
 	    	echo "<div class='slide'>";
  		echo "<div class='slide-number'>";

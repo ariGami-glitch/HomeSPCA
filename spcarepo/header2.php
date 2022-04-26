@@ -1,18 +1,5 @@
 <div class="header2">
-	<center><img src="fredspca.png" alt="SPCA Logo"></center>
-	<!--<form action="index.php"><input type="submit" class="button button3" value=" Home Page "></form>-->
-    <?php 
-	/*if ($_SESSION['access_level'] != 2) {
-		echo "<form action='index.php'><input type ='submit' class='button button3' value=' Home Page '></form>";
-		echo "<form action='login_form.php'>
-		      <input type='submit' class='button button2' value='Admin Login'></form>";
-	}
-	else { echo "<br>"; }
-        /*else {
-		echo "<form action='logout.php'>
-		      <input type='submit' class='button button2' value='     Logout    '></form>";
-	}*/
-	?>	
+	<center><img src="fredspca.png" alt="SPCA Logo"></center>	
 </div>
 
 

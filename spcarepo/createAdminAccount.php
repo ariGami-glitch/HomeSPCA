@@ -49,9 +49,7 @@ $admin = new Admin(null, null, null, null, null);
 	    echo "<center><h1>Create New Admin Account</h1></center><br>";
 	    include('adminValidate.inc');
 	    if ($_POST['_form_submit'] != 1) {
-		    //echo "<center><h1>Create New Admin Account</h1></center><br>";
-		    include('adminForm.inc');
-		    //include('footer2.php');
+		include('adminForm.inc');
 	    }
 	    else {
     		$errors = validate_admin($admin);
@@ -63,7 +61,7 @@ $admin = new Admin(null, null, null, null, null);
     		else {
     		    process_admin($admin);
 		    echo "</div>";
-		//include('footer2.php');
+		
 		echo('</div></body></html>');
 		die();
 		}
@@ -81,7 +79,7 @@ $admin = new Admin(null, null, null, null, null);
 		$result = add_admin($admin);
 		echo "<center><br>";
 		if (!$result) {
-		    echo('<font color="red"><strong>Error: Unable to add</strong></font>');
+		    echo('<font color="red"><strong>Error: Unable to add. Input is invalid.</strong></font>');
 		    include('adminForm.inc');
 		}
 		else {

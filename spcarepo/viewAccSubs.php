@@ -40,7 +40,7 @@ include_once("domain/Submission.php");
 			$approvedSubs = retrieve_approved_submissions();
 			
 			for ($i = 0; $i < count($approvedSubs); $i++){
-				//echo "<br><table style width='800'>";
+				
 				$id = $approvedSubs[$i]->get_id();
 				$name = $approvedSubs[$i]->get_pet_name();
 				$adopter = $approvedSubs[$i]->get_first_name()." ".$approvedSubs[$i]->get_last_name();

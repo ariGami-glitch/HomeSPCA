@@ -7,7 +7,6 @@ include_once('database/dbSubmissions.php');
 include_once('domain/Submission.php');
 include_once('database/dbAdopters.php');
 include_once('doman/Adopter.php');
-include_once('database/dbLog.php');
 
 $submission = new Submission(null, null, null, null, null, null, null, null, null, null);
 $adopter = new Adopter(null, null, null, null);
@@ -47,7 +46,7 @@ $adopter = new Adopter(null, null, null, null);
     		else {
     		    process_submission($submission);
 		    echo "</div>";
-		//include('footer2.php');
+		
 		echo('</div></body></html>');
 		die();
 		}
@@ -106,16 +105,14 @@ $adopter = new Adopter(null, null, null, null);
 		
 		echo "<center>"; 
 		if (!$result) {
-		    echo('<strong><font color="red">Error: Unable to add</font></strong>');
+		    echo('<strong><font color="red">Error: Unable to add. Input is invalid.</font></strong>');
 		    include('submissionForm2.inc');
 		}
 		else {
-		    header('Location: formSubmit.php');
-			//echo("Your form has been successfully submitted!<br><br><br>");			
+		    header('Location: formSubmit.php');			
 		} 
 		echo "</div>";
 		include('footer2.inc');
-		//}
 	    }
 	    ?>
 	</div>   

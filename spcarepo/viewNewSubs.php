@@ -33,12 +33,11 @@ include_once("domain/Submission.php");
             </div>';
 		echo "<div id='content'>";
 			echo "<center><h1>Unapproved Submissions</h1>";
-			//echo "<br><form action='index.php' method='get'>
-			//<input type='submit' value='Back to Homepage'></form><center>";
+			
 			$subs = retrieve_unapproved_submissions();
 			if($subs != false) {
-            for ($i = 0; $i < count($subs); $i++){
-				//echo "<br><table style width='800'>";
+                            for ($i = 0; $i < count($subs); $i++){
+				
 				$id = $subs[$i]->get_id();
 				$name = $subs[$i]->get_pet_name();
 				$adopter = $subs[$i]->get_first_name()." ".$subs[$i]->get_last_name();

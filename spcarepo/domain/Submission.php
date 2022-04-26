@@ -8,20 +8,17 @@ class Submission {
 	private $pet_type;
 	private $desc;
 	private $pet_name;
-	private $approved;
 	private $image;
-	private $opt_in;
+	private $id;
 
-	function __construct($e, $fn, $ln, $pt, $d, $pn, $a, $i, $oi, $id) {
+	function __construct($e, $fn, $ln, $pt, $d, $pn, $i, $id) {
 		$this->email = $e;
 		$this->first_name = $fn;
 		$this->last_name = $ln;
 		$this->pet_type = $pt;
 		$this->descrip = $d;
 		$this->pet_name = $pn;
-		$this->approved = $a;
 		$this->image = $i;
-		$this->opt_in = $oi;
 		$this->id = $id;
 	}
 
@@ -53,17 +50,10 @@ class Submission {
 		return $this->pet_name;
 	}
 
-	function get_approved() {
-		return $this->approved;
-	}
-
 	function get_image() {
 		return $this->image;
 	}
 
-	function get_opt_in() {
-		return $this->opt_in;
-	}
 }
 ?>
 	

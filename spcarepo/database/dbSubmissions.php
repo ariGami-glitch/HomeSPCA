@@ -13,7 +13,7 @@ function add_submission($submission) {
 		
 	if ($result == null || mysqli_num_rows($result) == 0) {
 		$result = mysqli_query($con,'INSERT INTO dbSubmissions(email, first_name, last_name, pet_type,
-			description, pet_name, approved, image, opt_in, id, is_highlight, num_highlights)
+			description, pet_name, approved, image, id)
 		       	VALUES("' .
 			$submission->get_email() . '","' .
 			$submission->get_first_name() . '","' .
@@ -21,10 +21,9 @@ function add_submission($submission) {
 			$submission->get_pet_type() . '","' .
 			$submission->get_description() . '","' .
 			$submission->get_pet_name() . '","' .
-			$submission->get_approved() . '","' .
+			0 . '","' .
 			$submission->get_image() . '","' .
-			$submission->get_opt_in() . '","' .
-			0 . '","' . 0 . '","' . 0 . 	
+			0 .   	
 			'");');
 		mysqli_close($con);
 		return $result;
@@ -104,10 +103,8 @@ function make_a_submission($result_row) {
 			$result_row['last_name'], 
 			$result_row['pet_type'], 
 			$result_row['description'], 
-			$result_row['pet_name'], 
-			$result_row['approved'], 
+			$result_row['pet_name'],  
 			$result_row['image'],
-			$result_row['opt_in'],
 			$result_row['id']);
 	return $theSubmission;
 }

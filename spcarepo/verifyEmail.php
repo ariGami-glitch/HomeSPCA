@@ -94,7 +94,7 @@ input[type="text"] {
 		    else {
 			// send and enter access code
 			$access = substr(md5(uniqid(rand(), true)), 16, 8);
-			echo $access;
+			
 			$mail->addAddress($email);
 			$mail->Body = 'Please enter the access code to verify your email address with
 				the <b>Fredericksburg SPCA</b>: '.$access;

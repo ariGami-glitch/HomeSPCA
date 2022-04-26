@@ -70,8 +70,6 @@ $adopter = new Adopter(null, null, null, null);
 		}	
 		$description = trim(str_replace('\\\'', '\'', htmlentities($_POST['description'])));
 		$pet_name = trim(str_replace('\\\'', '\'', htmlentities($_POST['pet_name'])));
-		$approved = 0;
-
 		
 		$name = $_FILES['image']['name'];
 		$image = "picture".uniqid();
@@ -83,7 +81,7 @@ $adopter = new Adopter(null, null, null, null);
 			$opt_in = 0;
 		}
 		 
-		$submission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $approved, $image, $opt_in, null);
+		$submission = new Submission($email, $first_name, $last_name, $pet_type, $description, $pet_name, $image, null);
 		$result = add_submission($submission);
 
 		if ($result) {

@@ -63,7 +63,13 @@ input[type="text"] {
 <a href="login_form.php">Admin Login</a>
 <a href="about2.php">About</a>
 <div class="topnav-right">
-<input type="text" placeholder="Search..">
+<label for="type" style="font-size:14px; color:white; padding-top: 16px;">Pet Type:</label>
+<select name="type" id="type">
+<option value="">---Choose Type---</option>
+<option value="Dog">Dog</option>
+<option value="Cat">Cat</option>
+<option value="Other">Other</option>
+</select>
 </div>
 </div>
         <?php
@@ -138,3 +144,11 @@ input[type="text"] {
 	<?php include('footer2.inc'); ?>
     </body>
 </html> 
+<style>
+.topnav-right {
+    float: right;
+    font-size: 16px;
+    margin-right: 10px;
+    padding-top: 25px;
+}
+</style>

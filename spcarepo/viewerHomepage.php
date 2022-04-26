@@ -40,7 +40,7 @@ include('header.php');
 <a href="login_form.php">Admin Login</a>
 <a href="about2.php">About</a>
 <div class="topnav-right">
-<label for="type" style="font-size:14px; color:white; padding-top: 16px;">Pet Type:</label>
+<label for="type" style="font-size:14px; color:white; padding-top: 25px;">Pet Type:</label>
 <select name="type" id="type">
 <option value="">---Choose Type---</option>
 <option value="Dog">Dog</option>
@@ -98,5 +98,11 @@ echo '<div id="content"><center>';
     color: #0C009D;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+}
+.topnav-right {
+    float: right;
+    font-size: 16px;
+    margin-right: 10px;
+    padding-top: 25px;
 }
 </style>

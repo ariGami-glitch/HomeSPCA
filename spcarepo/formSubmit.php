@@ -42,9 +42,15 @@ include_once("domain/Submission.php");
             <a href = "viewStory.php">View Stories</a>
             <a href="login_form.php">Admin Login</a>
             <a>About</a>
-            <div class="topnav-right">
-            <input type="text" placeholder="Search..">
-            </div>
+<div class="topnav-right">
+<label for="type" style="font-size:14px; color:white; padding-top: 16px;">Pet Type:</label>
+<select name="type" id="type">
+<option value="">---Choose Type---</option>
+<option value="Dog">Dog</option>
+<option value="Cat">Cat</option>
+<option value="Other">Other</option>
+</select>
+</div>
             </div>';
             }
             else {
@@ -79,3 +85,11 @@ include_once("domain/Submission.php");
     </body>
 </html>
 
+<style>
+.topnav-right {
+    float: right;
+    font-size: 16px;
+    margin-right: 10px;
+    padding-top: 25px;
+}
+</style>

@@ -62,7 +62,6 @@
 }
 .topnav-right {
     float: right;
-    padding-top: 25px;
     font-size: 16px;
     margin-right: 10px;
 }

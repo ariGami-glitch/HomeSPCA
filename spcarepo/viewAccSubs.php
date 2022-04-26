@@ -36,7 +36,7 @@ include_once("domain/Submission.php");
 
             <?php
             echo "<div id='content'>";
-			echo "<center><h1>Adoption Stories</h1><br>";
+			echo "<center><h1><font color='blue'>Adoption Stories</font></h1><br>";
 			
 			$approvedSubs = retrieve_approved_submissions();
 			

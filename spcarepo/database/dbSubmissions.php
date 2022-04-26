@@ -211,7 +211,7 @@ function get_new_highlights($lastdate){
 		return false;
 	}
     $i = 0;
-    if(mysqli_num_rows($result) == 4) {
+    if(mysqli_num_rows($result) >= 4) {
         while($row = mysqli_fetch_assoc($result)) {
             $theSub = make_a_submission($row);
             $highlights[$i] = $theSub;
@@ -220,7 +220,11 @@ function get_new_highlights($lastdate){
         mysqli_close($con);
     }
     else {
-        //make it up by just inserting at the $i 
+        //if there is less than 4,
+        $c = 0;
+        while($row = mysqli_fetch_assoc($result)) {
+
+        }
         mysqli_close($con);
         
         
@@ -228,7 +232,14 @@ function get_new_highlights($lastdate){
     return $highlights;
 
 }
-
+//this function update the dates
+function update_date($id) {
+    $today = date("Y-m-d");
+    $con = connect();
+    $query = 'UPDATE dbsubmissions SET dateHighlighted="'.$today.'" WHERE id = "'.$id.'"';
+	$result = mysqli_query($con,$query);
+    mysqli_close($con);
+}
 function post_to_website() {
 //determine the last highlighted date
 	$con=connect();
@@ -258,8 +269,11 @@ function post_to_website() {
     else {
         //this means it has passed two weeks
         $highlights = get_new_highlights($lastdate);
+        echo $highlights[0]->get_id();
         //update the dateHighlighted here
-
+        for($i = 0; $i < count($highlights); $i++) {
+            update_date($highlights[$i]->get_id());
+        }
         return $highlights;
     }
     return false;

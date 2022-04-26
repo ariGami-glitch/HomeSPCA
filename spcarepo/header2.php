@@ -1,5 +1,5 @@
 <div class="header2">
-	<center><img src="fredspca.png" alt="SPCA Logo"></center>	
+	<center><a href="index.php"><img src="fredspca.png" alt="SPCA Logo"></center></a>	
 </div>
 
 
@@ -62,6 +62,9 @@
 }
 .topnav-right {
     float: right;
+    padding-top: 25px;
+    font-size: 16px;
+    margin-right: 10px;
 }
 .topnav input[type=text] {
     float: right;

@@ -39,6 +39,7 @@ include_once("domain/Submission.php");
             echo '<div class="topnav">
             <a href="index.php">Home</a>
             <a class = "active" href="makeNewSubmission.php">Make A Submission</a>
+            <a href = "viewStory.php">View Stories</a>
             <a href="login_form.php">Admin Login</a>
             <a>About</a>
             <div class="topnav-right">

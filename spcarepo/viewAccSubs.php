@@ -24,10 +24,11 @@ include_once("domain/Submission.php");
 			include('header.php');
         ?>
     <div class="topnav">
-    <a class="active" href="index.php">Home</a>
+    <a href="index.php">Home</a>
     <a href="makeNewSubmission.php">Make A Submission</a>
+    <a class="active" href="viewAccSubs.php">View Stories</a>
     <a href="login_form.php">Admin Login</a>
-    <a>About</a>
+    <a href="about2.php">About</a>
     <div class="topnav-right">
     <input type="text" placeholder="Search..">
     </div>
@@ -35,7 +36,7 @@ include_once("domain/Submission.php");
 
             <?php
             echo "<div id='content'>";
-			echo "<center><h1>Adoption Stories</h1><br>";
+			echo "<center><h1><font color='blue'>Adoption Stories</font></h1><br>";
 			
 			$approvedSubs = retrieve_approved_submissions();
 			

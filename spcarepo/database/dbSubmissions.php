@@ -262,7 +262,7 @@ function get_new_highlights($lastdate){
 		return false;
 	}
     $i = 0;
-    if(mysqli_num_rows($result) == 4) {
+    if(mysqli_num_rows($result) >= 4) {
         while($row = mysqli_fetch_assoc($result)) {
             $theSub = make_a_submission($row);
             $highlights[$i] = $theSub;
@@ -285,7 +285,7 @@ function update_date($id) {
     $con = connect();
     $query = 'UPDATE dbsubmissions SET dateHighlighted="'.$today.'" WHERE id = "'.$id.'"';
 	$result = mysqli_query($con,$query);
-    
+    mysqli_close($con);
 }
 function post_to_website() {
 //determine the last highlighted date
@@ -307,7 +307,7 @@ function post_to_website() {
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 2 days'));
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
     if($today < $compare) {
         $highlights = get_current_highlights($lastdate);
         return $highlights;

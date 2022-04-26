@@ -271,7 +271,11 @@ function get_new_highlights($lastdate){
         mysqli_close($con);
     }
     else {
-        //make it up by just inserting at the $i 
+        //if there is less than 4,
+        $c = 0;
+        while($row = mysqli_fetch_assoc($result)) {
+
+        }
         mysqli_close($con);
         
         

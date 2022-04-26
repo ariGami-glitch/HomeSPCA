@@ -40,7 +40,13 @@ include('header.php');
 <a href="login_form.php">Admin Login</a>
 <a href="about2.php">About</a>
 <div class="topnav-right">
-<input type="text" placeholder="Search..">
+<label for="type">Pet Type:</label>
+<select name="type" id="type">
+<option value="">---Choose Type---</option>
+<option value="Dog">Dog</option>
+<option value="Cat">Cat</option>
+<option value="Other">Other</option>
+</select>
 </div>
 </div>
 <?php

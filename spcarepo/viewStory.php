@@ -19,15 +19,16 @@ include_once("domain/Submission.php");
 		include('header.php');
 		//echo "<div id='content'>";
 		?>
-<div class="topnav">
-<a href="index.php">Home</a>
-<a href="makeNewSubmission.php">Make A Submission</a>
-<a href="login_form.php">Admin Login</a>
-<a>About</a>
-<div class="topnav-right">
-<input type="text" placeholder="Search..">
-</div>
-</div>
+    <div class="topnav">
+    <a href="index.php">Home</a>
+    <a href="makeNewSubmission.php">Make A Submission</a>
+    <a class="active" href="viewAccSubs.php">View Stories</a>
+    <a href="login_form.php">Admin Login</a>
+    <a href="about2.php">About</a>
+    <div class="topnav-right">
+    <input type="text" placeholder="Search..">
+    </div>
+    </div>
 	<?php
         	$id = $_POST['id'];
 		$sub = retrieve_submission($id);

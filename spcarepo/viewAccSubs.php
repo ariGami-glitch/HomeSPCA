@@ -26,7 +26,7 @@ include_once("domain/Submission.php");
     <div class="topnav">
     <a href="index.php">Home</a>
     <a href="makeNewSubmission.php">Make A Submission</a>
-    <a class="active" href="viewAccSubs.php">View Submissions</a>
+    <a class="active" href="viewAccSubs.php">View Stories</a>
     <a href="login_form.php">Admin Login</a>
     <a href="about2.php">About</a>
     <div class="topnav-right">

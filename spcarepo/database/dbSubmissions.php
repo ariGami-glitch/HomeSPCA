@@ -279,6 +279,14 @@ function get_new_highlights($lastdate){
     return $highlights;
 
 }
+//this function update the dates
+function update_date($id) {
+    $today = date("Y-m-d");
+    $con = connect();
+    $query = 'UPDATE dbsubmissions SET dateHighlighted="'.$today.'" WHERE id = "'.$id.'"';
+	$result = mysqli_query($con,$query);
+    
+}
 function post_to_website() {
 //determine the last highlighted date
 	$con=connect();
@@ -299,7 +307,7 @@ function post_to_website() {
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 2 days'));
     if($today < $compare) {
         $highlights = get_current_highlights($lastdate);
         return $highlights;
@@ -308,8 +316,11 @@ function post_to_website() {
     else {
         //this means it has passed two weeks
         $highlights = get_new_highlights($lastdate);
+        echo $highlights[0]->get_id();
         //update the dateHighlighted here
-
+        for($i = 0; $i < count($highlights); $i++) {
+            update_date($highlights[$i]->get_id());
+        }
         return $highlights;
     }
     return false;

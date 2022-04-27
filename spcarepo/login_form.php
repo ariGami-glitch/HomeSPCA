@@ -36,7 +36,7 @@ session_start();
 <div class="topnav">
 <a href="index.php">Home</a>
 <a href="makeNewSubmission.php">Make A Submission</a>
-<a href="viewAccSubs.php">View Submissions</a>
+<a href="viewAccSubs.php">View Stories</a>
 <a class="active" href="login_form.php">Admin Login</a>
 <a href="about2.php">About</a>
 <div class="topnav-right">

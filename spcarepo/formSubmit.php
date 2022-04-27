@@ -42,7 +42,7 @@ include_once("domain/Submission.php");
             <a href = "viewStory.php">View Stories</a>
             <a href="login_form.php">Admin Login</a>
             <a>About</a>
-<div class="topnav-right">
+<div class="topnav-right" style="padding-top: 25px;">
 <label for="type" style="font-size:14px; color:white; padding-top: 16px;">Pet Type:</label>
 <select name="type" id="type">
 <option value="">---Choose Type---</option>
@@ -90,6 +90,6 @@ include_once("domain/Submission.php");
     float: right;
     font-size: 16px;
     margin-right: 10px;
-    padding-top: 25px;
+    padding-top: 0px;
 }
 </style>

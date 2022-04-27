@@ -244,6 +244,17 @@ function update_date($id) {
 	$result = mysqli_query($con,$query);
     mysqli_close($con);
 }
+function update_numHighlights($id) {
+    $con = connect();
+    $query = 'SELECT num_highlights FROM dbsubmissions WHERE id = "'.$id.'"';
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_assoc($result);
+    $value = $row + 1;
+    $query = 'UPDATE dbsubmissions SET num_highlights="'.$value.'" WHERE id = "'.$id.'"';
+	$result = mysqli_query($con,$query);
+    mysqli_close($con);
+    
+}
 function post_to_website() {
 //determine the last highlighted date
 	$con=connect();

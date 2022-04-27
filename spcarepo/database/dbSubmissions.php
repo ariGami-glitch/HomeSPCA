@@ -217,13 +217,17 @@ function get_new_highlights($lastdate){
             $highlights[$i] = $theSub;
             $i = $i + 1;
         }
-        mysqli_close($con);
+        //mysqli_close($con);
     }
     else {
         //if there is less than 4,
-        $c = 0;
+        $c = $i;
+        $query = 'SELECT * FROM dbsubmissions WHERE approved = 1 and dateHighlighted = "'.$lastdate.'" limit 4';
+        $result = mysqli_query($con, $query);
         while($row = mysqli_fetch_assoc($result)) {
-
+            $theSub = make_a_submission($row);
+            $highlights[$c] = $theSub;
+            $c = $c + 1;
         }
         mysqli_close($con);
         
@@ -260,7 +264,7 @@ function post_to_website() {
 //get the current date
     $today = date("Y-m-d");
     //add 14 days to the last date
-    $compare = date('Y-m-d', strtotime($lastdate. ' + 14 days'));
+    $compare = date('Y-m-d', strtotime($lastdate. ' + 2 days'));
     if($today < $compare) {
         $highlights = get_current_highlights($lastdate);
         return $highlights;
@@ -269,7 +273,6 @@ function post_to_website() {
     else {
         //this means it has passed two weeks
         $highlights = get_new_highlights($lastdate);
-        echo $highlights[0]->get_id();
         //update the dateHighlighted here
         for($i = 0; $i < count($highlights); $i++) {
             update_date($highlights[$i]->get_id());
